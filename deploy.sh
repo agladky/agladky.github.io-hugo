@@ -8,26 +8,26 @@ hugo --theme=hugo_theme_robust
 # Go To Public folder
 cd public
 # Add changes to git.
-git add -A
+git add --all
 
 # Commit changes.
 msg="rebuilding site `date`"
 if [ $# -eq 1 ]
   then msg="$1"
 fi
-git commit -m "$msg"
+git commit --message "$msg"
 
 # Push source and build repos.
-git push origin master
+git push --force origin master
 
 # Come Back
 cd ..
 
 # Add changes to git.
-git add -A
+git add --all
 
 # Commit changes.
-git commit -m "$msg"
+git commit --message "$msg"
 
 # Push source and build repos.
 git push origin master
