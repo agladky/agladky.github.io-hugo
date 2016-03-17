@@ -22,3 +22,12 @@ git push origin master
 
 # Come Back
 cd ..
+
+# Add changes to git.
+git add -A
+
+# Commit changes.
+git commit -m "$msg"
+
+# Push source and build repos.
+git push origin master
