@@ -1,3 +1,7 @@
 baseurl = "http://beta.agladky.ru/"
 languageCode = "en-us"
 title = "My New Hugo Site"
+
+[taxonomies]
+tag = "tags"
+category = "categories"
