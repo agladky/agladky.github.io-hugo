@@ -1,12 +1,12 @@
 +++
-categories = ["x", "y"]
-date = "2016-03-20T13:10:07+03:00"
-tags = ["x", "y"]
-title = "Hello test post!"
+title = "Перетаскивание кода в окно Watch в Visual Studio"
+date = "2016-02-25T13:10:07+03:00"
+tags = [".net", "ide"]
+categories = ["Development"]
 draft = true
 aliases = [
-    "/posts/hello-test-post/",
-    "/2010/01/01/even-earlier-url.html"
+    "/posts/drag-and-drop-in-watch-windows/",
+    "/2016/02/watch-visual-studio.html"
 ]
 +++
 
