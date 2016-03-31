@@ -1,7 +1,12 @@
 baseurl = "http://beta.agladky.ru/"
 languageCode = "en-us"
 title = "My New Hugo Site"
+googleAnalytics = "UA-75808442-1"
 
 [taxonomies]
-tag = "tags"
-category = "categories"
+  tag = "tags"
+  category = "categories"
+
+[Params]
+  Author = "Анатолий Гладкий"
+  disqusShortname = "agladky"
