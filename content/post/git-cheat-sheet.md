@@ -4,6 +4,8 @@ date = "2016-01-06T13:10:07+03:00"
 tags = ["git"]
 categories = ["Development"]
 draft = true
+description = "Основные git комманды. Конфигурация. Создание репозитория. Работа с ветками, файлами, коммитами. Синхронизация изменений. Просмотр истории."
+keywords = "git, шпаргалка, commit, merge, коммит, комит, гит, репозиторий"
 aliases = [
     "/posts/git-cheat-sheet/",
     "/2016/01/git.html"

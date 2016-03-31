@@ -4,6 +4,8 @@ date = "2016-01-20T13:10:07+03:00"
 tags = ["python"]
 categories = ["Development"]
 draft = true
+description = "Первый скрипт на Python. С нуля и до рабочей версии. Запуск в командной строке"
+keywords = "python, python 3, скрипт, todoist, первый скрипт, pip3, установка python, установка питона, питон, ConfigParser, ArgumentParser"
 aliases = [
     "/posts/my-first-python-script/",
     "/2016/01/python.html"

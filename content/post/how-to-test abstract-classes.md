@@ -4,6 +4,8 @@ date = "2015-09-05T13:10:07+03:00"
 tags = ["test"]
 categories = ["Development"]
 draft = true
+description = "Как производить рефакторинг и unit-тестирование абстрактных классов."
+keywords = "рефакторинг, unit, unit-test, абстрактные классы, c#, .net, хелпер, helper"
 aliases = [
     "/posts/how-to-test abstract-classes/",
     "/2015/09/blog-post.html"

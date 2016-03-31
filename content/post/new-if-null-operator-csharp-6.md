@@ -4,6 +4,8 @@ date = "2016-02-17T13:10:07+03:00"
 tags = [".net"]
 categories = ["Development"]
 draft = true
+description = "Использование оператора ?. с цепочкой вызова, индексатором и делегатами. Комбинация с ??"
+keywords = "?., C#, C# 6, csharp, .net. оператор, null, проверка на null, ??"
 aliases = [
     "/posts/new-if-null-operator-csharp-6/",
     "/2016/02/c-6.html"

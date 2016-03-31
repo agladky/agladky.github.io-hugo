@@ -4,6 +4,8 @@ date = "2015-11-03T13:10:07+03:00"
 tags = [".net"]
 categories = ["Development"]
 draft = true
+description = "Как в c# enum добавлять, находить и удалять несколько значений, с помощю аттрибута Flags."
+keywords = "C#, Enum, Flags, FlagsAttribute, Атрибут, Тип переисления, битовые, битовые операции"
 aliases = [
     "/posts/flags-enums-in-csharp/",
     "/2015/11/c-enum-flags.html"
@@ -71,7 +73,7 @@ if((myProperties.AllowedColors & MyColor.Yellow) == MyColor.Yellow)
 if((myProperties.AllowedColors & MyColor.Green) == MyColor.Green)
 {
     // Green has been set...
-}    	
+}
 ```
 
 или, начиная с .Net 4:

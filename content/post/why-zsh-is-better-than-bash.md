@@ -4,6 +4,8 @@ date = "2015-11-26T13:10:07+03:00"
 tags = ["shell"]
 categories = ["Development"]
 draft = true
+description = "Чем zsh лучше чем bash для повседневных задач. Установка oh-my-zsh."
+keywords = "zsh, zshell, bash, shell, cd, oh-my-zsh, git, aliases"
 aliases = [
     "/posts/why-zsh-is-better-than-bash/",
     "/2015/11/zsh-bash.html"
