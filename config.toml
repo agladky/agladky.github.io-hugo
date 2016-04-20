@@ -1,12 +1,37 @@
 baseurl = "http://beta.agladky.ru/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+builddrafts = false
+canonifyurls = true
+contentdir = "content"
+languageCode = "en-US"
+layoutdir = "layouts"
+publishdir = "public"
+author = "Анатолий Гладкий"
+title = "Блог Анатолия Гладкого"
 googleAnalytics = "UA-75808442-1"
+pygmentsuseclasses = true
+pluralizelisttitles = false
 
 [taxonomies]
   tag = "tags"
   category = "categories"
 
+[permalinks]
+  fixed = ":title/"
+  blog = "blog/:slug/" # тут надо не slug а имя файла
+
 [Params]
   Author = "Анатолий Гладкий"
   disqusShortname = "agladky"
+  CacheBuster = true
+  DateForm = "Jan 2, 2006"
+  DateFormFull = "Mon Jan 2 2006 15:04:05 MST"
+  Description = "Don't panic"
+  Email = "you@example.space" # TODO:
+  FaviconFile = "img/leaf.ico"
+  GATracker = "XYZ" # TODO:
+  GitHub = "//github.com/you" # TODO:
+  Initials = "ad" # displayed on single post page; DEPRECATED in v0.3.0
+  Lang = "en"
+  LinkedIn = "//linkedin.com/in/you" # TODO:
+  Twitter = "//twitter.com/you" # TODO:
+  # ExtraCssFiles = [ "/css/override.css" ] # relative to public directory
