@@ -9,7 +9,7 @@
   color: #666 !important;
 }
 .accent {
-  color: #428bca !important;
+  color: #0060a0 !important;
 }
 @media (min-width: 550px) {
   .small-screens-only {
@@ -34,6 +34,7 @@ a:visited,
 a:focus,
 a:active {
   text-decoration: none;
+  border-bottom: 1px solid;
 }
 html {
   height: 100%;
@@ -61,7 +62,7 @@ body {
   min-height: 100%;
   font-weight: 400;
   font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
-  color: #111;
+  color: #000;
   line-height: 1.6;
   text-rendering: optimizeLegibility !important;
 }
@@ -178,10 +179,10 @@ section.header .content {
   align-items: center;
 }
 section.header .name {
-  font-size: 18px;
+  font-size: 36px;
   font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;
   letter-spacing: -0.005rem;
-  text-transform: uppercase;
+  text-transform: none;
   font-weight: 700;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -192,7 +193,7 @@ section.header .name {
 section.header nav {
   font-size: 14px;
   margin-bottom: 16px;
-  text-transform: uppercase;
+  text-transform: none;
   font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;
 }
 section.header nav ul {
@@ -217,10 +218,10 @@ section.header nav ul a:last-child {
 section.header nav ul li {
   color: #555;
   font-weight: 500;
-  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -webkit-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
 }
 section.header nav ul li:hover {
   color: #111;
@@ -243,19 +244,31 @@ section.header nav ul li:hover {
   }
   section.header .name {
     color: #333;
+    line-height: normal;
+  }
+  section.header .name:hover {
+    color: inherit;
   }
   section.header nav {
     font-size: 14px;
     margin-bottom: 0;
+    margin-top: 13px;
   }
   section.header nav ul {
     text-align: left;
   }
   section.header nav ul li {
-    color: #666;
+    color: #000;
   }
   section.header nav ul li:hover {
-    color: #333;
+    color: inherit;
+  }
+  section.header a:link,
+  section.header a:visited {
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+  }
+  section.header a:hover {
+    border-color: inherit;
   }
 }
 section.icons {
@@ -275,10 +288,10 @@ section.icons .content a {
   margin-left: 6px;
   margin-right: 6px;
   color: #555;
-  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -webkit-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
 }
 section.icons .content a:first-child {
   margin-left: 0;
@@ -331,7 +344,7 @@ section.main .container {
   justify-content: flex-start;
 }
 section.main .content {
-  color: #111;
+  color: #000;
   font-size: 16px;
 }
 section.main .content .title-container {
@@ -350,7 +363,7 @@ section.main .content .title-container .initials {
   font-size: 18px;
   font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;
   letter-spacing: -0.005rem;
-  text-transform: uppercase;
+  text-transform: none;
   font-weight: 700;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -360,10 +373,10 @@ section.main .content .title-container .initials {
 }
 section.main .content .title-container .initials a {
   color: #666;
-  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -webkit-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
 }
 section.main .content .title-container .initials a:hover {
   color: #333;
@@ -372,7 +385,7 @@ section.main .content .page-heading {
   font-size: 18px;
   font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;
   letter-spacing: -0.005rem;
-  text-transform: uppercase;
+  text-transform: none;
   font-weight: 700;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -533,14 +546,22 @@ section.main {
   }
 }
 a {
-  color: #428bca;
-  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -webkit-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: color 0s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+a:link {
+  color: #0060a0;
+  border-bottom-color: rgba(0, 96, 160, 0.2);
+}
+a:visited {
+  color: #7090b0;
+  border-bottom-color: rgba(112, 144, 176, 0.2);
 }
 a:hover {
-  color: #2a6496;
+  color: #d04000;
+  border-bottom-color: rgba(208, 64, 0, 0.2);
 }
 img {
   max-width: 100%;
@@ -566,7 +587,6 @@ section.main .content .markdown h6 {
   font-size: 18px;
   font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;
   letter-spacing: -0.005rem;
-  text-transform: uppercase;
   font-weight: 700;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -624,7 +644,7 @@ section.main .content .markdown pre code {
   font-size: 0.9rem;
 }
 section.main .content .markdown a code {
-  color: #428bca !important;
+  color: #0060a0 !important;
 }
 section.main .content .markdown a code:hover {
   text-decoration: underline;
