@@ -19,7 +19,7 @@
 
 @black-full: #000;
 @black: #333;
-@black-content: #000;
+@black-content: #111;
 @gray: #666;
 // accent colors from hermanradtke.com
 @accent: #0060a0; // alt: rgba(244,109,44,1);
@@ -187,18 +187,23 @@ section.header {
 
     .container {
         .align-items(center);
-        .justify-content(center);
+        .justify-content(flex-start);
     }
 
     .content {
         .flex-display();
         .flex-direction(column);
-        .align-items(center);
+        .align-items(flex-start);
     }
 
     .name {
         .heading(36px);
-        color: @compensated-black;
+        color: @black-content;
+        line-height: normal;
+
+        &:hover {
+            color: inherit;
+        }
     }
 
     nav {
@@ -206,6 +211,7 @@ section.header {
         margin-bottom: floor(@vspacing/2);
         text-transform: none;
         font-family: @heading-font-stack;
+        margin-top: 13px;
 
         ul {
             list-style: none;
@@ -227,13 +233,23 @@ section.header {
         }
 
         ul li {
-            color: @compensated-black;
+            color: @black-content;
             font-weight: 500;
             .transition(~'color @{transition-speed-1} @{in-sine}');
 
             &:hover {
-                color: @compensated-black-hover;
+                color: inherit;
             }
+        }
+    }
+
+    a {
+        &:link, &:visited {
+            border-bottom-color: fade(@black-content, 20%);
+        }
+
+        &:hover {
+          border-color: inherit;
         }
     }
 }
@@ -250,16 +266,6 @@ section.header {
             .align-items(flex-start);
         }
 
-        .name {
-            color: @black;
-
-            &:hover {
-                color: inherit;
-            }
-
-            line-height: normal;
-        }
-
         nav {
             font-size: 14px;
             margin-bottom: 0;
@@ -267,24 +273,6 @@ section.header {
 
             ul {
                 text-align: left;
-            }
-
-            ul li {
-                color: @black-content;
-
-                &:hover {
-                    color: inherit;
-                }
-            }
-        }
-
-        a {
-            &:link, &:visited {
-                border-bottom-color: fade(@black-content, 20%);
-            }
-
-            &:hover {
-              border-color: inherit;
             }
         }
     }
