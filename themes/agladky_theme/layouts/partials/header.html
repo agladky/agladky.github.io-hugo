@@ -13,9 +13,17 @@
         <ul>
           {{ $currentNode := . }}
           {{ range .Site.Menus.main }}
-            <a {{if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} style="background: antiquewhite;"{{end}} href="{{.URL}}">
-              <li>{{ .Name }}</li>
-            </a>
+            {{ if ($currentNode.IsMenuCurrent "main" .) }}
+              <li class="menu-item-selected">{{ .Name }}</li>
+            {{ else if ($currentNode.HasMenuCurrent "main" .) }}
+              <a href="{{ .URL }}" class="menu-item-selected">
+                <li>{{ .Name }}</li>
+              </a>
+            {{ else }}
+              <a href="{{ .URL }}">
+                <li>{{ .Name }}</li>
+              </a>
+            {{ end }}
           {{ end }}
         </ul>
       </nav>

@@ -222,13 +222,17 @@ section.header {
     font-family: @heading-font-stack;
     margin-top: 13px;
 
+    .menu-item-selected {
+      background-color: antiquewhite;
+    }
+
     ul {
       list-style: none;
       text-align: center;
       .flex-display(inline-flex);
     }
 
-    ul a {
+    ul li {
       margin-left: 6px;
       margin-right: 6px;
 
@@ -250,10 +254,12 @@ section.header {
   }
 
   a {
-    .inherit-hover-color()
-
     &:link, &:visited {
       border-bottom-color: fade(@black-content, 20%);
+    }
+
+    &:hover {
+      border-bottom-color: fade(@link-hover, 20%);
     }
   }
 }
