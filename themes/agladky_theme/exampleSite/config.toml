@@ -25,7 +25,6 @@ Email = "you@example.space" # TODO:
 FaviconFile = "img/leaf.ico"
 GATracker = "XYZ" # TODO:
 GitHub = "//github.com/you" # TODO:
-Initials = "ad" # displayed on single post page; DEPRECATED in v0.3.0
 Lang = "en"
 LinkedIn = "//linkedin.com/in/you" # TODO:
 Twitter = "//twitter.com/you" # TODO:

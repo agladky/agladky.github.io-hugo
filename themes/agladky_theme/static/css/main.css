@@ -385,6 +385,9 @@ section.main .content .page-heading {
   color: #333;
   margin-bottom: 16px;
 }
+section.main .content .page-heading:hover {
+  color: inherit;
+}
 section.main .content .front-matter .page-heading {
   margin-bottom: 0;
 }

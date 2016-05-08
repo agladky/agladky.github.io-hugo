@@ -10,6 +10,8 @@ title = "Блог Анатолия Гладкого"
 googleAnalytics = "UA-75808442-1"
 pygmentsuseclasses = true
 pluralizelisttitles = false
+paginate = 10
+SectionPagesMenu = "main"
 
 [taxonomies]
   tag = "tags"
@@ -30,8 +32,26 @@ pluralizelisttitles = false
   FaviconFile = "img/leaf.ico"
   GATracker = "XYZ" # TODO:
   GitHub = "//github.com/you" # TODO:
-  Initials = "ad" # displayed on single post page; DEPRECATED in v0.3.0
   Lang = "en"
   LinkedIn = "//linkedin.com/in/you" # TODO:
   Twitter = "//twitter.com/you" # TODO:
   # ExtraCssFiles = [ "/css/override.css" ] # relative to public directory
+
+[[menu.main]]
+  name = "Блог"
+  pre = "<i class='fa fa-heart'></i>"
+  weight = -110
+  identifier = "blog"
+  url = "/blog/"
+[[menu.main]]
+  name = "Контакты"
+  pre = "<i class='fa fa-road'></i>"
+  weight = -100
+  identifier = "about"
+  url = "/about/"
+[[menu.main]]
+  name = "Код"
+  pre = "<i class='fa fa-road'></i>"
+  weight = -90
+  identifier = "code"
+  url = "/code/"
