@@ -83,6 +83,18 @@
   border-bottom-color: fade(@link-color, 20%);
 }
 
+.link-black-underline() {
+  a {
+    &:link, &:visited {
+      border-bottom-color: fade(@black-content, 20%);
+    }
+
+    &:hover {
+      border-bottom-color: fade(@link-hover, 20%);
+    }
+  }
+}
+
 // Slap-on utils
 
 @import 'util';
@@ -215,6 +227,8 @@ section.header {
     }
   }
 
+  .link-black-underline();
+
   nav {
     font-size: 14px;
     margin-bottom: floor(@vspacing/2);
@@ -226,13 +240,10 @@ section.header {
       background-color: antiquewhite;
     }
 
-    ul {
-      list-style: none;
+    a {
       text-align: center;
       .flex-display(inline-flex);
-    }
 
-    ul a {
       margin-left: 6px;
       margin-right: 6px;
 
@@ -245,21 +256,11 @@ section.header {
       }
     }
 
-    ul li {
+    a span {
       .inherit-hover-color();
       color: @black-content;
       font-weight: 500;
       .transition(~'color @{transition-speed-1} @{in-sine}');
-    }
-  }
-
-  a {
-    &:link, &:visited {
-      border-bottom-color: fade(@black-content, 20%);
-    }
-
-    &:hover {
-      border-bottom-color: fade(@link-hover, 20%);
     }
   }
 }
@@ -374,6 +375,7 @@ section.main {
     .title-container {
       .flex-display();
       .justify-content(space-between);
+      .link-black-underline()
     }
 
     .page-heading {
