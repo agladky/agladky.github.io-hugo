@@ -9,22 +9,24 @@
   <div class="container">
     <div class="content">
       <a href="/"><div class="name">{{ .Site.Params.Author }}</div></a>
-      <nav>
-        {{ $currentNode := . }}
-        {{ range .Site.Menus.main }}
-          {{ if ($currentNode.IsMenuCurrent "main" .) }}
-            <span class="menu-item-selected">{{ .Name }}</span>
-          {{ else if ($currentNode.HasMenuCurrent "main" .) }}
-            <a href="{{ .URL }}" class="menu-item-selected">
-              <span>{{ .Name }}</span>
-            </a>
-          {{ else }}
-            <a href="{{ .URL }}">
-              <span>{{ .Name }}</span>
-            </a>
+      {{ if eq true .Site.Params.IsMainMenuEnabled }}
+        <nav>
+          {{ $currentNode := . }}
+          {{ range .Site.Menus.main }}
+            {{ if ($currentNode.IsMenuCurrent "main" .) }}
+              <span class="menu-item-selected">{{ .Name }}</span>
+            {{ else if ($currentNode.HasMenuCurrent "main" .) }}
+              <a href="{{ .URL }}" class="menu-item-selected">
+                <span>{{ .Name }}</span>
+              </a>
+            {{ else }}
+              <a href="{{ .URL }}">
+                <span>{{ .Name }}</span>
+              </a>
+            {{ end }}
           {{ end }}
-        {{ end }}
-      </nav>
+        </nav>
+      {{ end }}
     </div>
   </div>
 </section>

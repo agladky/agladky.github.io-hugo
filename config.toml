@@ -35,6 +35,7 @@ SectionPagesMenu = "main"
   Lang = "en"
   LinkedIn = "//linkedin.com/in/you" # TODO:
   Twitter = "//twitter.com/you" # TODO:
+  IsMainMenuEnabled = false
   # ExtraCssFiles = [ "/css/override.css" ] # relative to public directory
 
 [[menu.main]]
