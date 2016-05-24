@@ -4,3 +4,6 @@
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {{ if .Site.Params.Description }}<meta name="description" content="{{ .Site.Params.Description }}">{{ end }}
+{{ if eq false .Site.Params.IsMainMenuEnabled }}
+  {{ if .IsHome }}<meta http-equiv="refresh" content="0; url={{ .Site.BaseURL }}blog">{{ end }}
+{{ end }}
