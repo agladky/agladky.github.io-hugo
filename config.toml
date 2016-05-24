@@ -28,13 +28,13 @@ SectionPagesMenu = "main"
   DateForm = "Jan 2, 2006"
   DateFormFull = "Mon Jan 2 2006 15:04:05 MST"
   Description = "Don't panic"
-  Email = "you@example.space" # TODO:
+  Email = "me@agladky.ru" # TODO:
   FaviconFile = "img/leaf.ico"
   GATracker = "XYZ" # TODO:
-  GitHub = "//github.com/you" # TODO:
+  GitHub = "//github.com/agladky" # TODO:
   Lang = "en"
-  LinkedIn = "//linkedin.com/in/you" # TODO:
-  Twitter = "//twitter.com/you" # TODO:
+  LinkedIn = "//linkedin.com/in/agladky" # TODO:
+  Twitter = "//twitter.com/agladky" # TODO:
   IsMainMenuEnabled = false
   # ExtraCssFiles = [ "/css/override.css" ] # relative to public directory
 

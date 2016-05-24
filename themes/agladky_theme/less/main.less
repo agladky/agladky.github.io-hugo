@@ -295,8 +295,8 @@ section.icons {
   background-color: @background;
 
   .container {
-    .align-items(center);
-    .justify-content(center);
+    .align-items(flex-start);
+    .justify-content(flex-start);
   }
 
   .content {
@@ -508,8 +508,8 @@ section.header {
 }
 
 section.icons {
-  padding-top: 0;
-  padding-bottom: @vspacing;
+  padding-top: floor(@vspacing/2);
+  padding-bottom: floor(@vspacing/2);
 }
 
 section.main {
