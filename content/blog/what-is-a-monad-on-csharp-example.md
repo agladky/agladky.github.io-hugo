@@ -35,7 +35,6 @@ aliases = [
 ### Часть третья
 
 Первое требование для монад: «если `M<T>` это тип-монада, тогда должен быть простой путь по превращению любого значение типа `T` в значение типа `M<T>`». Например:
-
 ``` csharp
 static Nullable<T> CreateSimpleNullable<T>(T item) { return new Nullable<T>(item); }
 static OnDemand<T> CreateSimpleOnDemand<T>(T item) { return () => item; }
@@ -45,7 +44,6 @@ static IEnumerable<T> CreateSimpleSequence<T>(T item) { yield return item; }
 Кажется, что второе требование просто сформулировать: «из монады `M<T>`можно получить значение типа `T`». Но не все так однозначно. Начнем с очень специфичного вопроса. Можно легко прибавить единицу к целочисленному типу, но как «прибавить единицу» к типу-монаде обернутого вокруг целочисленного типа?
 
 Для `Nullable<T>`:
-
 ``` csharp
 static Nullable<int> AddOne(Nullable<int> nullable)
 {
@@ -61,7 +59,6 @@ static Nullable<int> AddOne(Nullable<int> nullable)
 ```
 
 Т.е. можно развернуть, произвести операцию и завернуть? Не совсем, если проделать ту же операцию для `OnDemand<T>()`, который обернут вокруг `DateTime.Now.Seconds`, то получится статическое значение. Поэтому проделанную операцию вместе с разворачиванием необходимо завернуть в функцию, как показано здесь:
-
 ``` csharp
 static OnDemand<int> AddOne(OnDemand<int> onDemand)
 {
@@ -77,7 +74,6 @@ static OnDemand<int> AddOne(OnDemand<int> onDemand)
 Т.е. тип монады по требованию, не просто оболочка вокруг значения. Она производит объект, структура которого кодирует последовательность операций, которые будут происходить по требованию. Это одна из особенностей, которая делает монады полезными. Но об этом позже.
 
 Для `Lazy<T>`:
-
 ``` csharp
 static Lazy<int> AddOne(Lazy<int> lazy)
 {
@@ -91,7 +87,6 @@ static Lazy<int> AddOne(Lazy<int> lazy)
 ```
 
 Для `Task<T>`:
-
 ``` csharp
 async static Task<int> AddOne(Task<int> task)
 {
@@ -102,7 +97,6 @@ async static Task<int> AddOne(Task<int> task)
 ```
 
 И, наконец, для `IEnumerable<T>`:
-
 ``` csharp
 static IEnumerable<int> AddOne(IEnumerable<int> sequence)
 {
@@ -119,7 +113,6 @@ static IEnumerable<int> AddOne(IEnumerable<int> sequence)
 ### Часть четвертая
 
 Напишем метод, который позволит делать оболочку над любыми `Nullable<T>` функциями, а не только операцией по добавлению единицы:
-
 ``` csharp
 static Nullable<T> ApplyFunction<T>(
   Nullable<T> nullable,
@@ -137,7 +130,6 @@ static Nullable<T> ApplyFunction<T>(
 ```
 
 Теперь метод `AddOne(...)` будет выглядеть так:
-
 ``` csharp
 static Nullable<int> AddOne(Nullable<int> nullable)
 {
@@ -146,7 +138,6 @@ static Nullable<int> AddOne(Nullable<int> nullable)
 ```
 
 Но, допустим мы хотим функцию которая принимает тип `int` и возвращает `double`. Например, поделить 2 целых числа и получить результат типа `double`. Для этого, перепишем метод `ApplyFunction` в следующий вид:
-
 ``` csharp
 static Nullable<R> ApplyFunction<A, R>(
   Nullable<A> nullable,
@@ -168,7 +159,6 @@ static Nullable<R> ApplyFunction<A, R>(
 ### Часть пятая
 
 Ранее было указано, что можно взять любую функцию с одним параметром и любым не пустым возвращаемым типом и применить эту функцию к монаде с возвращаемым типом `M<R>`. Любой возвращаемый тип, так? Предположим, что есть функция с одним параметром:
-
 ``` csharp
 static Nullable<double> SafeLog(int x)
 {
@@ -182,7 +172,6 @@ static Nullable<double> SafeLog(int x)
 Обычная функция с одним параметром. Значит, ее можно применить к `Nullable<int>` и получить обратно... `Nullable<Nullable<double>>`! Это неправильно.
 
 Создадим новую версию `ApplyFunction`, которая избегает описанной проблемы:
-
 ``` csharp
 static Nullable<R> ApplySpecialFunction<A, R>(
   Nullable<A> nullable,
@@ -200,7 +189,6 @@ static Nullable<R> ApplySpecialFunction<A, R>(
 ```
 
 Просто, не так ли? Создадим функции для остальных операторов:
-
 ``` csharp
 static OnDemand<R> ApplySpecialFunction<A, R>(
   OnDemand<A> onDemand,
@@ -251,13 +239,11 @@ static IEnumerable<R> ApplySpecialFunction<A, R>(
 В итоге, для «шаблона монады» имеются 3 правила:
 
 1. Всегда существует возможность преобразовать тип `T` в тип `M<T>`.
-
    ``` csharp
    static M<T> CreateSimpleM<T>(T value)
    ```
 
 2. Если существует функция преобразующая `A` в `R`, тогда можно применить эту функцию к экземпляру `M<A>` и получить экземпляр `M<R>`.
-
    ``` csharp
    static M<R> ApplyFunction<A, R>(
    M<A> wrapped,
@@ -265,7 +251,6 @@ static IEnumerable<R> ApplySpecialFunction<A, R>(
    ```
 
 3. Если существует функция преобразующая `A` в `M<R>`, тогда можно применить эту функцию к экземпляру `M<A>` и получить экземпляр `M<R>`.
-
    ``` csharp
    static M<R> ApplySpecialFunction<A, R>(
    M<A> wrapped,
@@ -273,7 +258,6 @@ static IEnumerable<R> ApplySpecialFunction<A, R>(
    ```
 
 Но, правило 2 является частным случаем правила 3. Его можно представить в как комбинацию 1 и 3 правила:
-
 ``` csharp
 static M<R> ApplyFunction<A, R>(
   M<A> wrapped,
@@ -292,7 +276,6 @@ static M<R> ApplyFunction<A, R>(
 Необходимо, чтобы операции упаковки и распаковки сохраняли значение.
 
 Пусть имеются 2 метода:
-
 ``` csharp
 static M<T> CreateSimpleM<T>(T t) { ... }
 static M<R> ApplySpecialFunction<A, R>(
@@ -300,19 +283,16 @@ static M<R> ApplySpecialFunction<A, R>(
 ```
 
 Тогда, результат следующего выражения:
-
 ``` csharp
 ApplySpecialFunction(someMonadValue, CreateSimpleM)
 ```
 
 по значению идентичен `someMonadValue`, а результат следующего выражения:
-
 ``` csharp
 ApplySpecialFunction(CreateSimpleM(someValue), someFunction)
 ```
 
 по значению идентичен:
-
 ``` csharp
 someFunction(someValue)
 ```
@@ -320,7 +300,6 @@ someFunction(someValue)
 ### Часть седьмая
 
 Допустим, имеются 2 функции:
-
 ``` csharp
 Func<int, Nullable<double>> log = x => x > 0
     ? new Nullable<double>(Math.Log(x))
@@ -331,7 +310,6 @@ Func<double, Nullable<decimal>> toDecimal = y => Math.Abs(y) < decimal.MaxValue
 ```
 
 Тогда, с помощью определенного ранее метода `ApplySpecialFunction` можно написать следующий метод-помощник:
-
 ``` csharp
 static Func<X, Nullable<Z>> ComposeSpecial<X, Y, Z>(
   Func<X, Nullable<Y>> f,
@@ -342,13 +320,11 @@ static Func<X, Nullable<Z>> ComposeSpecial<X, Y, Z>(
 ```
 
 который позволяет объединить определенные выше функции в одну:
-
 ``` csharp
 Func<int, Nullable<decimal>> both = ComposeSpecial(log, toDecimal);
 ```
 
 Отсюда следует последнее правило - метод `ApplySpecialFunction` должен гарантировать работу композиции. Пример:
-
 ``` csharp
 Func<X, M<Y>> f = whatever;
 Func<Y, M<Z>> g = whatever;
@@ -366,13 +342,11 @@ M<Z> mz2 = ApplySpecialFunction(mx, h);
 Монада это обобщенный тип `M<T>`, такой что:
 
 - Для нее существует конструирующий механизм, который принимает на вход переменную типа `T` и возвращает `M<T>`:
-
   ``` csharp
   static M<T> CreateSimpleM<T>(T t)
   ```
 
 - Если существует способ преобразования значения типа `A` в `M<R>`, то можно применить эту функцию к экземпляру `M<A>` и получить экземпляр `M<R>`:
-
   ``` csharp
   static M<R> ApplySpecialFunction<A, R>(
     M<A> monad, Func<A, M<R>> function)
