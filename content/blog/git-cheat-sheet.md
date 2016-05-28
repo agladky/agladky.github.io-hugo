@@ -6,7 +6,7 @@ categories = ["Development"]
 draft = true
 description = "Основные git комманды. Конфигурация. Создание репозитория. Работа с ветками, файлами, коммитами. Синхронизация изменений. Просмотр истории."
 keywords = "git, шпаргалка, commit, merge, коммит, комит, гит, репозиторий"
-slug="git-cheat-sheet"
+slug = "git-cheat-sheet"
 aliases = [
     "/posts/git-cheat-sheet/",
     "/2016/01/git.html"
