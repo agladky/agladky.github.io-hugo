@@ -6,6 +6,7 @@ categories = ["Development"]
 draft = true
 description = "Использование оператора ?. с цепочкой вызова, индексатором и делегатами. Комбинация с ??"
 keywords = "?., C#, C# 6, csharp, .net. оператор, null, проверка на null, ??"
+slug = "new-if-null-operator-csharp-6"
 aliases = [
     "/posts/new-if-null-operator-csharp-6/",
     "/2016/02/c-6.html"

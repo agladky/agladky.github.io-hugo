@@ -6,6 +6,7 @@ categories = ["Development"]
 draft = true
 description = "Чем zsh лучше чем bash для повседневных задач. Установка oh-my-zsh."
 keywords = "zsh, zshell, bash, shell, cd, oh-my-zsh, git, aliases"
+slug="why-zsh-is-better-than-bash"
 aliases = [
     "/posts/why-zsh-is-better-than-bash/",
     "/2015/11/zsh-bash.html"

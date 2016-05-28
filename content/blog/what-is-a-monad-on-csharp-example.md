@@ -6,6 +6,7 @@ categories = ["Development"]
 draft = true
 description = "Краткий перевод статьи Эрика Липперта о реализации монад в .net на примере c#"
 keywords = "Монад, монады, c#, функциональное, программирование, bind, util, haskell, Nullable, func, IEnumerable"
+slug="what-is-a-monad-on-csharp-example"
 aliases = [
     "/posts/what-is-a-monad-on-csharp-example/",
     "/2016/01/c.html"

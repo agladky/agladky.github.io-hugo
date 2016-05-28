@@ -6,6 +6,7 @@ categories = ["Development"]
 draft = true
 description = "Первый скрипт на Python. С нуля и до рабочей версии. Запуск в командной строке"
 keywords = "python, python 3, скрипт, todoist, первый скрипт, pip3, установка python, установка питона, питон, ConfigParser, ArgumentParser"
+slug="my-first-python-script"
 aliases = [
     "/posts/my-first-python-script/",
     "/2016/01/python.html"

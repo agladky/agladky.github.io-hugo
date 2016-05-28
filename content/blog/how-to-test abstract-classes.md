@@ -6,6 +6,7 @@ categories = ["Development"]
 draft = true
 description = "Как производить рефакторинг и unit-тестирование абстрактных классов."
 keywords = "рефакторинг, unit, unit-test, абстрактные классы, c#, .net, хелпер, helper"
+slug="how-to-test abstract-classes"
 aliases = [
     "/posts/how-to-test abstract-classes/",
     "/2015/09/blog-post.html"

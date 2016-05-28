@@ -6,6 +6,7 @@ categories = ["Development"]
 draft = true
 description = "Как в c# enum добавлять, находить и удалять несколько значений, с помощю аттрибута Flags."
 keywords = "C#, Enum, Flags, FlagsAttribute, Атрибут, Тип переисления, битовые, битовые операции"
+slug="flags-enums-in-csharp"
 aliases = [
     "/posts/flags-enums-in-csharp/",
     "/2015/11/c-enum-flags.html"

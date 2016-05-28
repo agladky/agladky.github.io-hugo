@@ -6,6 +6,7 @@ categories = ["Development"]
 draft = true
 description = "Как перетасикать код в окно Watch. Смысл в использовании Watch 2."
 keywords = "Visual studio, watch, drag and drop, перетаскивание, код, c#"
+slug="drag-and-drop-in-watch-windows"
 aliases = [
     "/posts/drag-and-drop-in-watch-windows/",
     "/2016/02/watch-visual-studio.html"
