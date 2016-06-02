@@ -2,21 +2,16 @@
   {{ $paginator := .Paginate (where .Site.Pages "Type" "blog") }}
   {{ range $paginator.Pages }}
     <article>
-      <div class="front-matter">
-        <div class="title-container">
-          <a href="{{ .Permalink }}">{{ partial "page-heading" . }}</a>
-        </div>
+      <div class="title-container">
+        <a href="{{ .Permalink }}">{{ partial "page-heading" . }}</a>
       </div>
       <div class="markdown">
         {{ .Content }}
       </div>
-      <!-- For test purposes -->
-      <div class="front-matter">
-        <div class="meta">
-          <div class="date" title="{{ .Date.Format .Site.Params.DateFormFull }}">{{ .Date.Format .Site.Params.DateForm }}</div>
-          <div>
-            <div class="middot"></div>{{ delimit .Params.tags ", " }}</div>
-        </div>
+      <div class="meta">
+        <div class="date" title="{{ .Date.Format .Site.Params.DateFormFull }}">{{ .Date.Format .Site.Params.DateForm }}</div>
+        <div>
+          <div class="meta-space"></div>{{ delimit .Params.tags ", " }}</div>
       </div>
     </article>
   {{ end }}

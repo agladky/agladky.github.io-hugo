@@ -122,6 +122,7 @@ body {
   .justify-content(flex-start); // start sections at the top
   width: 100%;
   min-height: 100%;
+  min-width: 320px;
   font-weight: 400;
   font-family: @body-font-stack;
   color: @black-content;
@@ -370,6 +371,7 @@ section.main {
   }
 
   .content {
+    width: inherit;
     color: @black-content;
     font-size: @base-font-size;
 
@@ -380,46 +382,17 @@ section.main {
     .page-heading {
       .heading();
       .inherit-hover-color();
-      margin-bottom: floor(@vspacing/2);
-
-}
-    .front-matter {
-      .page-heading {
-        margin-bottom: 0;
-      }
-
-      .meta {
-        .meta();
-        .flex-display();
-        margin-bottom: @vspacing;
-      }
-
-      .date, .word-count, .reading-time .middot {
-        display: none;
-      }
-
-      .middot {
-        font-size: 6px;
-        margin: 0 6px;
-        display: inline;
-        vertical-align: middle;
-
-        &:before {
-          content: "•";
-        }
-      }
     }
-  }
-}
 
-@media (min-width: @wide-1-breakpoint) {
-  section.main {
-    .content {
-      .front-matter {
-        .date, .word-count, .reading-time .middot {
-          display: initial;
-        }
-      }
+    .meta {
+      .meta();
+      .flex-display();
+      margin-bottom: @vspacing;
+    }
+
+    .meta-space {
+      margin: 0 6px;
+      display: inline;
     }
   }
 }
