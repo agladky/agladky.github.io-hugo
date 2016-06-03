@@ -1,5 +1,5 @@
 +++
-title = "Первый скрипт на Python"
+title = "Первый скрипт на Python"
 date = "2016-01-20T13:10:07+03:00"
 tags = ["python"]
 categories = ["Development"]

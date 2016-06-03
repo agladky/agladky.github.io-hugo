@@ -1,5 +1,5 @@
 +++
-title = "Перетаскивание кода в окно Watch в Visual Studio"
+title = "Перетаскивание кода в окно Watch в Visual Studio"
 date = "2016-02-25T13:10:07+03:00"
 tags = [".net", "ide"]
 categories = ["Development"]

@@ -1,5 +1,5 @@
 +++
-title = "Что такое монады на примере C#"
+title = "Что такое монады на примере C#"
 date = "2016-01-27T13:10:07+03:00"
 tags = [".net", "functional"]
 categories = ["Development"]

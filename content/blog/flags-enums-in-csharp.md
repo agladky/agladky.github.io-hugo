@@ -1,5 +1,5 @@
 +++
-title = "C# Enum и Атрибут Flags"
+title = "C# Enum и Атрибут Flags"
 date = "2015-11-03T13:10:07+03:00"
 tags = [".net"]
 categories = ["Development"]

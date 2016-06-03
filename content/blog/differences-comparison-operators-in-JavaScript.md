@@ -1,5 +1,5 @@
 +++
-title = "Различия операторов == и === в JavaScript"
+title = "Различия операторов == и === в JavaScript"
 date = "2016-02-02T13:10:07+03:00"
 tags = ["javascript"]
 categories = ["Development"]

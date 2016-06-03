@@ -2,7 +2,6 @@
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic);
-@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
 @import url(https://fonts.googleapis.com/css?family=Raleway:500);
 
 // Less variables
@@ -41,7 +40,7 @@
 
 @import 'flexbox-prefixes';
 
-.heading(@font-size: 18px) {
+.heading(@font-size: 28px) {
   font-size: @font-size;
   font-family: @heading-font-stack;
   letter-spacing: -0.005rem;
@@ -51,6 +50,7 @@
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
   color: @black-content;
+  line-height: normal;
 }
 
 .transition (@transition) {
@@ -142,13 +142,6 @@ body {
   }
 }
 
-// Ionicon classes
-
-.icon {
-  // INFO: Comment out if you see performance issues, especially on mobile
-  text-rendering: geometricPrecision !important;
-}
-
 // * Sections – the cornerstone of page elements
 // * Container – contains section contents
 //
@@ -177,51 +170,19 @@ section {
   }
 }
 
-// Sections order
-
-section.header {
-  .flex-order(0);
-}
-section.icons {
-  .flex-order(1);
-}
-section.main {
-  .flex-order(2);
-}
-
-@media (min-width: @wide-1-breakpoint) {
-  section.header {
-    .flex-order(0);
-  }
-  section.icons {
-    .flex-order(2);
-  }
-  section.main {
-    .flex-order(1);
-  }
-}
-
 // Styles for sections and contents
 // Header section
 
 section.header {
-  background-color: @background;
 
   .container {
     .align-items(center);
     .justify-content(flex-start);
   }
 
-  .content {
-    .flex-display();
-    .flex-direction(column);
-    .align-items(flex-start);
-  }
-
   .name {
-    .heading(36px);
+    .heading(30px);
     color: @black-content;
-    line-height: normal;
 
     &:hover {
       color: inherit;
@@ -266,6 +227,14 @@ section.header {
   }
 }
 
+@media (min-width: 380px) {
+  section.header {
+    .name {
+      font-size: 36px;
+    }
+  }
+}
+
 @media (min-width: @wide-1-breakpoint) {
   section.header {
     background-color: transparent;
@@ -290,78 +259,6 @@ section.header {
   }
 }
 
-// Icons
-
-section.icons {
-  background-color: @background;
-
-  .container {
-    .align-items(flex-start);
-    .justify-content(flex-start);
-  }
-
-  .content {
-    a {
-      margin-left: 6px;
-      margin-right: 6px;
-      color: @compensated-black;
-      border-bottom: none;
-      .transition(~'color @{transition-speed-1} @{in-sine}');
-
-      &:first-child {
-        margin-left: 0;
-      }
-
-      &:last-child {
-        margin-right: 0;
-      }
-
-      &:hover {
-        color: @compensated-black-hover;
-      }
-
-      .icon {
-        font-size: 20px;
-
-        &.larger {
-          font-size: 22px;
-        }
-      }
-    }
-  }
-}
-
-@media (min-width: @wide-1-breakpoint) {
-  section.icons {
-    background-color: transparent;
-
-    .container {
-      .justify-content(flex-start);
-    }
-
-    .content {
-      a {
-        margin-left: 3px;
-        margin-right: 3px;
-        color: @gray;
-
-        &:hover {
-          color: @black;
-        }
-
-        .icon {
-          font-size: 18px;
-
-          &.larger {
-            font-size: 20px;
-          }
-        }
-      }
-
-    }
-  }
-}
-
 // Main section
 
 section.main {
@@ -377,6 +274,7 @@ section.main {
 
     .title-container {
       .link-black-underline();
+      margin-bottom: 10px;
     }
 
     .page-heading {
@@ -395,6 +293,11 @@ section.main {
       display: inline;
     }
   }
+
+  article {
+    margin-bottom: 44px;
+  }
+
 }
 
 // 404 page
@@ -474,36 +377,19 @@ section {
 }
 
 section.header {
-  padding-top: @vspacing;
-  padding-bottom: floor(@vspacing/2);
-}
-
-section.icons {
   padding-top: floor(@vspacing/2);
-  padding-bottom: floor(@vspacing/2);
-}
-
-section.main {
-  padding-top: @vspacing;
   padding-bottom: @vspacing;
 }
+
+
 
 @media (min-width: @wide-1-breakpoint) {
   @vspacing: 60px;
 
   .container {
-    margin: 0 @vspacing/2;
+    padding: 0 @vspacing/2;
   }
 
-  section.header {
-    padding-top: floor(@vspacing/2);
-    padding-bottom: @vspacing;
-  }
-
-  section.icons {
-    padding-top: @vspacing;
-    padding-bottom: @vspacing;
-  }
 
   section.main {
     padding-top: 0;

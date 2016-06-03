@@ -1,5 +1,5 @@
 +++
-title = "Новый оператор ?. в C# 6"
+title = "Новый оператор ?. в C# 6"
 date = "2016-02-17T13:10:07+03:00"
 tags = [".net"]
 categories = ["Development"]
