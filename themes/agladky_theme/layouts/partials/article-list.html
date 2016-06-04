@@ -9,7 +9,7 @@
         {{ .Content }}
       </div>
       <div class="meta">
-        <div class="date" title="{{ .Date.Format .Site.Params.DateFormFull }}">{{ .Date.Format .Site.Params.DateForm }}</div>
+        {{ partial "post-date" . }}
         <div>
           <div class="meta-space"></div>{{ delimit .Params.tags ", " }}</div>
       </div>

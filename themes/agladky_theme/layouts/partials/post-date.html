@@ -1,0 +1,3 @@
+<div class="date" title="{{ .Date.Format .Site.Params.DateFormFull }}">
+{{ .Date.Day }} {{ index $.Site.Data.ru.month (printf "%d" .Date.Month) }} {{ .Date.Year }}
+</div>

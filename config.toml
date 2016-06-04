@@ -2,7 +2,7 @@ baseurl = "http://beta.agladky.ru/"
 builddrafts = false
 canonifyurls = true
 contentdir = "content"
-languageCode = "en-US"
+languageCode = "ru-RU"
 layoutdir = "layouts"
 publishdir = "public"
 author = "Анатолий Гладкий"
@@ -30,7 +30,7 @@ SectionPagesMenu = "main"
   Description = "Don't panic"
   FaviconFile = "img/leaf.ico"
   GATracker = "XYZ" # TODO:
-  Lang = "en"
+  Lang = "ru"
   IsMainMenuEnabled = false
   # ExtraCssFiles = [ "/css/override.css" ] # relative to public directory
 
