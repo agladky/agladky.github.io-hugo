@@ -1,3 +1,9 @@
-<div class="date" title="{{ .Date.Format .Site.Params.DateFormFull }}">
-{{ .Date.Day }} {{ index $.Site.Data.ru.month (printf "%d" .Date.Month) }} {{ .Date.Year }}
-</div>
+{{ if $.Site.Data.localization }}
+  <div class="date" title="{{ .Date.Day }} {{ index $.Site.Data.localization (printf "%d" .Date.Month) }} {{ .Date.Year }}, {{ .Date.Format "15:04 MST" }}">
+    {{ .Date.Day }} {{ index $.Site.Data.localization (printf "%d" .Date.Month) }} {{ .Date.Year }}
+  </div>
+{{ else }}
+  <div class="date" title="{{ .Date.Format .Site.Params.DateFormFull }}">
+    {{ .Date.Format .Site.Params.DateForm }}
+  </div>
+{{ end }}

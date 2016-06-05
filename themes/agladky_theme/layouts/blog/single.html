@@ -10,12 +10,10 @@
         {{ .Content }}
       </div>
       <div class="meta">
-        <div class="date" title="{{ .Date.Format .Site.Params.DateFormFull }}">{{ .Date.Format .Site.Params.DateForm }}</div>
-        <div class="reading-time">
-          <div class="meta-space"></div>{{ if eq 1 .ReadingTime }}{{ .ReadingTime }} minute read{{ else }}{{ .ReadingTime }} minutes read{{ end }}</div>
+        {{ partial "post-date" . }}
       </div>
       <div class="back-to-blog">
-        <a href="/blog/">Back to posts</a>
+        <a href="/blog/">{{ if $.Site.Data.localization }}{{ $.Site.Data.localization.backToPosts }}{{else}}Back to posts{{ end }}</a>
       </div>
       <br>
       <div class="disqus">
