@@ -9,9 +9,7 @@
       <div class="markdown">
         {{ .Content }}
       </div>
-      <div class="meta">
-        {{ partial "post-date" . }}
-      </div>
+      {{ partial "post-meta" . }}
       <div class="back-to-blog">
         <a href="/blog/">{{ if $.Site.Data.localization }}{{ $.Site.Data.localization.backToPosts }}{{else}}Back to posts{{ end }}</a>
       </div>

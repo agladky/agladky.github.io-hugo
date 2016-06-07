@@ -22,6 +22,7 @@
 @accent: #0060a0; // alt: rgba(244,109,44,1);
 @link-hover: #d04000; // alt: rgba(222,90,29,1);
 @link-visited: #7090b0;
+@link-tag: #567;
 @complementary-accent: #1DA1DE;
 @background: #f7f7f7;
 @compensated-black: #555;
@@ -283,13 +284,7 @@ section.main {
 
     .meta {
       .meta();
-      .flex-display();
       margin-bottom: @vspacing;
-    }
-
-    .meta-space {
-      margin: 0 6px;
-      display: inline;
     }
   }
 
@@ -422,6 +417,15 @@ a {
     .set-link-color(@link-visited);
   }
 
+  &:hover {
+    .set-link-color(@link-hover);
+  }
+}
+
+a.tag {
+  &:visited, &:link {
+    .set-link-color(@link-tag);
+  }
   &:hover {
     .set-link-color(@link-hover);
   }
