@@ -10,7 +10,7 @@ title = "Блог Анатолия Гладкого"
 googleAnalytics = "UA-75808442-1"
 pygmentsuseclasses = true
 pluralizelisttitles = false
-paginate = 10
+paginate = 3
 SectionPagesMenu = "main"
 
 [taxonomies]

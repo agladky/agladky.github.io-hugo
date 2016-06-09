@@ -11,4 +11,17 @@
       {{ partial "post-meta" . }}
     </article>
   {{ end }}
+
+  {{ $pag := .Paginator }}
+  {{ if gt $pag.TotalPages 1 }}
+  <nav>
+    {{ if $pag.HasPrev }}
+      <a href="{{ $pag.Prev.URL }}">← {{ if $.Site.Data.localization }}{{ $.Site.Data.localization.earlier }}{{else}}Earlier{{ end }}</a>  
+    {{ end }}
+    {{ if $pag.HasNext }}
+      <a href="{{ $pag.Next.URL }}">{{ if $.Site.Data.localization }}{{ $.Site.Data.localization.later }}{{else}}Later{{ end }} →</a>
+    {{ end }}
+  {{ end }}
+  </nav>
+
 </main>
