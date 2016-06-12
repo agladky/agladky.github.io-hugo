@@ -19,7 +19,7 @@ SectionPagesMenu = "main"
 
 [permalinks]
   fixed = ":title/"
-  blog = "blog/:filepath/"
+  blog = "blog/:slug/" # тут надо не slug а имя файла
 
 [Params]
   Author = "Анатолий Гладкий"

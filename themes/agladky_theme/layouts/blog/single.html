@@ -3,17 +3,30 @@
 <section class="main post non-narrow zero-top-spacing">
   <div class="container">
     <div class="content">
-      <div class="title-container">
-        {{ partial "page-heading" . }}
+      <article>
+        <div class="title-container">
+          {{ partial "page-heading" . }}
+        </div>
+        <div class="markdown">
+          {{ .Content }}
+        </div>
+        {{ partial "post-meta" . }}
+      </article>
+
+      <div class="post-navigation">
+        {{ if .Prev }}
+          <div class="post-prev-next">
+            <a href="{{ .Prev.Permalink }}">← {{ .Prev.Title }}</a>  
+          </div>
+        {{ end }}
+        {{ if .Next }}
+          <div class="post-prev-next">
+            <a href="{{ .Next.Permalink }}">{{ .Next.Title }} →</a>
+          </div>
+        {{ end }}
       </div>
-      <div class="markdown">
-        {{ .Content }}
-      </div>
-      {{ partial "post-meta" . }}
-      <div class="back-to-blog">
-        <a href="/blog/">{{ if $.Site.Data.localization }}{{ $.Site.Data.localization.backToPosts }}{{else}}Back to posts{{ end }}</a>
-      </div>
-      <br>
+
+      <br />
       <div class="disqus">
         {{ template "_internal/disqus.html" . }}
       </div>
