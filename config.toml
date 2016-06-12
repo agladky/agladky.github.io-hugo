@@ -10,7 +10,7 @@ title = "Блог Анатолия Гладкого"
 googleAnalytics = "UA-75808442-1"
 pygmentsuseclasses = true
 pluralizelisttitles = false
-paginate = 3
+paginate = 10
 SectionPagesMenu = "main"
 
 [taxonomies]
@@ -19,7 +19,7 @@ SectionPagesMenu = "main"
 
 [permalinks]
   fixed = ":title/"
-  blog = "blog/:slug/" # тут надо не slug а имя файла
+  blog = "blog/:filepath/"
 
 [Params]
   Author = "Анатолий Гладкий"
