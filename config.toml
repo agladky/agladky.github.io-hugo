@@ -8,8 +8,9 @@ publishdir = "public"
 author = "Анатолий Гладкий"
 title = "Блог Анатолия Гладкого"
 googleAnalytics = "UA-75808442-1"
-pygmentsuseclasses = true
 pluralizelisttitles = false
+pygmentsuseclasses = true
+PygmentsCodeFences = true
 paginate = 10
 SectionPagesMenu = "main"
 

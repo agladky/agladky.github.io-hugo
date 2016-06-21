@@ -16,7 +16,7 @@
 @special-font-stack-1: ~"'Helvetica Neue', 'Open Sans', 'Arial', sans-serif";
 
 @black: #333;
-@black-content: #111;
+@black-content: #000;
 @gray: #666;
 // accent colors from hermanradtke.com
 @accent: #0060a0; // alt: rgba(244,109,44,1);
@@ -74,7 +74,7 @@
 .post-navigation {
   font-size: 12px;
   margin-bottom: 40px;
-  
+
   .post-prev-next {
     display: inline-block;
     margin-bottom: 6px;
@@ -291,6 +291,20 @@ section.main {
       .inherit-hover-color();
     }
 
+    // TODO: rework page-heading class. Change article header class.
+    .section-heading {
+      .heading();
+      margin-bottom: 1em;
+    }
+
+    .sub-section-heading {
+      font-size: 13px;
+    }
+
+    .article-links {
+      margin-bottom: 10px;
+    }
+
     .meta {
       .meta();
       margin-bottom: @vspacing;
@@ -376,6 +390,27 @@ section.main {
 section.footer {
   margin-bottom: 40px;
   font-size: 14px;
+
+  // TODO: lead to a common style
+  .rss {
+    border-radius: 3px;
+    color: @black-content;
+    border: 1px solid;
+    border-color: fade(@black-content, 15%);
+    padding: 0 2px 1px 3px !important;
+    font-size: 11px;
+    line-height: 11px;
+    font-style: normal;
+    font-weight: bold;
+    letter-spacing: 1px;
+    position: relative;
+    top: -1px;
+  }
+
+  .rss:hover {
+    color: @link-hover;
+    border-color: fade(@link-hover, 20%);
+  }
 }
 
 // Spacing
