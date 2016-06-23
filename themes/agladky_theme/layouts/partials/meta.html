@@ -3,9 +3,9 @@
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="og:description" content="{{if .IsHome}}{{ .Site.Params.description }}{{else}}{{ .Description }}{{end}}" />
-<meta name="og:type" content="{{if .IsHome}}website{{else}}article{{end}}" />
-<meta name="og:site_name" content="{{ .Site.Params.title }}" />
+<meta name="og:description" content="{{ if .IsPage }}{{ .Description }}{{ else }}{{ .Site.Params.Description }}{{ end }}" />
+<meta name="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}" />
+<meta name="og:site_name" content="{{ .Site.Title }}" />
 {{ if eq false .Site.Params.IsMainMenuEnabled }}
   {{ if .IsHome }}<meta http-equiv="refresh" content="0; url={{ .Site.BaseURL }}blog">{{ end }}
 {{ end }}
