@@ -1,4 +1,4 @@
-baseurl = "http://beta.agladky.ru/"
+baseurl = "http://www.agladky.ru/"
 builddrafts = false
 canonifyurls = true
 contentdir = "content"
