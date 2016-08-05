@@ -8,6 +8,7 @@ publishdir = "public"
 author = "Анатолий Гладкий"
 title = "Блог Анатолия Гладкого"
 googleAnalytics = "UA-75808442-1"
+disqusShortname = "agladky"
 pluralizelisttitles = false
 pygmentsuseclasses = true
 PygmentsCodeFences = true
@@ -24,7 +25,6 @@ SectionPagesMenu = "main"
 
 [Params]
   Author = "Анатолий Гладкий"
-  disqusShortname = "agladky"
   CacheBuster = true
   DateForm = "Jan 2, 2006"
   DateFormFull = "Mon Jan 2 2006 15:04:05 MST"
