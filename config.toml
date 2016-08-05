@@ -24,7 +24,7 @@ SectionPagesMenu = "main"
 
 [Params]
   Author = "Анатолий Гладкий"
-  disqusShortname = "http-www-agladky-ru"
+  disqusShortname = "agladky"
   CacheBuster = true
   DateForm = "Jan 2, 2006"
   DateFormFull = "Mon Jan 2 2006 15:04:05 MST"
