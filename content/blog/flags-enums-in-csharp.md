@@ -35,7 +35,7 @@ public enum MyColors
 myProperties.AllowedColors = MyColor.Red | MyColor.Green | MyColor.Blue;
 ```
 
-Логическое И (`&`) помогает при нахождения значения флага:
+Логическое И (`&`) помогает при нахождении значения флага:
 ``` csharp
 if((myProperties.AllowedColors & MyColor.Yellow) == MyColor.Yellow)
 {
@@ -92,7 +92,7 @@ public enum MyColors
 Присвоенные значения: _Yellow = 0, Green = 1, Red = 2, Blue = 3_. Они не подходят для использования операций смещения.
 
 ### Битовое представление
-Описанное выше работает благодаря битовому представлению значений флагов при проставление степени двойки:
+Описанное выше работает благодаря битовому представлению значений флагов при проставлении степени двойки:
 ``` csharp
 Yellow: 00000001
 Green:  00000010
@@ -111,7 +111,7 @@ myProperties.AllowedColors: 00001110
 myProperties.AllowedColors: 00001110
              MyColor.Green: 00000010
              -----------------------
-                            00000010 // Это тоже самое, что и MyColor.Green!
+                            00000010 // Это то же самое, что и MyColor.Green!
 ```
 
 ### Полезные ссылки
