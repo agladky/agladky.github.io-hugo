@@ -1,9 +1,9 @@
 +++
 title = "Сравнение async await и Task.ContinueWith()"
-date = "2016-12-12T10:10:07+03:00"
+date = "2016-13-12T10:10:07+03:00"
 tags = [".net"]
 categories = ["Development"]
-draft = true
+draft = false
 description = "Когда стоит использовать оператор ==, а когда ===. И почему лучше выбирать опреатор ===."
 keywords = "C#, async, await, deadlock, continuewith, асинхронность, задачи, потоки, обработка ошибок"
 slug = "async-await-example"

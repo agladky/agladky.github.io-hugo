@@ -1,5 +1,5 @@
 +++
-date = "2016-12-12T12:31:46+03:00"
+date = "2016-13-12T12:31:46+03:00"
 title = "Обо мне"
 tags = ["я"]
 categories = ["Development"]
