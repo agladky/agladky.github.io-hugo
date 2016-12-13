@@ -4,7 +4,7 @@ date = "2016-02-02T13:10:07+03:00"
 tags = ["javascript"]
 categories = ["Development"]
 draft = false
-description = "Когда стоит использовать оператор ==, а когда ===. И почему лучше выбирать опреатор ===."
+description = "Когда стоит использовать оператор ==, а когда ===. И почему лучше выбирать оператор ===."
 keywords = "Js, javasript, jshint, ==, ===, различие, сравнение, операторы, рефакторинг"
 slug = "differences-comparison-operators-in-JavaScript"
 aliases = [
