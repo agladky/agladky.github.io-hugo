@@ -1,6 +1,6 @@
 +++
 title = "Сравнение async await и Task.ContinueWith()"
-date = "2016-13-12T10:10:07+03:00"
+date = "2016-12-13T17:10:07+03:00"
 tags = [".net"]
 categories = ["Development"]
 draft = false
