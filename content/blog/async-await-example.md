@@ -29,7 +29,6 @@ slug = "async-await-example"
 - `await` работает с любым типом, для которого реализован метод `GetAwaiter()`. Подробнее в статье - [await anything](http://blogs.msdn.com/b/pfxteam/archive/2011/01/13/10115642.aspx).
 
 ### Демонстрационное приложение
-
 Примеры показываются на тестовом Windows Form приложении. [GitHub репозиторий с приложением](https://github.com/agladky/async_await_article).
 
 ![async/await app](https://lh3.googleusercontent.com/0OGyGjQfwFN5kVsnTmga0ed2yFkPNNMd_QWj8QBg8qOJqIQMU4o65DA1WUToyN0WVp7h_2UAkYXe_F1SLwcBZAE5fHzS3kYqLGluZkQpy7Wk2KapxVAByTO_jRd-0LYOztTe2YyU_YZEilg-RZbLXwXJHM4MnD_6ca5HHZcF9FWs1gPNZ9kkX1jw8vxAx94MFI-QF1Ne0xH2kltdjl_m7_Mwga2dZNNWivRdldwpC9DZ5ygfbzwG2FciaeEXYDmAvuC7tBCbwnR2jkDRgGBH9QZ0W1Yemgcow2JwDRjtQ-xdZTTxJZUno5F5G1W8Aiq4xacfxRkz1t8Tfbs08MEardybolFMZXwBDega35UXnq1L4CPinN3J5lEDiiWtDPzP3Bum_UBSgzDEKMvfbzvhJV9Nw7qex0diBmMa8K9M5cLvWRvU1r0mCbIsqyxxc494FxQ3JxrGNIPZPs_AaQgr85iaoIWf8WuKHDERVCJQCnjEYqf5ckxHC_WFlNPqxawhc6_-WTH8QsQ38YLTujMX7Xl48M_6jWGsMJNEXQDj8MbhFhV4sg2Q30IoA4wpb8gVmyhH=w561-h277-no)
