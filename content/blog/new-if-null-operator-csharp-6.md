@@ -1,7 +1,7 @@
 +++
 title = "Новый оператор ?. в C# 6"
 date = "2016-02-17T13:10:07+03:00"
-tags = [".net"]
+tags = ["dotnet"]
 categories = ["Development"]
 draft = false
 description = "Использование оператора ?. с цепочкой вызова, индексатором и делегатами. Комбинация с ??"

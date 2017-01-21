@@ -1,7 +1,7 @@
 +++
 title = "Сравнение async await и Task.ContinueWith()"
 date = "2016-12-13T17:10:07+03:00"
-tags = [".net"]
+tags = ["dotnet"]
 categories = ["Development"]
 draft = false
 description = "Краткая выжимка из рабочего доклада по работе с async/await в C#. Для наглядности, параллельно рассматривается подход с использованием Task.ContinueWith."

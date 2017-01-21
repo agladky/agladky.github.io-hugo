@@ -1,7 +1,7 @@
 +++
 title = "Перетаскивание кода в окно Watch в Visual Studio"
 date = "2016-02-25T13:10:07+03:00"
-tags = [".net", "ide"]
+tags = ["dotnet", "ide"]
 categories = ["Development"]
 draft = false
 description = "Как перетасикать код в окно Watch. Смысл в использовании Watch 2."

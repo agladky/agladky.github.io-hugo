@@ -1,7 +1,7 @@
 +++
 title = "C# Enum и Атрибут Flags"
 date = "2015-11-03T13:10:07+03:00"
-tags = [".net"]
+tags = ["dotnet"]
 categories = ["Development"]
 draft = false
 description = "Как в c# enum добавлять, находить и удалять несколько значений, с помощью атрибута Flags."

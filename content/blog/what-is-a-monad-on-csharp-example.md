@@ -1,7 +1,7 @@
 +++
 title = "Что такое монады на примере C#"
 date = "2016-01-27T13:10:07+03:00"
-tags = [".net", "functional"]
+tags = ["dotnet", "functional"]
 categories = ["Development"]
 draft = false
 description = "Краткий перевод статьи Эрика Липперта о реализации монад в .net на примере c#"
