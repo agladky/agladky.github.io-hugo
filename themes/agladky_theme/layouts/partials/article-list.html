@@ -1,6 +1,6 @@
 <main>
-  {{ $paginator := .Paginate (where .Site.Pages "Type" "blog") }}
-  {{ range $paginator.Pages }}
+  {{ $pag := .Paginator }}
+  {{ range $pag.Pages }}
     <article>
       <div class="title-container">
         <a href="{{ .Permalink }}">{{ partial "page-heading" . }}</a>
@@ -12,7 +12,6 @@
     </article>
   {{ end }}
 
-  {{ $pag := .Paginator }}
   {{ if gt $pag.TotalPages 1 }}
   <nav>
     {{ if $pag.HasPrev }}
