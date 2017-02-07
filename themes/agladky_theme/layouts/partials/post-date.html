@@ -1,6 +1,10 @@
 {{ if $.Site.Data.localization }}
   <span class="date" title="{{ .Date.Day }} {{ index $.Site.Data.localization (printf "%d" .Date.Month) }} {{ .Date.Year }}, {{ .Date.Format "15:04 MST" }}">
-    {{ .Date.Day }} {{ index $.Site.Data.localization (printf "%d" .Date.Month) }} {{ .Date.Year }}
+    {{ if eq .Now.Year .Date.Year }}
+      {{ .Date.Day }} {{ index $.Site.Data.localization (printf "%d" .Date.Month) }}
+    {{ else }}
+      {{ .Date.Year }}
+    {{ end }}
   </span>
 {{ else }}
   <span class="date" title="{{ .Date.Format .Site.Params.DateFormFull }}">
