@@ -4,7 +4,7 @@
   {{ range $pag.Pages }}
     <article>
       <div class="title-container">
-        <a href="{{ .Permalink }}">{{ partial "page-heading" . }}</a> <span>{{ $title }}</span>
+        <a href="{{ .Permalink }}">{{ partial "page-heading" . }}</a>
       </div>
       <div class="markdown">
         {{ .Content }}
