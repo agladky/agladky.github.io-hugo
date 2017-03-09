@@ -1,9 +1,10 @@
 <main>
   {{ $pag := .Paginator }}
+  {{ $title := .Title}}
   {{ range $pag.Pages }}
     <article>
       <div class="title-container">
-        <a href="{{ .Permalink }}">{{ partial "page-heading" . }}</a>
+        <a href="{{ .Permalink }}">{{ partial "page-heading" . }}</a> <span>{{ $title }}</span>
       </div>
       <div class="markdown">
         {{ .Content }}
