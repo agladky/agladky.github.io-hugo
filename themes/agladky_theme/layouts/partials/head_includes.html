@@ -13,8 +13,8 @@
 {{ if eq true .Site.Params.CacheBuster }}
 
 <link rel="stylesheet" href="/css/reset.css">
-<link rel="stylesheet" href="/css/pygments.css">
 <link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/pygments.css">
 <link rel="stylesheet" href="/css/likely.css">
 
 {{range .Site.Params.ExtraCssFiles}}
@@ -35,7 +35,7 @@
 
 
 <!-- JS -->
-<script src="/js/likely.js"></script>
+<script async src="/js/likely.js"></script>
 
 <!-- Icon -->
 <link rel="shortcut icon"
