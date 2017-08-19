@@ -30,4 +30,4 @@ git add --all
 git commit --message "$msg"
 
 # Push source and build repos.
-git push origin master
+git push --force origin master
