@@ -4,22 +4,22 @@
   {{ range $pag.Pages }}
     <article>
       <div class="title-container">
-        <a href="{{ .Permalink }}">{{ partial "page-heading" . }}</a>
+        <a href="{{ .Permalink }}"><span class="page-heading">{{ default .Title .Params.heading }}</span></a>
       </div>
       <div class="markdown">
         {{ .Content }}
       </div>
-      {{ partial "post-meta" . }}
+      {{ partial "post-meta.html" . }}
     </article>
   {{ end }}
 
   {{ if gt $pag.TotalPages 1 }}
   <nav>
     {{ if $pag.HasPrev }}
-      <a href="{{ $pag.Prev.URL }}">← {{ if $.Site.Data.localization }}{{ $.Site.Data.localization.earlier }}{{else}}Earlier{{ end }}</a>  
+      <a href="{{ $pag.Prev.URL }}">← {{ i18n "earlierPages" }}</a>  
     {{ end }}
     {{ if $pag.HasNext }}
-      <a href="{{ $pag.Next.URL }}">{{ if $.Site.Data.localization }}{{ $.Site.Data.localization.later }}{{else}}Later{{ end }} →</a>
+      <a href="{{ $pag.Next.URL }}">{{ i18n "laterPages" }} →</a>
     {{ end }}
   {{ end }}
   </nav>

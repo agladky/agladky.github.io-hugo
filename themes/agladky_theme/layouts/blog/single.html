@@ -5,12 +5,21 @@
     <div class="content">
       <article>
         <div class="title-container">
-          {{ partial "page-heading" . }}
+          <span class="page-heading">{{ default .Title .Params.heading }}</span>
         </div>
+
         <div class="markdown">
           {{ .Content }}
         </div>
-        {{ partial "article-links" . }}
+
+        <div class="likely article__likely">
+          <div class="twitter">{{ i18n "twitterButton" }}</div>
+          <div class="facebook">{{ i18n "facebookButton" }}</div>
+          <div class="gplus">{{ i18n "gplusButton" }}</div>
+          <div class="vkontakte">{{ i18n "vkontakteButton" }}</div>
+          <div class="telegram">{{ i18n "telegramButton" }}</div>
+        </div>
+
         {{ partial "post-meta" . }}
       </article>
 

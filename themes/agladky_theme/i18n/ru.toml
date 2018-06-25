@@ -1,0 +1,27 @@
+[tagsPageHeading]
+other = "Заметки с тегом"
+
+[earlierPages]
+other = "Ранее"
+[laterPages]
+other = "Позднее"
+
+[twitterButton]
+other = "Твитнуть"
+[facebookButton]
+other = "Поделиться"
+[gplusButton]
+other = "Плюсануть"
+[vkontakteButton]
+other = "Поделиться"
+[telegramButton]
+other = "Отправить"
+
+[mail]
+other = "Эл. почта"
+
+[sorry404]
+other = "Данная страница не существует."
+
+[visitHome]
+other = "Вернуться домой"

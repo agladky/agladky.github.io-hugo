@@ -1,19 +1,32 @@
 baseurl = "https://www.agladky.ru/"
-builddrafts = false
-canonifyurls = true
-contentdir = "content"
+theme = "agladky_theme"
 languageCode = "ru-RU"
-layoutdir = "layouts"
-publishdir = "public"
-author = "Анатолий Гладкий"
-title = "Блог Анатолия Гладкого"
+defaultContentLanguage = "ru"
+buildDrafts = false
+canonifyUrls = true  # Enable to turn relative URLs into absolute.
+contentDir = "content"
+layoutDir = "layouts"
+publishDir = "public"
 googleAnalytics = "UA-75808442-1"
 disqusShortname = "agladky"
-pluralizelisttitles = false
-pygmentsuseclasses = true
-PygmentsCodeFences = true
+pluralizeListTitles = false
+pygmentsUseClasses = true
+pygmentsCodeFences = true
 paginate = 10
-SectionPagesMenu = "main"
+
+[languages]
+  [languages.ru]
+    title = "Блог Анатолия Гладкого"
+    [languages.ru.author]
+      name = "Анатолий Гладкий"
+    [languages.ru.params]
+      description = "Блог Анатолия Гладкого"
+  [languages.en]
+    title = "Anatoly Gladky Blog"
+    [languages.en.author]
+      name = "Anatoly Gladky"
+    [languages.en.params]
+      description = "Anatoly Gladky Blog"
 
 [taxonomies]
   tag = "tags"
@@ -21,19 +34,18 @@ SectionPagesMenu = "main"
 
 [permalinks]
   fixed = ":title/"
-  blog = "blog/:slug/" # тут надо не slug а имя файла
+  blog = "blog/:filename/"
 
 [Params]
-  Author = "Анатолий Гладкий"
-  CacheBuster = true
-  DateForm = "Jan 2, 2006"
-  DateFormFull = "Mon Jan 2 2006 15:04:05 MST"
-  Description = "Блог Анатолия Гладкого"
-  # FaviconFile = "img/leaf.ico"
-  GATracker = "UA-75808442-1"
-  Lang = "ru"
-  IsMainMenuEnabled = false
-  # ExtraCssFiles = [ "/css/override.css" ] # relative to public directory
+  dateForm = "Jan 2, 2006"
+  dateFormFull   = "Mon Jan 2 2006 15:04:05 MST"
+  isMainMenuEnabled = false
+
+  # Реализовать
+  # Сравнивать страницы и заимствовать код, если надо
+  # Перевести css на bem
+  # i18n_flags = false  # whether to display small country flags for available translations
+  # latestpostscount = 5
 
 [[menu.main]]
   name = "Блог"

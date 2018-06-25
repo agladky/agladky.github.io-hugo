@@ -1,0 +1,90 @@
+.dark {
+  color: @black !important;
+}
+
+.light {
+  color: @gray !important;
+}
+
+.accent {
+  color: @accent !important;
+}
+
+.small-screens-only {
+  @media (min-width: 550px) {
+    display: none;
+  }
+}
+
+.large-screens-only {
+  display: none;
+  @media (min-width: 550px) {
+    display: initial;
+  }
+}
+
+.heading(@font-size: 28px) {
+  font-size: @font-size;
+  font-family: @heading-font-stack;
+  letter-spacing: -0.005rem;
+  text-transform: none;
+  font-weight: 700;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: @black-content;
+  line-height: normal;
+}
+
+.user-select(@user-select) {
+  -webkit-user-select: @user-select;
+  -moz-user-select: @user-select;
+  -ms-user-select: @user-select;
+  user-select: @user-select;
+}
+
+.meta() {
+  font-size: 12px;
+}
+
+.post-navigation {
+  font-size: 12px;
+  margin-bottom: 40px;
+
+  .post-prev-next {
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+}
+
+.inherit-hover-color() {
+  transition-duration: @transition-speed-1;
+  transition-property: border-bottom,border-color,background,color,fill;
+  -webkit-transition-timing-function: @in-sine;
+  transition-timing-function: @in-sine;
+
+  &:hover {
+    color: inherit;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+  }
+}
+
+.set-link-color(@link-color) {
+  color: @link-color;
+  border-bottom-color: fade(@link-color, 20%);
+}
+
+.link-black-underline() {
+  a {
+    &:link, &:visited {
+      border-bottom-color: fade(@black-content, 20%);
+    }
+
+    &:hover {
+      border-bottom-color: fade(@link-hover, 20%);
+    }
+  }
+}

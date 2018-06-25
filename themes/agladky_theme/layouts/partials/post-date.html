@@ -1,7 +1,7 @@
-{{ if $.Site.Data.localization }}
-  <span class="date" title="{{ .Date.Day }} {{ index $.Site.Data.localization (printf "%d" .Date.Month) }} {{ .Date.Year }}, {{ .Date.Format "15:04 MST" }}">
-    {{ if eq .Now.Year .Date.Year }}
-      {{ .Date.Day }} {{ index $.Site.Data.localization (printf "%d" .Date.Month) }}
+{{ if $.Site.Data.ru_months }}
+  <span class="date" title="{{ .Date.Day }} {{ index $.Site.Data.ru_months (printf "%d" .Date.Month) }} {{ .Date.Year }}, {{ .Date.Format "15:04 MST" }}">
+    {{ if eq now.Year .Date.Year }}
+      {{ .Date.Day }} {{ index $.Site.Data.ru_months (printf "%d" .Date.Month) }}
     {{ else }}
       {{ .Date.Year }}
     {{ end }}

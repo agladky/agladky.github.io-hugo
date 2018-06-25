@@ -3,9 +3,8 @@
   <div class="container f04">
     <div class="content">
       <div class="num">404</div>
-      <div class="detail">
-      {{ if $.Site.Data.localization }}{{ $.Site.Data.localization.sorry404 }}{{else}}Sorry, this page does not exist.{{ end }}</div>
-      <div class="suggestion"><a href="/">{{ if $.Site.Data.localization }}{{ $.Site.Data.localization.visitHome }}{{else}}Visit home page{{ end }}</a></div>
+      <div class="detail">{{ i18n "sorry404" }}</div>
+      <div class="suggestion"><a href="/">{{ i18n "visitHome" }}</a></div>
     </div>
   </div>
 </section>

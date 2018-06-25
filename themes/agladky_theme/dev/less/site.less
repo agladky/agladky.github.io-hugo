@@ -1,0 +1,397 @@
+// General styles
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+a, a:visited, a:focus, a:active {
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+
+html {
+  height: 100%;
+  font-size: @base-font-size;
+}
+
+body {
+  .flex-display();
+  .flex-direction(column); // vertically stack sections
+  .align-items(center); // horizontally center all sections
+  .justify-content(flex-start); // start sections at the top
+  width: 100%;
+  min-height: 100%;
+  min-width: 320px;
+  font-weight: 400;
+  font-family: @body-font-stack;
+  color: @black-content;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility !important;
+}
+
+@media (min-width: @wide-1-breakpoint) {
+  body {
+    .justify-content(center); // vertically center all sections
+  }
+
+  .non-narrow {
+    &.zero-top-spacing {
+      padding-top: 0 !important;
+    }
+  }
+}
+
+// * Sections – the cornerstone of page elements
+// * Container – contains section contents
+//
+// Both classes are flex elements
+
+section {
+  .flex-display();
+  // Sections position their containers centrally, with spacing to the sides
+  // The containers can then move their children around as needed.
+  .justify-content(center);
+  .align-items(center);
+  width: 100%;
+}
+
+.container {
+  .flex-display();
+  width: 100%;
+}
+
+@media (min-width: @wide-1-breakpoint) {
+  section {
+    padding: 0 @vspacing/2;
+    margin-left: 100px;
+    margin-right: 100px;
+    max-width: 750px;
+  }
+}
+
+// Styles for sections and contents
+// Header section
+
+section.header {
+
+  .container {
+    .align-items(center);
+    .justify-content(flex-start);
+  }
+
+  .name {
+    .heading(30px);
+    color: @black-content;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+
+  .link-black-underline();
+
+  nav {
+    font-size: 14px;
+    margin-bottom: floor(@vspacing/2);
+    text-transform: none;
+    font-family: @heading-font-stack;
+    margin-top: 13px;
+
+    .menu-item-selected {
+      background-color: antiquewhite;
+    }
+
+    a {
+      text-align: center;
+      .flex-display(inline-flex);
+
+      margin-left: 6px;
+      margin-right: 6px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    a span {
+      .inherit-hover-color();
+      color: @black-content;
+      font-weight: 500;
+    }
+  }
+}
+
+@media (min-width: 400px) {
+  section.header {
+    .name {
+      font-size: 40px;
+    }
+  }
+}
+
+@media (min-width: @wide-1-breakpoint) {
+  section.header {
+    background-color: transparent;
+
+    .container {
+      .justify-content(flex-start);
+    }
+
+    .content {
+      .align-items(flex-start);
+    }
+
+    nav {
+      font-size: 14px;
+      margin-bottom: 0;
+      margin-top: 13px;
+
+      ul {
+        text-align: left;
+      }
+    }
+  }
+}
+
+// Main section
+
+section.main {
+  .container {
+    .align-items(center);
+    .justify-content(flex-start);
+  }
+
+  .content {
+    width: inherit;
+    color: @black-content;
+    font-size: @base-font-size;
+
+    .title-container {
+      .link-black-underline();
+      margin-bottom: 10px;
+    }
+
+    .page-heading {
+      .heading();
+      .inherit-hover-color();
+    }
+
+    // TODO: rework page-heading class. Change article header class.
+    .section-heading {
+      .heading();
+      margin-bottom: 1em;
+    }
+
+    .sub-section-heading {
+      font-size: 13px;
+    }
+
+    .article__likely {
+      margin-bottom: 10px;
+    }
+
+    .meta {
+      .meta();
+      margin-bottom: @vspacing;
+    }
+  }
+
+  nav {
+    margin-bottom: 40px;
+  }
+}
+
+// 404 page
+
+section.main {
+  .container.f04 {
+    .justify-content(center);
+
+    .content {
+      .flex-display();
+      .flex-direction(column);
+      .align-items(center);
+
+      .num {
+        margin: 30px 0px 30px 0;
+        font-weight: 200;
+        font-family: @special-font-stack-1;
+        font-size: 50px;
+      }
+
+      .detail {
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+@media (min-width: @wide-1-breakpoint) {
+  section.main {
+    .container.f04 {
+      .justify-content(flex-start);
+
+      .content {
+        .align-items(flex-start);
+
+        .num {
+          margin: 0 0 10px 0;
+          font-size: 32px;
+        }
+
+        .detail {
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+}
+
+// Post item
+section.main {
+  .container {
+    .content {
+      .post-item {
+        .flex-display();
+        .align-items(center);
+        display: list-item;
+        list-style: disc inside;
+
+        .meta {
+          .meta();
+          display: none;
+          min-width: 100px;
+          text-align: right;
+          margin-right: @vspacing/2;
+        }
+      }
+    }
+  }
+}
+
+section.footer {
+  margin-bottom: 40px;
+  font-size: 14px;
+
+  // TODO: lead to a common style
+  .rss {
+    border-radius: 3px;
+    color: @black-content;
+    border: 1px solid;
+    border-color: fade(@black-content, 15%);
+    padding: 0 2px 1px 3px !important;
+    font-size: 11px;
+    line-height: 11px;
+    font-style: normal;
+    font-weight: bold;
+    letter-spacing: 1px;
+    position: relative;
+    top: -1px;
+  }
+
+  .rss:hover {
+    color: @link-hover;
+    border-color: fade(@link-hover, 20%);
+  }
+}
+
+// Spacing
+
+section {
+  padding: 0 @vspacing/2;
+}
+
+section.header {
+  padding-top: floor(@vspacing/2);
+  padding-bottom: @vspacing;
+}
+
+@media (min-width: @wide-1-breakpoint) {
+  @vspacing: 60px;
+
+  .container {
+    padding: 0 @vspacing/2;
+  }
+
+  section.main {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .container {
+      .content {
+        .post-item {
+          display: flex;
+          list-style: none;
+
+          .meta {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  section.main.post {
+    padding-top: @vspacing;
+    padding-bottom: @vspacing;
+  }
+}
+
+a {
+  transition-duration: @transition-speed-1;
+  transition-property: border-bottom,border-color,background,color,fill;
+  -webkit-transition-timing-function: @in-sine;
+  transition-timing-function: @in-sine;
+
+  &:link {
+    .set-link-color(@accent);
+  }
+
+  &:visited {
+    .set-link-color(@link-visited);
+  }
+
+  &:hover {
+    .set-link-color(@link-hover);
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+  }
+}
+
+a.tag {
+  &:visited, &:link {
+    .set-link-color(@link-tag);
+  }
+  &:hover {
+    .set-link-color(@link-hover);
+  }
+}
+
+article {
+  margin-bottom: 60px;
+}
+
+img {
+  max-width: 100%;
+}
+
+img.profile {
+  min-width:100%;
+}
+
+@media (min-width: @wide-1-breakpoint) {
+  img.profile {
+  min-width: 300px;
+  max-width: 300px !important;
+  }
+}
+
+.page-heading a {
+  color: @black-content;
+}

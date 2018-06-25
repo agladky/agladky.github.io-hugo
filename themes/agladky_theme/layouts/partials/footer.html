@@ -1,14 +1,15 @@
 <section class="footer">
 <div class="container">
   <div class="content">
-    <span>© Анатолий Гладкий, 2016 </span><a class="rss" href="{{ .Site.RSSLink }}">РСС</a>
+    <span>© {{ .Site.Author.name }}, {{ now.Year }} </span><a class="rss" href="{{ .Site.RSSLink }}">РСС</a>
     <br />
-    <span>Эл. почта: <a class="" href="mailto:me@agladky.ru">me@agladky.ru</a></span>
+    <span>{{ i18n "mail" . }}: <a class="" href="mailto:me@agladky.ru">me@agladky.ru</a></span>
   </div>
 </div>
 </section>
 
-{{ partial "footer_scripts" . }}
+<!-- Google Analytics -->
+{{ template "_internal/google_analytics_async.html" . }}
 
 </body>
 

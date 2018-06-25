@@ -3,7 +3,7 @@
 
 {{ partial "head.html" . }}
 
-<body lang="{{ .Site.Params.Lang }}">
+<body>
 
 <section class="header">
   <div class="container">
@@ -15,7 +15,8 @@
           <span class="name">{{ .Site.Title }}</span>
         </a>
       {{ end }}
-      {{ if eq true .Site.Params.IsMainMenuEnabled }}
+
+      {{ if .Site.Params.isMainMenuEnabled }}
         <nav>
           {{ $currentNode := . }}
           {{ range .Site.Menus.main }}

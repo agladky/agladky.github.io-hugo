@@ -1,0 +1,27 @@
+[tagsPageHeading]
+other = "Posts with tag"
+
+[earlierPages]
+other = "Earlier"
+[laterPages]
+other = "Later"
+
+[twitterButton]
+other = "Tweet it"
+[facebookButton]
+other = "Share"
+[gplusButton]
+other = "Plus it"
+[vkontakteButton]
+other = "Share"
+[telegramButton]
+other = "Send"
+
+[mail]
+other = "Mail me"
+
+[sorry404]
+other = "Sorry, this page does not exist."
+
+[visitHome]
+other = "Visit home page"
