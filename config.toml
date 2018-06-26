@@ -1,5 +1,4 @@
 baseurl = "https://www.agladky.ru/"
-theme = "agladky_theme"
 languageCode = "ru-RU"
 defaultContentLanguage = "ru"
 buildDrafts = false
@@ -37,8 +36,6 @@ paginate = 10
   blog = "blog/:filename/"
 
 [Params]
-  dateForm = "Jan 2, 2006"
-  dateFormFull   = "Mon Jan 2 2006 15:04:05 MST"
   isMainMenuEnabled = false
 
   # Реализовать

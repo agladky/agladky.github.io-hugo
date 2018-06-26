@@ -1,0 +1,14 @@
+<div class="meta">
+  <span class="date" title="{{ .Date.Day }} {{ index $.Site.Data.ru_months (printf "%d" .Date.Month) }} {{ .Date.Year }}, {{ .Date.Format "15:04 MST" }}">
+    {{ if eq now.Year .Date.Year }}
+      {{ .Date.Day }} {{ index $.Site.Data.ru_months (printf "%d" .Date.Month) }}
+    {{ else }}
+      {{ .Date.Year }}
+    {{ end }}
+  </span>
+
+  <!-- Заменить на нормальный css -->
+  <span>   </span>
+
+  {{ range .Params.tags }}<a class="tag" href="tags/{{ . | urlize }}">{{ . }}</a>   {{ end }}
+</div>
