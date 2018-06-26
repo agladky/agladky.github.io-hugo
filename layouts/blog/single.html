@@ -20,17 +20,17 @@
           <div class="telegram">{{ i18n "telegramButton" }}</div>
         </div>
 
-        {{ partial "post-meta.html" . }}
+        {{ partial "blog/article-meta.html" . }}
       </article>
 
-      <div class="post-navigation">
+      <div class="article-navigation">
         {{ if .Prev }}
-          <div class="post-prev-next">
+          <div class="article-prev-next">
             <a href="{{ .Prev.Permalink }}">← {{ .Prev.Title }}</a>  
           </div>
         {{ end }}
         {{ if .Next }}
-          <div class="post-prev-next">
+          <div class="article-prev-next">
             <a href="{{ .Next.Permalink }}">{{ .Next.Title }} →</a>
           </div>
         {{ end }}
