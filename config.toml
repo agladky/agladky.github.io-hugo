@@ -1,4 +1,4 @@
-baseurl = "https://www.agladky.ru/"
+baseurl = "https://agladky.ru/"
 languageCode = "ru-RU"
 defaultContentLanguage = "ru"
 buildDrafts = false
