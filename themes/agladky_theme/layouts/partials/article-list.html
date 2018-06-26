@@ -1,27 +1,28 @@
 <main>
-  {{ $pag := .Paginator }}
-  {{ $title := .Title}}
-  {{ range $pag.Pages }}
+
+  {{ range .Paginator.Pages }}
     <article>
       <div class="title-container">
         <a href="{{ .Permalink }}"><span class="page-heading">{{ default .Title .Params.heading }}</span></a>
       </div>
+
       <div class="markdown">
         {{ .Content }}
       </div>
+
       {{ partial "post-meta.html" . }}
     </article>
   {{ end }}
 
-  {{ if gt $pag.TotalPages 1 }}
-  <nav>
-    {{ if $pag.HasPrev }}
-      <a href="{{ $pag.Prev.URL }}">← {{ i18n "earlierPages" }}</a>  
-    {{ end }}
-    {{ if $pag.HasNext }}
-      <a href="{{ $pag.Next.URL }}">{{ i18n "laterPages" }} →</a>
-    {{ end }}
+  {{ if gt .Paginator.TotalPages 1 }}
+    <nav>
+      {{ if .Paginator.HasPrev }}
+        <a href="{{ .Paginator.Prev.URL }}">← {{ i18n "earlierPages" }}</a>  
+      {{ end }}
+      {{ if .Paginator.HasNext }}
+        <a href="{{ .Paginator.Next.URL }}">{{ i18n "laterPages" }} →</a>
+      {{ end }}
+    </nav>
   {{ end }}
-  </nav>
 
 </main>
