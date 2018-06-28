@@ -3,23 +3,31 @@
 
   <base href="{{ .Site.BaseURL }}">
   <title>
-    {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+    {{ $url := replace .Permalink (printf "%s" .Site.BaseURL) "" }}
     {{ if eq $url "/" }}
       {{ .Site.Title }}
     {{ else }}
-      {{ if .IsPage }}{{ .Description }}{{ else }}{{ .Site.Params.Description }}{{ end }}
+      {{ if .IsPage }}
+        {{ .Description }}
+      {{ else }}
+        {{ .Site.Params.Description }}
+      {{ end }}
     {{ end }}
   </title>
   <link rel="canonical" href="{{ .Permalink }}">
 
   <!-- CSS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i">
   {{ $t := now.Unix }}
   <link rel="stylesheet" href="/css/reset.css?t={{$t}}">
   <link rel="stylesheet" href="/css/pygments.css?t={{$t}}">
   <link rel="stylesheet" href="/css/main.css?t={{$t}}">
   <link rel="stylesheet" href="/css/likely.css?t={{$t}}">
-  <!-- JS -->
-  <script async src="/js/likely.js"></script>
+
   <!-- Icon -->
   <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- JS -->
+  <script async src="/js/likely.js"></script>
 </head>

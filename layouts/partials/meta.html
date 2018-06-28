@@ -7,7 +7,6 @@
 {{ with .Site.Author }}<meta name="author" content="{{ .name }}">{{ end }}
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
 
-<meta property="og:description" content="{{ if .IsPage }}{{ .Description }}{{ else }}{{ .Site.Params.Description }}{{ end }}" />
-<meta property="og:type" content="{{ if .IsPage  }}article{{ else }}website{{ end }}" />
-<meta property="og:site_name" content="{{ .Site.Title }}" />
+{{ template "_internal/opengraph.html" . }}
+{{ template "_internal/google_news.html" . }}
 

@@ -6,4 +6,6 @@ tags = ["draft"]
 categories = ["draft"]
 slug = ""
 
+images = []
+news_keywords = []
 +++

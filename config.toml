@@ -19,7 +19,7 @@ paginate = 10
     [languages.ru.author]
       name = "Анатолий Гладкий"
     [languages.ru.params]
-      description = "Блог Анатолия Гладкого"
+      description = "Блог Анатолия Гладкого" # Дописать описание о себе !!!
   [languages.en]
     title = "Anatoly Gladky Blog"
     [languages.en.author]
@@ -38,11 +38,12 @@ paginate = 10
 [Params]
   isMainMenuEnabled = false
 
-  # Реализовать
-  # Сравнивать страницы и заимствовать код, если надо
+  # Заголовок статьи неправильно отображается в браузере!
+  # Сравнивать страницы, остался header !
   # Перевести css на bem
   # i18n_flags = false  # whether to display small country flags for available translations
   # latestpostscount = 5
+  # Проверить отображение постов в твитере
 
 [[menu.main]]
   name = "Блог"
