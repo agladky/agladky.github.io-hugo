@@ -2,6 +2,11 @@
 
 echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 
+# Calculate css.
+cd dev
+make
+cd ..
+
 # Build the project.
 hugo
 

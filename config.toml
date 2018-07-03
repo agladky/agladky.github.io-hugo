@@ -15,17 +15,37 @@ paginate = 10
 
 [languages]
   [languages.ru]
-    title = "Блог Анатолия Гладкого"
+    title = "Анатолий Гладкий"
     [languages.ru.author]
       name = "Анатолий Гладкий"
     [languages.ru.params]
       description = "Блог Анатолия Гладкого" # Дописать описание о себе !!!
+    [[languages.ru.menu.main]]
+      identifier = "blog"
+      name = "Блог"
+      weight = 10
+      url = "/blog/"
+    [[languages.ru.menu.main]]
+      identifier = "books"
+      name = "Книги"
+      weight = 20
+      url = "/books/"
   [languages.en]
-    title = "Anatoly Gladky Blog"
+    title = "Anatoly Gladky"
     [languages.en.author]
       name = "Anatoly Gladky"
     [languages.en.params]
       description = "Anatoly Gladky Blog"
+    [[languages.en.menu.main]]
+      identifier = "blog"
+      name = "Blog"
+      weight = 10
+      url = "/blog/"
+    [[languages.en.menu.main]]
+      identifier = "books"
+      name = "Books"
+      weight = 20
+      url = "/books/"
 
 [taxonomies]
   tag = "tags"
@@ -35,31 +55,8 @@ paginate = 10
   fixed = ":title/"
   blog = "blog/:filename/"
 
-[Params]
-  isMainMenuEnabled = false
-
-  # Заголовок статьи неправильно отображается в браузере!
-  # Сравнивать страницы, остался header !
-  # Перевести css на bem
-  # i18n_flags = false  # whether to display small country flags for available translations
-  # latestpostscount = 5
-  # Проверить отображение постов в твитере
-
-[[menu.main]]
-  name = "Блог"
-  pre = "<i class='fa fa-heart'></i>"
-  weight = -110
-  identifier = "blog"
-  url = "/blog/"
-[[menu.main]]
-  name = "Контакты"
-  pre = "<i class='fa fa-road'></i>"
-  weight = -100
-  identifier = "about"
-  url = "/about/"
-[[menu.main]]
-  name = "Код"
-  pre = "<i class='fa fa-road'></i>"
-  weight = -90
-  identifier = "code"
-  url = "/code/"
+# Заголовок блога — Blog, это неправильно
+# Перевести css на bem
+# i18n_flags = false  # whether to display small country flags for available translations
+# latestpostscount = 5
+# Проверить отображение постов в твитере

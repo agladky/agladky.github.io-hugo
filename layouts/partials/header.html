@@ -8,6 +8,7 @@
 <section class="header">
   <div class="container">
     <div class="content">
+      <a {{ printf "href=%q" ("/" | relLangURL) | safeHTMLAttr }}><img class="avatar" src="/img/avatar.jpg"></a>
       {{ if or (.IsHome) (eq .Title "Blog" ) }}
         <span class="name">{{ .Site.Title }}</span>
       {{ else }}
@@ -16,24 +17,22 @@
         </a>
       {{ end }}
 
-      {{ if .Site.Params.isMainMenuEnabled }}
-        <nav>
-          {{ $currentNode := . }}
-          {{ range .Site.Menus.main }}
-            {{ if ($currentNode.IsMenuCurrent "main" .) }}
+      <nav>
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main }}
+          {{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
+            <span class="menu-item-selected">{{ .Name }}</span>
+          {{ else if eq $currentPage.Section .Identifier }}
+            <a href="{{ .URL }}">
               <span class="menu-item-selected">{{ .Name }}</span>
-            {{ else if ($currentNode.HasMenuCurrent "main" .) }}
-              <a href="{{ .URL }}" class="menu-item-selected">
-                <span>{{ .Name }}</span>
-              </a>
-            {{ else }}
-              <a href="{{ .URL }}">
-                <span>{{ .Name }}</span>
-              </a>
-            {{ end }}
+            </a>
+          {{ else }}
+            <a href="{{ .URL }}">
+              <span>{{ .Name }}</span>
+            </a>
           {{ end }}
-        </nav>
-      {{ end }}
+        {{ end }}
+      </nav>
     </div>
   </div>
 </section>

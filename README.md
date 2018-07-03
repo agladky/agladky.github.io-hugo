@@ -17,9 +17,14 @@
   hugo server --theme=agladky_theme --verbose
   ```
 
-Команда запуска процесса для преобразования less в css
+Установка необходимых зависимостей
   ```sh
-  node ./themes/agladky_theme/dev/less-watcher.js .
+  npm install -g postcss-cli autoprefixer sass
+  ```
+
+Команда запуска процесса для преобразования scss в css
+  ```sh
+  sass --watch dev/scss:static/css
   ```
 
 Деплой
