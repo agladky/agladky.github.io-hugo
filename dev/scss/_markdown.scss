@@ -1,4 +1,4 @@
-section.main .content {
+main .content {
   .markdown {
     margin-bottom: 1rem;
 
@@ -76,7 +76,7 @@ section.main .content {
     }
 
     a code {
-      color: $accent !important;
+      color: $link-color !important;
       &:hover {
         text-decoration: underline;
       }
@@ -208,4 +208,4 @@ section.main .content {
     }
 
   } // end .markdown
-} // end section.main .content
+} // end main .content

@@ -25,11 +25,6 @@ paginate = 10
       name = "Блог"
       weight = 10
       url = "/blog/"
-    [[languages.ru.menu.main]]
-      identifier = "books"
-      name = "Книги"
-      weight = 20
-      url = "/books/"
   [languages.en]
     title = "Anatoly Gladky"
     [languages.en.author]
@@ -41,11 +36,6 @@ paginate = 10
       name = "Blog"
       weight = 10
       url = "/blog/"
-    [[languages.en.menu.main]]
-      identifier = "books"
-      name = "Books"
-      weight = 20
-      url = "/books/"
 
 [taxonomies]
   tag = "tags"
@@ -53,10 +43,10 @@ paginate = 10
 
 [permalinks]
   fixed = ":title/"
-  blog = "blog/:filename/"
+  blog = "blog/:slug/"
 
-# Заголовок блога — Blog, это неправильно
 # Перевести css на bem
+# Сделать margin-top для footer
 # i18n_flags = false  # whether to display small country flags for available translations
 # latestpostscount = 5
 # Проверить отображение постов в твитере

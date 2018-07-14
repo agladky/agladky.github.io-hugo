@@ -20,34 +20,34 @@ Zsh не такая уж и новая оболочка, первая вер�
 ### Автодополнение для cd
 Наберем в баш `cd` и нажмем таб.
 
-![bash cd tab first](https://lh3.googleusercontent.com/-8iOm_Ix2cxE/VlawDdhnxPI/AAAAAAAAAjo/fybejZjCiJs/s640-Ic42/Screenshot%2525202015-11-23%25252009.44.27.png)
+{{% imgres src="images/bash-cd-tab-first" alt="bash cd tab first" /%}}
 
 Еще раз.
 
-![bash cd tab second](https://lh3.googleusercontent.com/-9EtosbNV72U/VlawDQ65VCI/AAAAAAAAAkE/hQ1XsEusWbA/s640-Ic42/Screenshot%2525202015-11-23%25252009.44.47.png)
+{{% imgres src="images/bash-cd-tab-second" alt="bash cd tab second" /%}}
 
 Каждый раз будет выводиться только список файлов в текущей директории. Так продолжится пока не ввести первые буквы искомого файла, тогда отобразиться отфильтрованный список. И только если введенные данные позволяют точно определить значение, то подставится полное имя файла или папки.
 
 Теперь наберем `cd` в zsh и нажмем таб.
 
-![zsh cd tab first](https://lh3.googleusercontent.com/-BSBLwCuwbGw/VlawDaG8oEI/AAAAAAAAAjw/dB7bM5n6iqg/s640-Ic42/Screenshot%2525202015-11-23%25252009.46.15.png)
+{{% imgres src="images/zsh-cd-tab-first" alt="zsh cd tab first" /%}}
 
 В строку ввода подставилось первое значение из списка. Нажимаем таб еще раз.
 
-![zsh cd tab second](https://lh3.googleusercontent.com/-Dc119BYH764/VlawD4ymcII/AAAAAAAAAkI/V7EzDl0DuJA/s640-Ic42/Screenshot%2525202015-11-23%25252009.47.34.png)
+{{% imgres src="images/zsh-cd-tab-second" alt="zsh cd tab second" /%}}
 
 Подставилось второе значение из списка! Удобно.
 
 ### Автодополнение для команд на примере git
 Введем в баш `git` и нажмем таб.
 
-![bash git tab](https://lh3.googleusercontent.com/-2XI7N9lTfA4/VlawD66cYSI/AAAAAAAAAj4/3Pi57w0iQbA/s640-Ic42/Screenshot%2525202015-11-26%25252009.32.26.png)
+{{% imgres src="images/bash-git-tab" alt="bash git tab" /%}}
 
 Никакой помощи не появилось. Только отображаются файлы данной директории.
 
 Проделаем ту же операцию в zsh.
 
-![zsh git tab](https://lh3.googleusercontent.com/-8dn01qWVJd4/VlawEI4aHTI/AAAAAAAAAjk/i2wF_bGGo7c/s640-Ic42/Screenshot%2525202015-11-26%25252009.33.24.png)
+{{% imgres src="images/zsh-git-tab" alt="zsh git tab" /%}}
 
 Отобразился список команд с описанием. Это гораздо информативнее.
 
@@ -59,32 +59,32 @@ Zsh не такая уж и новая оболочка, первая вер�
 ### Раскрытие полного пути
 Zsh поддерживает раскрытие полного пути на основе неполных данных. Введем шаблон пути:
 
-![zsh path expansion first](https://lh3.googleusercontent.com/-JkUKjONlTM0/VlawEFd1zdI/AAAAAAAAAkM/cU-dPKShFg8/s640-Ic42/Screenshot%2525202015-11-26%25252009.59.58.png)
+{{% imgres src="images/zsh-path-expansion-first" alt="zsh path expansion first" /%}}
 
 Нажмем tab.
 
-![zsh path expansion second](https://lh3.googleusercontent.com/-dA_uysuc3-s/VlawEcceJZI/AAAAAAAAAkA/naoYDI9fJQc/s640-Ic42/Screenshot%2525202015-11-26%25252010.00.08.png)
+{{% imgres src="images/zsh-path-expansion-second" alt="zsh path expansion second" /%}}
 
 Путь до директории полностью раскрылся. Не пришлось вводить лишних символов.
 
 Но что, если заданному пути соответствует несколько путей? Введем `cd u/l/g` и нажмем таб.
 
-![zsh path expansion third](https://lh3.googleusercontent.com/-RXcaxKd0UZc/VlawEQAE_II/AAAAAAAAAkQ/nePq8mG_mJc/s640-Ic42/Screenshot%2525202015-11-26%25252010.00.31.png)
+{{% imgres src="images/zsh-path-expansion-third" alt="zsh path expansion third" /%}}
 
 Путь раскрылся до возникновения неопределенности. Нажимаем таб еще раз, и перед нами предстанет выбор папки.
 
-![zsh path expansion third](https://lh3.googleusercontent.com/-YvpzsGE9ZiU/VlawEt6KbRI/AAAAAAAAAjs/8J7ogcuB5YU/s640-Ic42/Screenshot%2525202015-11-26%25252010.00.46.png)
+{{% imgres src="images/zsh-path-expansion-fourth" alt="zsh path expansion fourth" /%}}
 
 Выбираем табом нужную папку. Последующее нажатие таба раскроет задуманный путь до конца.
 
 ### Замена пути
 Zsh поддерживает замену части пути. Рассмотрим на примере. Введем `cd /usr/local/bin`. Но подождите, я хотел `cd /usr/local/share`! Не проблема, вводим команду `cd bin share` и получаем заветный путь:
 
-![zsh path replacement first](https://lh3.googleusercontent.com/-P_Kx_CFBWx4/VlawEm_jwkI/AAAAAAAAAj8/F1bj2sVrwgk/s640-Ic42/Screenshot%2525202015-11-26%25252010.02.49.png)
+{{% imgres src="images/zsh-path-replacement-first" alt="zsh path replacement first" /%}}
 
 Возможно, это не самый убедительный пример. Того же эффекта можно достичь просто написав `cd ../share`. Но рассмотрим следующий случай:
 
-![zsh path replacement second](https://lh3.googleusercontent.com/-_eKSxUA5xWc/VlawE9que7I/AAAAAAAAAkU/SuGQ0fm9awE/s640-Ic42/Screenshot%2525202015-11-26%25252010.05.16.png)
+{{% imgres src="images/zsh-path-replacement-second" alt="zsh path replacement second" /%}}
 
 B баш тут бы пришлось изрядно постараться (`cd ../../../`).
 
@@ -120,14 +120,14 @@ $ index.html
 ### Правая строка
 Zsh позволяет настроить правую строку приглашения. Туда можно выводить текущую дату, состояние ветки в git и многое другое. Иллюстрация из [книги Pro Git](https://git-scm.com/book/tr/v2/Git-in-Other-Environments-Git-in-Zsh):
 
-![zsh right prompt example](https://lh3.googleusercontent.com/-m6u_sxiII2k/VlbDByw8w2I/AAAAAAAAAkw/E1PlhRAqQw0/s640-Ic42/zsh-prompt.png)
+{{% imgres src="images/zsh-right-prompt-example" alt="zsh right prompt example" /%}}
 
 ### Поиск в истории по подстроке
 Одна из самых кайфовых вещей, которую позволяет делать zsh. (Включается плагином, history-substring-search в oh-my-zsh, о котором ниже).
 
 Например, вводим `git pu` и нажимаем стрелку вверх.
 
-![zsh-history-substring-search](https://lh3.googleusercontent.com/-JcZi_xvm-gM/VlawE0ZiSVI/AAAAAAAAAj0/igudlxn0iDQ/s640-Ic42/Screenshot%2525202015-11-26%25252010.06.25.png)
+{{% imgres src="images/zsh-history-substring-search" alt="zsh history substring search" /%}}
 
 Получили последний запрос, который соответствует введенному шаблону. Дальнейшие нажатия будут выводить следующий результат. Удобно, что для поиска совершаются минимальные действия.
 
@@ -146,7 +146,7 @@ Zsh позволяет настроить правую строку пригла
 
 Вид популярной темы для zsh:
 
-![](https://cloud.githubusercontent.com/assets/2618447/6316862/70f58fb6-ba03-11e4-82c9-c083bf9a6574.png)
+{{% imgres src="images/popular-zsh-theme" alt="popular zsh theme" /%}}
 
 ### Заключение
 Я не сомневаюсь, что многое из написанного можно достигнуть с помощью различных плагинов и скриптов для баша. Но зачем если есть хорошее решение «из коробки». Которое работает, и работает очень хорошо.

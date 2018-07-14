@@ -1,11 +1,6 @@
-{{ partial "header.html" . }}
-
-<section class="main">
-  <div class="container">
-    <div class="content">
-      {{ partial "blog/article-list.html" . }}
-    </div>
+{{ define "main" }}
+  <div class="markdown">
+    {{ .Content }}
   </div>
-</section>
-
-{{ partial "footer.html" . }}
+  <div id="temp" style="margin-bottom: 3rem;"></div>
+{{ end }}

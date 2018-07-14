@@ -1,0 +1,26 @@
+{{ range .Paginator.Pages }}
+  <article>
+    <header class="title-container">
+      <a href="{{- .Permalink -}}"><span class="page-heading">{{- default .Title .Params.heading -}}</span></a>
+    </header>
+
+    <div class="markdown">
+      {{ .Content }}
+    </div>
+
+    <footer>
+      {{ partial "article-meta.html" . }}
+    </footer>
+  </article>
+{{ end }}
+
+{{ if gt .Paginator.TotalPages 1 }}
+  <nav>
+    {{ if .Paginator.HasPrev }}
+      <a href="{{ .Paginator.Prev.URL }}">← {{ i18n "earlierPages" }}</a>  
+    {{ end }}
+    {{ if .Paginator.HasNext }}
+      <a href="{{ .Paginator.Next.URL }}">{{ i18n "laterPages" }} →</a>
+    {{ end }}
+  </nav>
+{{ end }}

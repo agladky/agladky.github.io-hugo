@@ -65,11 +65,11 @@ null == undefined   // true
 
 Для оператора `==` (или `!=`):
 
-![](https://lh3.googleusercontent.com/-RCcoFw_NFT4/VrAxefBPSiI/AAAAAAAAAlk/-Ml2va5hHdg/s640-Ic42/Screenshot%2525202016-02-02%25252007.23.08.png)
+{{% imgres src="images/two-equals" alt="Таблица сравнения значений для оператора ==" /%}}
 
 Для оператора `===` (или `!==`):
 
-![](https://lh3.googleusercontent.com/-37_7dZNdH8g/VrAxeSUggfI/AAAAAAAAAlo/-dgAJViJLnQ/s640-Ic42/Screenshot%2525202016-02-02%25252007.23.34.png)
+{{% imgres src="images/three-equals" alt="Таблица сравнения значений для оператора ==" /%}}
 
 Из таблиц следует вывод, что поведение `==` не очевидно и может только запутать. Используя `===` можно быть уверенным в возвращаемом значении.
 

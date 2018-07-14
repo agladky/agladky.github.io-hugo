@@ -1,11 +1,7 @@
-{{ partial "header.html" . }}
-<section class="main">
-  <div class="container f04">
-    <div class="content">
-      <div class="num">404</div>
-      <div class="detail">{{ i18n "sorry404" }}</div>
-      <div class="suggestion"><a href="/">{{ i18n "visitHome" }}</a></div>
-    </div>
+{{ define "main" }}
+  <div class="container-404">
+    <div class="num">404</div>
+    <div class="detail">{{ i18n "sorry404" }}</div>
+    <div class="suggestion"><a href="/">{{ i18n "visitHome" }}</a></div>
   </div>
-</section>
-{{ partial "footer.html" . }}
+{{ end }}

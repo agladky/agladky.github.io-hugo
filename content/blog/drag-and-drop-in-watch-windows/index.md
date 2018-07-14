@@ -15,10 +15,10 @@ aliases = [
 
 Маленькая хитрость, которую я открыл совсем недавно. Для добавления переменной в окно Watch, необязательно вводить туда значение или копировать и вставлять из редактора. Просто перетащите её:
 
-![](https://dailydotnettips.com/wp-content/uploads/2016/02/CopyWatch.gif)
+{{% imgres src="images/CopyWatch.gif" alt="Перетаскивание переменной в окно watch" /%}}
 
 Второе окно Watch 2 обрело для меня смысл и, главное, легкость в использовании:
 
-![](https://dailydotnettips.com/wp-content/uploads/2016/02/CopyWatch2w.gif)
+{{% imgres src="images/CopyWatch2w" alt="Перетаскивание переменной в окно watch 2" /%}}
 
 Сайт с полезными советами для .Net разработчиков — [dailydotnettips.com](http://dailydotnettips.com/).

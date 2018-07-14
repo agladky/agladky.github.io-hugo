@@ -1,12 +1,7 @@
 +++
-date = "2017-01-13T18:31:46+03:00"
-title = "Обо мне"
-tags = ["я"]
-categories = ["Development"]
-draft = false
+title = "Анатолий Гладкий"
 description = "Обо мне"
 keywords = "разработка, резюме, соцсети, я"
-slug = "about-me"
 +++
 
 <div>

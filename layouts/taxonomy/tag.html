@@ -1,15 +1,5 @@
-{{ partial "header.html" . }}
-
-<section class="main">
-  <div class="container">
-    <div class="content">
-      <span class="sub-section-heading">{{ i18n "tagsPageHeading" }}</span>
-      <div class="section-heading">{{ .Title }}</div>
-      <div class="content">
-        {{ partial "blog/article-list.html" . }}
-      </div>
-    </div>
-  </div>
-</section>
-
-{{ partial "footer.html" . }}
+{{ define "main" }}
+  <span class="sub-section-heading">{{ i18n "tagsPageHeading" }}</span>
+  <div class="section-heading">{{ .Title }}</div>
+  {{ partial "article-list.html" . }}
+{{ end }}

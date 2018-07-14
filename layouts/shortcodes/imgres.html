@@ -1,0 +1,19 @@
+<!-- image -->
+{{ $original := .Page.Resources.GetMatch (printf "*%s*" (.Get "src")) }}
+{{ if gt $original.Width 1000 }}
+    {{ .Scratch.Set "image" ($original.Resize "1000x q100") }}
+{{ else }}
+    {{ .Scratch.Set "image" ($original) }}
+{{ end }}
+{{ $image := .Scratch.Get "image" }}
+<figure>
+	<img src="{{ $image.RelPermalink }}" alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}">
+	<figcaption style="font-size: 0.8rem">
+        {{ with .Get "caption"}}
+            {{.}}
+        {{ else }}
+            {{ with .Inner }}{{ . }}{{ end }}
+        {{ end }}
+	</figcaption>
+</figure>
+<!-- image -->
