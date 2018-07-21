@@ -1,9 +1,9 @@
 {{ define "main" }}
-  <span class="page-heading">{{ default .Title .Params.heading }}</span>
+  <span class="article-head">{{ default .Title .Params.heading }}</span>
 
-  <div class="markdown">
-    {{ .Content }}
-  </div>
+  {{ with .Content}}
+    <div class="article-content markdown--blackfriday">{{- . -}}</div>
+  {{ end }}
 
   {{ with .Data.Pages }}
     <nav class="section-items">

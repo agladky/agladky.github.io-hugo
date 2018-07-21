@@ -1,14 +1,16 @@
 {{ range .Paginator.Pages }}
-  <article>
-    <header class="title-container">
-      <a href="{{- .Permalink -}}"><span class="page-heading">{{- default .Title .Params.heading -}}</span></a>
+  <article class="article-layout">
+    <header class="article-head__wrapper">
+      <div class="article-head">
+        <a class="article-head__link" href="{{- .Permalink -}}">{{ default .Title .Params.heading }}</a>
+      </div>
     </header>
 
-    <div class="markdown">
+    <div class="article-content markdown--blackfriday">
       {{ .Content }}
     </div>
 
-    <footer>
+    <footer class="article-footer__wrapper">
       {{ partial "article-meta.html" . }}
     </footer>
   </article>

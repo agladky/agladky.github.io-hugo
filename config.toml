@@ -44,9 +44,3 @@ paginate = 10
 [permalinks]
   fixed = ":title/"
   blog = "blog/:slug/"
-
-# Перевести css на bem
-# Сделать margin-top для footer
-# i18n_flags = false  # whether to display small country flags for available translations
-# latestpostscount = 5
-# Проверить отображение постов в твитере

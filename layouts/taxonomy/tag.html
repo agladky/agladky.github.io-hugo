@@ -1,5 +1,8 @@
 {{ define "main" }}
-  <span class="sub-section-heading">{{ i18n "tagsPageHeading" }}</span>
-  <div class="section-heading">{{ .Title }}</div>
+  <header class="section-head__wrapper">
+    <div class="section-head__subhead-top">{{ i18n "tagsPageHeading" }}</div>
+    <div class="section-head">{{ .Title }}</div>
+  </header>
+
   {{ partial "article-list.html" . }}
 {{ end }}

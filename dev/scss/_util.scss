@@ -2,7 +2,6 @@
   font-size: $font-size;
   font-family: $heading-font-stack;
   letter-spacing: -0.005rem;
-  text-transform: none;
   font-weight: 700;
   line-height: normal;
   color: $black-content;
@@ -10,34 +9,17 @@
   -webkit-font-smoothing: antialiased;
 }
 
-@mixin meta() {
-  font-size: 12px;
-}
-
-@mixin inherit-hover-color() {
-  transition-duration: $transition-speed-1;
-  transition-property: border-bottom, border-color, background, color, fill;
-  transition-timing-function: $in-sine;
-
-  &:hover {
-    color: inherit;
-    transition: none;
+@mixin set-link-color($link-color, $visited-color, $hover-color) {
+  &:link {
+    color: $link-color;
+    border-bottom-color: rgba($link-color, 0.2);
   }
-}
-
-@mixin set-link-color($link-color) {
-  color: $link-color;
-  border-bottom-color: rgba($link-color, 0.2);
-}
-
-@mixin link-black-underline() {
-  a {
-    &:link, &:visited {
-      border-bottom-color: rgba($black-content, 0.2);
-    }
-
-    &:hover {
-      border-bottom-color: rgba($link-hover, 0.2);
-    }
+  &:visited {
+    color: $visited-color;
+    border-bottom-color: rgba($visited-color, 0.2);
+  }
+  &:hover {
+    color: $hover-color;
+    border-bottom-color: rgba($hover-color, 0.2);
   }
 }

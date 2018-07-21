@@ -1,0 +1,197 @@
+.markdown--blackfriday {
+  //
+  // Heading
+  //
+
+  h1 {
+    @include heading(1.75rem);
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    @include heading(1.25rem);
+  }
+
+  h3 {
+    @include heading(1.25rem);
+  }
+
+  h4, h5, h6 {
+    @include heading(1rem);
+    letter-spacing: normal;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 1.5rem;
+  }
+
+  h3 + h4 {
+    margin-top: 0.5rem;
+  }
+
+  //
+  // Code
+  //
+
+  code,
+  pre {
+    font-family: $monospace-font-stack;
+    font-size: 0.93rem;
+    background-color: $background-gray;
+  }
+
+  code {
+    padding: .1em .3em;
+    border-radius: 2px;
+    word-wrap: break-word;
+  }
+
+  pre {
+    display: block;
+    margin-bottom: 0.7em;
+    padding: .6em 1em;
+    line-height: 1.5em;
+    white-space: pre;
+    overflow-x: auto;
+  }
+
+  pre code {
+    padding: 0;
+    display: inline-block;
+    min-width: 100%;
+    word-wrap: normal;
+  }
+
+  a code {
+    color: $link-color !important;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  //
+  // Body text
+  //
+
+
+  p {
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 0.7em;
+  }
+
+  //
+  // Lists
+  //
+
+  ul, ol, dl {
+    margin-bottom: 0.7em;
+    padding-left: 2.5rem;
+  }
+
+  p + ul, p + ol {
+    margin-top: -0.7em;
+  }
+
+  ul + pre, ol + pre {
+    margin-left: 2.5rem;
+  }
+
+  dt {
+    font-weight: bold;
+  }
+
+  dd {
+    margin-bottom: .5rem;
+  }
+
+  ul {
+    list-style-position: outside;
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-position: outside;
+    list-style-type: decimal;
+  }
+
+  // Miscenllaneous
+
+  em {
+    font-style: italic;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  hr {
+    position: relative;
+    margin: 1.75rem 0;
+    border: 0;
+    border-top: 1px solid lighten($gray, 10%);
+    border-top: 1px solid lighten($gray, 20%);
+  }
+
+  abbr {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: lighten($black, 20%);
+    text-transform: uppercase;
+  }
+
+  abbr[title] {
+    cursor: help;
+    border-bottom: 1px dotted lighten($gray, 10%);
+  }
+
+
+  // Quotes
+
+  blockquote {
+    padding: .5rem 1rem;
+    margin: .8rem 0;
+    color: #7a7a7a;
+    border-left: .25rem solid #e5e5e5;
+  }
+
+  blockquote p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 550px) {
+    blockquote {
+      padding-right: 5rem;
+      padding-left: 1.25rem;
+    }
+  }
+
+  // Images and tables
+
+  img {
+    max-width: 100%;
+  }
+
+  figure {
+    margin-bottom: 1.26rem;
+  }
+
+  table {
+    margin-bottom: 1rem;
+    width: 100%;
+    border: 1px solid #e5e5e5;
+    border-collapse: collapse;
+  }
+
+  td,
+  th {
+    padding: .25rem .5rem;
+    border: 1px solid #e5e5e5;
+  }
+
+  tbody tr:nth-child(odd) td,
+  tbody tr:nth-child(odd) th {
+    background-color: $background-gray;
+  }
+
+}

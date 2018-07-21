@@ -9,11 +9,11 @@
 <figure>
 	<img src="{{ $image.RelPermalink }}" alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}">
 	<figcaption style="font-size: 0.8rem">
-        {{ with .Get "caption"}}
+        {{- with .Get "caption"}}
             {{.}}
-        {{ else }}
-            {{ with .Inner }}{{ . }}{{ end }}
-        {{ end }}
+        {{- else }}
+            {{- with .Inner }}{{ . }}{{ end }}
+        {{- end -}}
 	</figcaption>
 </figure>
 <!-- image -->

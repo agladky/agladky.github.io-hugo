@@ -1,6 +1,4 @@
 $base-font-size: 16px;
-$vspacing: $base-font-size*2;
-
 $wide-1-breakpoint: 600px;
 
 $monospace-font-stack: 'Ubuntu Mono', 'Menlo', monospace;
@@ -22,4 +20,4 @@ $in-sine: cubic-bezier(0,0,0.58,1);
 
 @import 'util';
 @import 'site';
-@import 'markdown';
+@import 'markdown--blackfriday';

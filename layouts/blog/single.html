@@ -1,40 +1,39 @@
 {{ define "main" }}
-  <article>
-    <header class="title-container">
-      <span class="page-heading">{{ default .Title .Params.heading }}</span>
+  <article class="article-layout">
+    <header class="article-head__wrapper">
+      <span class="article-head">{{ default .Title .Params.heading }}</span>
     </header>
 
-    <div class="markdown">
+    <div class="article-content markdown--blackfriday">
       {{ .Content }}
     </div>
 
-    <div class="likely article__likely">
-      <div class="twitter">{{ i18n "twitterButton" }}</div>
-      <div class="facebook">{{ i18n "facebookButton" }}</div>
-      <div class="gplus">{{ i18n "gplusButton" }}</div>
-      <div class="vkontakte">{{ i18n "vkontakteButton" }}</div>
-      <div class="telegram">{{ i18n "telegramButton" }}</div>
-    </div>
+    <footer class="article-footer__wrapper">
+      <div class="likely">
+        <div class="twitter">{{ i18n "twitterButton" }}</div>
+        <div class="facebook">{{ i18n "facebookButton" }}</div>
+        <div class="gplus">{{ i18n "gplusButton" }}</div>
+        <div class="vkontakte">{{ i18n "vkontakteButton" }}</div>
+        <div class="telegram">{{ i18n "telegramButton" }}</div>
+      </div>
 
-    <footer>
       {{ partial "article-meta.html" . }}
     </footer>
   </article>
 
   <div class="article-navigation">
     {{ if .Prev }}
-      <div class="article-prev-next">
-        <a href="{{ .Prev.Permalink }}">← {{ .Prev.Title }}</a>  
+      <div class="article-navigation__item {{ if .Next }}article-navigation__item--first{{ end }}">
+        <a href="{{ .Prev.Permalink }}">← {{ .Prev.Title }}</a>
       </div>
     {{ end }}
     {{ if .Next }}
-      <div class="article-prev-next">
+      <div class="article-navigation__item">
         <a href="{{ .Next.Permalink }}">{{ .Next.Title }} →</a>
       </div>
     {{ end }}
   </div>
 
-  <br />
   <div class="disqus">
     {{ template "_internal/disqus.html" . }}
   </div>

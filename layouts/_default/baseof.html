@@ -28,64 +28,61 @@
     {{- $t := now.Unix -}}
     <link rel="stylesheet" href="/css/reset.css?t={{$t}}">
     <link rel="stylesheet" href="/css/pygments.css?t={{$t}}">
-    <link rel="stylesheet" href="/css/main.css?t={{$t}}">
     <link rel="stylesheet" href="/css/likely.css?t={{$t}}">
+    <link rel="stylesheet" href="/css/main.css?t={{$t}}">
     
     <script async src="/js/likely.js"></script>
   </head>
 
   <body>
-    <header class="header-container">
-      <div class="container">
-        <div class="content">
-          <div class="site-header">
-            <a {{ printf "href=%q" ("/" | relLangURL) | safeHTMLAttr -}}><img class="avatar" src="/img/avatar.jpg"></a>
-            {{ if or (.IsHome) (eq .Title "Blog" ) }}
-              <span class="name">{{- .Site.Title -}}</span>
-            {{ else }}
-              <a href="/"><span class="name">{{- .Site.Title -}}</span></a>
-            {{ end }}
-          </div>
-
-          <nav>
-            {{ $currentPage := . }}
-            {{ range .Site.Menus.main }}
-              {{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
-                <span class="menu-item-selected">{{- .Name -}}</span>
-              {{ else if eq $currentPage.Section .Identifier }}
-                <a href="{{- .URL -}}">
-                  <span class="menu-item-selected">{{- .Name -}}</span>
-                </a>
-              {{ else }}
-                <a href="{{- .URL -}}">
-                  <span>{{- .Name -}}</span>
-                </a>
-              {{ end }}
-            {{ end }}
-          </nav>
+    <div class="page-container">
+      <header class="page-header section-skin">
+        <div>
+          <a {{ printf "href=%q" ("/" | relLangURL) | safeHTMLAttr -}}><img class="page-header__avatar" src="/img/avatar.jpg"></a>
+          
+          <span class="page-header__name">
+            {{- if not .IsHome -}} <a class="page-header__name-link" href="/"> {{ end }}
+            {{- .Site.Title -}}
+            {{- if not .IsHome -}} </a> {{- end -}}
+          </span>
         </div>
-      </div>
-    </header>
 
-    <main class="main">
-      <div class="container">
-        <div class="content">
+        <nav class="page-header__menu">
+          {{- $currentPage := . }}
+          {{- range $index, $menu := .Site.Menus.main }}
+            {{- if or ($currentPage.IsMenuCurrent "main" $menu) ($currentPage.HasMenuCurrent "main" $menu) }}
+              <span class="page-header__menu-item page-header__menu-item--selected {{ if eq $index 0 }}page-header__menu-item--first{{ end }}">
+                {{- $menu.Name -}}
+              </span>
+            {{- else }}
+              <span class="page-header__menu-item
+                  {{- if eq ($currentPage.Section) ($menu.Identifier) }} page-header__menu-item--selected{{ end }}
+                  {{- if eq $index 0 }} page-header__menu-item--first{{ end }}">
+                <a href="{{- $menu.URL -}}" class="page-header__menu-link">{{- $menu.Name -}}</a>
+              </span>
+            {{- end }}
+          {{- end }}
+          </nav>
+      </header>
+
+      <main class="main-layout__container section-skin">
+        <div class="main-layout__content">
             {{ block "main" . }}
               {{ .Content }}
             {{ end }}
         </div>
-      </div>
-    </main>
+      </main>
 
-    <footer class="footer-container">
-      <div class="container">
-        <div class="content">
-          <span>© {{ .Site.Author.name }}, {{ now.Year }} </span><a class="rss" href="{{- .Site.RSSLink -}}">РСС</a>
-          <br />
-          <span>{{- i18n "mail" . }}: <a class="" href="mailto:me@agladky.ru">me@agladky.ru</a></span>
+      <footer class="footer-layout__container section-skin">
+        <div>
+          <div>
+            <span>© {{ .Site.Author.name }}, {{ now.Year }}</span>
+            <a class="footer__rss" href="{{- .Site.RSSLink -}}">РСС</a>
+          </div>
+          <span>{{- i18n "mail" . }}: <a href="mailto:me@agladky.ru">me@agladky.ru</a></span>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
     
     {{ template "_internal/google_analytics_async.html" . }}
   </body>
