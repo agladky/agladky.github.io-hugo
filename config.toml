@@ -1,4 +1,3 @@
-baseurl = "https://agladky.ru/"
 languageCode = "ru-RU"
 defaultContentLanguage = "ru"
 buildDrafts = false
@@ -15,7 +14,9 @@ paginate = 10
 
 [languages]
   [languages.ru]
+    baseurl = "https://agladky.ru/"
     title = "Анатолий Гладкий"
+    weight = 1
     [languages.ru.author]
       name = "Анатолий Гладкий"
     [languages.ru.params]
@@ -26,7 +27,9 @@ paginate = 10
       weight = 10
       url = "/blog/"
   [languages.en]
+    baseurl = "https://agladky.com/"
     title = "Anatoly Gladky"
+    weight = 2
     [languages.en.author]
       name = "Anatoly Gladky"
     [languages.en.params]

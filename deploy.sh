@@ -1,6 +1,10 @@
 #!/bin/bash
 
 echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
+msg="rebuilding site `date`"
+if [ $# -eq 1 ]
+  then msg="$1"
+fi
 
 # Calculate css.
 cd dev
@@ -10,29 +14,20 @@ cd ..
 # Build the project.
 hugo
 
-# Go To Public folder
-cd public
-# Add changes to git.
+cd public/ru
 git add --all
-
-# Commit changes.
-msg="rebuilding site `date`"
-if [ $# -eq 1 ]
-  then msg="$1"
-fi
 git commit --message "$msg"
-
-# Push source and build repos.
 git push --force origin master
 
-# Come Back
 cd ..
 
-# Add changes to git.
+cd en
 git add --all
-
-# Commit changes.
 git commit --message "$msg"
+git push --force origin master
 
-# Push source and build repos.
+cd ../..
+
+git add --all
+git commit --message "$msg"
 git push --force origin master

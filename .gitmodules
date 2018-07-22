@@ -1,4 +1,8 @@
-[submodule "public"]
-	path = public
+[submodule "public/ru"]
+	path = public/ru
 	url = git@github.com:agladky/agladky.github.io.git
+	branch = master
+[submodule "public/en"]
+	path = public/en
+	url = git@github.com:agladky/agladky.com.git
 	branch = master
