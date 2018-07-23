@@ -1,11 +1,7 @@
 +++
 title = "Anatoly Gladky"
 description = "About me"
-keywords = "разработка, резюме, соцсети, я"
+keywords = "me, social, developer, development, cv"
 +++
 
-<div>
-<p>
-Test
-</p>
-</div>
+Сoming soon.

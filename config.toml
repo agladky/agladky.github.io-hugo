@@ -5,6 +5,7 @@ canonifyUrls = true  # Enable to turn relative URLs into absolute.
 contentDir = "content"
 layoutDir = "layouts"
 publishDir = "public"
+staticDir = "statics/base"
 googleAnalytics = "UA-75808442-1"
 disqusShortname = "agladky"
 pluralizeListTitles = false
@@ -17,6 +18,7 @@ paginate = 10
     baseurl = "https://agladky.ru/"
     title = "Анатолий Гладкий"
     weight = 1
+    staticDir2 = "statics/ru"
     [languages.ru.author]
       name = "Анатолий Гладкий"
     [languages.ru.params]
@@ -30,6 +32,7 @@ paginate = 10
     baseurl = "https://agladky.com/"
     title = "Anatoly Gladky"
     weight = 2
+    staticDir2 = "statics/en"
     [languages.en.author]
       name = "Anatoly Gladky"
     [languages.en.params]
