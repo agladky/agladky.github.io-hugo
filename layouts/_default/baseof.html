@@ -37,32 +37,49 @@
   <body>
     <div class="page-container">
       <header class="page-header section-skin">
-        <div>
-          <a {{ printf "href=%q" ("/" | relLangURL) | safeHTMLAttr -}}><img class="page-header__avatar" src="/img/avatar.jpg"></a>
-          
+
+        <div class="page-header__up">
+          <a class="page-header__avatar-link" {{ printf "href=%q" ("/" | relLangURL) | safeHTMLAttr -}}>
+            <img class="page-header__avatar" src="/img/avatar.jpg">
+          </a>
+
           <span class="page-header__name">
             {{- if not .IsHome -}} <a class="page-header__name-link" href="/"> {{ end }}
             {{- .Site.Title -}}
             {{- if not .IsHome -}} </a> {{- end -}}
           </span>
-        </div>
 
-        <nav class="page-header__menu">
-          {{- $currentPage := . }}
-          {{- range $index, $menu := .Site.Menus.main }}
-            {{- if or ($currentPage.IsMenuCurrent "main" $menu) ($currentPage.HasMenuCurrent "main" $menu) }}
-              <span class="page-header__menu-item page-header__menu-item--selected {{ if eq $index 0 }}page-header__menu-item--first{{ end }}">
-                {{- $menu.Name -}}
-              </span>
-            {{- else }}
-              <span class="page-header__menu-item
-                  {{- if eq ($currentPage.Section) ($menu.Identifier) }} page-header__menu-item--selected{{ end }}
-                  {{- if eq $index 0 }} page-header__menu-item--first{{ end }}">
-                <a href="{{- $menu.URL -}}" class="page-header__menu-link">{{- $menu.Name -}}</a>
-              </span>
+          <div class="page-header__lang">
+              {{ if .IsTranslated }}
+              <ul>
+                  {{ range .Translations }}
+                  <li>
+                    <a class="page-header__lang-link" href="{{ .Permalink }}">{{ .Lang }}</a>
+                  </li>
+                  {{ end}}
+              </ul>
+              {{ end }}
+            </div>
+        </div>
+        
+        <div class="page-header__bottom">
+          <nav class="page-header__menu">
+            {{- $currentPage := . }}
+            {{- range $index, $menu := .Site.Menus.main }}
+              {{- if or ($currentPage.IsMenuCurrent "main" $menu) ($currentPage.HasMenuCurrent "main" $menu) }}
+                <span class="page-header__menu-item page-header__menu-item--selected {{ if eq $index 0 }}page-header__menu-item--first{{ end }}">
+                  {{- $menu.Name -}}
+                </span>
+              {{- else }}
+                <span class="page-header__menu-item
+                    {{- if eq ($currentPage.Section) ($menu.Identifier) }} page-header__menu-item--selected{{ end }}
+                    {{- if eq $index 0 }} page-header__menu-item--first{{ end }}">
+                  <a href="{{- $menu.URL -}}" class="page-header__menu-link">{{- $menu.Name -}}</a>
+                </span>
+              {{- end }}
             {{- end }}
-          {{- end }}
           </nav>
+        </div>
       </header>
 
       <main class="main-layout__container section-skin">

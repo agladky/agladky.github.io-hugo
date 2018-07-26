@@ -22,7 +22,7 @@ paginate = 10
     [languages.ru.author]
       name = "Анатолий Гладкий"
     [languages.ru.params]
-      description = "Блог Анатолия Гладкого" # Дописать описание о себе !!!
+      description = "Блог Анатолия Гладкого"
     [[languages.ru.menu.main]]
       identifier = "blog"
       name = "Блог"
@@ -37,11 +37,6 @@ paginate = 10
       name = "Anatoly Gladky"
     [languages.en.params]
       description = "Anatoly Gladky Blog"
-    [[languages.en.menu.main]]
-      identifier = "blog"
-      name = "Blog"
-      weight = 10
-      url = "/blog/"
 
 [taxonomies]
   tag = "tags"

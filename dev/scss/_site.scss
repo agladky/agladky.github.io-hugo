@@ -71,6 +71,10 @@ a {
     max-width: 38px;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
   }
+  &__avatar-link {
+    border: none;
+    align-self: center;
+  }
   &__name {
     @include heading(30px);
     line-height: normal;
@@ -78,10 +82,24 @@ a {
   &__name-link {
     @include set-link-color($black-content, $black-content, $link-hover);
   }
+  &__up {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+  }
+  &__lang {
+    margin-left: auto;
+  }
+  &__lang-link {
+    @include set-link-color($link-tag, $link-tag, $link-hover);
+  }
   &__menu {
     font-size: 0.875rem;
     font-family: $heading-font-stack;
-    margin-top: 1em;
   }
   &__menu-item {
     display: inline-block;
@@ -188,7 +206,7 @@ a {
 
 .footer-layout {
   &__container {
-    margin-top: 2rem;
+    margin-top: 3rem;
     padding-bottom: 2.2rem;
     font-size: 0.875rem;
   }

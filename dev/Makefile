@@ -1,8 +1,8 @@
 .PHONY: css clean
 
 css: clean
-	sass --no-source-map scss/main.scss ../static/css/main.css
-	postcss --no-map ../static/css/*.css --use autoprefixer -d ../static/css/
+	sass --no-source-map scss/main.scss ../statics/base/css/main.css
+	postcss --no-map ../statics/base/css/*.css --use autoprefixer -d ../statics/base/css/
 
 clean:
-	rm -f ../static/css/main.css
+	rm -f ../statics/base/css/main.css
