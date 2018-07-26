@@ -3,10 +3,10 @@ title = "{{ replace .TranslationBaseName '-' ' ' | title }}"
 description = ""
 date = "{{ .Date }}"
 draft = true
-tags = ["draft"]
-categories = ["draft"]
+tags = []
+categories = []
 slug = ""
 
+favorite = false
 images = []
-news_keywords = []
 +++
