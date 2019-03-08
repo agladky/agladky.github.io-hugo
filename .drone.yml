@@ -16,16 +16,15 @@ steps:
     validate: true
 
 - name: deploy ru version
-  image: alpine
+  image: alpine/git
   commands:
   - cd public/ru
   - git add --all
   - git commit --message "Update"
   - git push --force origin master
 
-
 - name: deploy en version
-  image: alpine
+  image: alpine/git
   commands:
   - cd public/en
   - git add --all
