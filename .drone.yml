@@ -9,9 +9,8 @@ steps:
   - cd dev
   - make
 
-- name: build
+- name: build hugo
   image: plugins/hugo
   settings:
     hugo_version: 0.54
-    pull: always
     validate: true
