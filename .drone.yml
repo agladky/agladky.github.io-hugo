@@ -6,7 +6,7 @@ steps:
   image: node
   commands:
   - npm install -g sass
-  - npm install -g postcss
+  - npm install -g postcss-cli
   - cd dev
   - make
 
