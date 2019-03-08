@@ -12,4 +12,22 @@ steps:
 - name: build hugo
   image: plugins/hugo
   settings:
-    hugo_version: 0.54
+    hugo_version: 0.53
+    validate: true
+
+- name: deploy ru version
+  image: alpine
+  commands:
+  - cd public/ru
+  - git add --all
+  - git commit --message "Update"
+  - git push --force origin master
+
+
+- name: deploy en version
+  image: alpine
+  commands:
+  - cd public/en
+  - git add --all
+  - git commit --message "Update"
+  - git push --force origin master
