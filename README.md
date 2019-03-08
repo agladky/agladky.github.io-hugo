@@ -14,7 +14,7 @@
 ## Запуск и деплой
 Запуск сервера hugo для разработки
   ```sh
-  hugo server --theme=agladky_theme --verbose
+  hugo server -verbose
   ```
 
 Установка необходимых зависимостей

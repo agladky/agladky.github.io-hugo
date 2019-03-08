@@ -1,0 +1,18 @@
+kind: pipeline
+name: default
+
+steps:
+- name: build css
+  image: node
+  commands:
+  - npm install sass
+  - npm install postcss
+  - cd dev
+  - make
+
+- name: build
+  image: plugins/hugo
+  settings:
+    hugo_version: 0.54
+    pull: always
+    validate: true

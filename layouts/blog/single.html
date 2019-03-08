@@ -22,14 +22,14 @@
   </article>
 
   <div class="article-navigation">
-    {{ if .Prev }}
-      <div class="article-navigation__item {{ if .Next }}article-navigation__item--first{{ end }}">
-        <a href="{{ .Prev.Permalink }}">← {{ .Prev.Title }}</a>
+    {{ if .NextPage }}
+      <div class="article-navigation__item {{ if .PrevPage }}article-navigation__item--first{{ end }}">
+        <a href="{{ .NextPage.Permalink }}">← {{ .NextPage.Title }}</a>
       </div>
     {{ end }}
-    {{ if .Next }}
+    {{ if .PrevPage }}
       <div class="article-navigation__item">
-        <a href="{{ .Next.Permalink }}">{{ .Next.Title }} →</a>
+        <a href="{{ .PrevPage.Permalink }}">{{ .PrevPage.Title }} →</a>
       </div>
     {{ end }}
   </div>
