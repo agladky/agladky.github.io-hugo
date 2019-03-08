@@ -11,3 +11,5 @@ steps:
 
 - name: build hugo
   image: plugins/hugo
+  settings:
+    hugo_version: 0.53
