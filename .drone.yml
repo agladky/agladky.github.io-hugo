@@ -19,9 +19,6 @@ steps:
   # pull the git submodules
   - git submodule update --init
   - git submodule update --init --recursive
-  when:
-    branch:
-    - master
 
 - name: build css
   image: node
@@ -29,18 +26,12 @@ steps:
   - npm install -g sass postcss-cli autoprefixer
   - cd dev
   - make
-  when:
-    branch:
-    - master
 
 - name: build hugo
   image: plugins/hugo
   settings:
     hugo_version: 0.53
     validate: true
-  when:
-    branch:
-    - master
 
 - name: publish sites
   image: alpine/git
@@ -64,7 +55,6 @@ steps:
   - git config --global user.email "$GIT_EMAIL"
   - git config --global user.name "$GIT_NAME"
   - git remote set-url origin git@github.com:agladky/agladky.github.io-hugo.git
-  - git remote -v
   # commit ru version
   - cd public/ru
   - git add --all
@@ -80,6 +70,7 @@ steps:
   - git add --all
   - git commit --message "Update"
   - git push --force origin master
-  when:
-    branch:
-    - master
+
+trigger:
+  branch:
+  - master
