@@ -11,7 +11,7 @@ slug = "async-await-example"
 
 Это краткая выжимка из рабочего доклада по работе с async/await в C#. Для наглядности, параллельно рассматривается подход с использованием блока `ContinueWith`.
 
-### Основные паттерны асинхронного программирования
+### ОРррсновные паттерны асинхронного программирования
 - [Asynchronous Programming Model (APM)](https://msdn.microsoft.com/en-us/library/ms228963.aspx)
 - [Event Asynchronous Pattern (EAP)](https://msdn.microsoft.com/en-us/library/ms228969.aspx)
 - [Task Asynchronous Pattern (TAP)](https://msdn.microsoft.com/en-us/library/hh873175.aspx)
