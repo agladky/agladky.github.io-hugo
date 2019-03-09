@@ -51,8 +51,15 @@ steps:
 
 - name: publish ru version
   image: alpine/git
+  environment:
+    GIT_NAME:
+      from_secret: name
+    GIT_EMAIL:
+      from_secret: email
   commands:
   - cd public/ru
+  - git config user.email "$GIT_EMAIL"
+  - git config user.name "$GIT_NAME"
   - git add --all
   - git commit --message "Update"
   - git push --force origin master
@@ -62,8 +69,15 @@ steps:
 
 - name: publish en version
   image: alpine/git
+  environment:
+    GIT_NAME:
+      from_secret: name
+    GIT_EMAIL:
+      from_secret: email
   commands:
   - cd public/en
+  - git config user.email "$GIT_EMAIL"
+  - git config user.name "$GIT_NAME"
   - git add --all
   - git commit --message "Update"
   - git push --force origin master
