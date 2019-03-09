@@ -7,6 +7,10 @@ steps:
   environment:
     SSH_KEY:
       from_secret: github_ssh_key
+    GIT_NAME:
+      from_secret: name
+    GIT_EMAIL:
+      from_secret: email
   commands:
   # write the ssh key to disk
   - mkdir /root/.ssh
@@ -16,6 +20,9 @@ steps:
   - touch /root/.ssh/known_hosts
   - chmod 600 /root/.ssh/known_hosts
   - ssh-keyscan -H github.com > /etc/ssh/ssh_known_hosts 2> /dev/null
+  # git config
+  - git config user.email "$${GIT_EMAIL}"
+  - git config user.name "$${GIT_NAME}"
   # pull the git submodules
   - git submodule update --init
   - git submodule update --init --recursive
@@ -43,7 +50,7 @@ steps:
     - master
 
 - name: publish ru version
-  image: docker:git
+  image: alpine/git
   commands:
   - cd public/ru
   - git add --all
@@ -54,7 +61,7 @@ steps:
     - master
 
 - name: publish en version
-  image: docker:git
+  image: alpine/git
   commands:
   - cd public/en
   - git add --all
