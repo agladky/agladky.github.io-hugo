@@ -63,6 +63,8 @@ steps:
   # fill config
   - git config --global user.email "$GIT_EMAIL"
   - git config --global user.name "$GIT_NAME"
+  - git remote set-url origin git@github.com:agladky/agladky.github.io-hugo.git
+  - git remote -v
   # commit ru version
   - cd public/ru
   - git add --all
