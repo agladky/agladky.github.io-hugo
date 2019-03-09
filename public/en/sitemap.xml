@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://agladky.com/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://agladky.ru/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://agladky.com/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://agladky.com/categories/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://agladky.ru/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://agladky.com/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://agladky.com/tags/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://agladky.ru/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://agladky.com/tags/"
+                />
+  </url>
+  
+</urlset>

@@ -1,0 +1,2 @@
+Sitemap: https://www.agladky.ru/sitemap.xml
+User-agent: *

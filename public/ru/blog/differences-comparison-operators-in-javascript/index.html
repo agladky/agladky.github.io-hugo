@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="utf-8">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="Когда стоит использовать оператор ==, а когда ===. И почему лучше выбирать оператор ===.">
+    <meta name="author" content="Анатолий Гладкий">
+    <meta property="og:title" content="Различия операторов == и === в JavaScript" />
+<meta property="og:description" content="Когда стоит использовать оператор ==, а когда ===. И почему лучше выбирать оператор ===." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://agladky.ru/blog/differences-comparison-operators-in-javascript/" /><meta property="article:published_time" content="2016-02-02T13:10:07&#43;03:00"/>
+<meta property="article:modified_time" content="2016-02-02T13:10:07&#43;03:00"/><meta property="og:site_name" content="Анатолий Гладкий" />
+
+    
+  
+    <base href="https://agladky.ru/">
+    <title>Различия операторов == и === в JavaScript</title>
+    <link rel="canonical" href="https://agladky.ru/blog/differences-comparison-operators-in-javascript/">
+    <link rel="shortcut icon" href="https://agladky.ru/img/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i"><link rel="stylesheet" href="https://agladky.ru/css/reset.css?t=1552134871">
+    <link rel="stylesheet" href="https://agladky.ru/css/pygments.css?t=1552134871">
+    <link rel="stylesheet" href="https://agladky.ru/css/likely.css?t=1552134871">
+    <link rel="stylesheet" href="https://agladky.ru/css/main.css?t=1552134871">
+    
+    <script async src="https://agladky.ru/js/likely.js"></script>
+  </head>
+
+  <body>
+    <div class="page-container">
+      <header class="page-header section-skin">
+
+        <div class="page-header__up">
+          <a class="page-header__avatar-link" href="https://agladky.ru/">
+            <img class="page-header__avatar" src="https://agladky.ru/img/avatar.jpg">
+          </a>
+
+          <span class="page-header__name"><a class="page-header__name-link" href="https://agladky.ru/"> Анатолий Гладкий</a></span>
+
+          <div class="page-header__lang">
+              
+            </div>
+        </div>
+        
+        <div class="page-header__bottom">
+          <nav class="page-header__menu">
+                <span class="page-header__menu-item page-header__menu-item--selected page-header__menu-item--first">
+                  <a href="https://agladky.ru/blog/" class="page-header__menu-link">Блог</a>
+                </span>
+          </nav>
+        </div>
+      </header>
+
+      <main class="main-layout__container section-skin">
+        <div class="main-layout__content">
+            
+  <article class="article-layout">
+    <header class="article-head__wrapper">
+      <span class="article-head">Различия операторов == и === в JavaScript</span>
+    </header>
+
+    <div class="article-content markdown--blackfriday">
+      <p>Каждый раз я с опаской заменяю <code>==</code> на <code>===</code> — боюсь сломать логическое выражение. Ведь оператор равенства <code>==</code> реализует много неявной логики по сравнению значений, чем мог воспользоваться предыдущий разработчик.</p>
+
+<p>Операторы <code>==</code> и <code>===</code> проверяют значения на совпадение, используя различные определения совпадения. Оператор идентичности (identity) <code>===</code> проверяет операнды на «идентичность», руководствуясь строгим определением совпадения. Оператор равенства (equality) <code>==</code> проверяет по менее строгим правилам, допускающим преобразования типов.</p>
+
+<p>Оператор идентичности <code>===</code> вычисляет значения своих операндов, а затем сравнивает, без преобразования типов. Он руководствуется правилами:</p>
+
+<ul>
+<li>Если у значений разные типы — они не идентичны.</li>
+<li>Если оба значения или <code>null</code> или <code>undefined</code> — они идентичны.</li>
+<li>Если оба значения или <code>true</code> или <code>false</code> — они идентичны.</li>
+<li>Если одно или оба значения — <code>NaN</code> — они не идентичны. (Значение <code>NaN</code> никогда не идентично никакому значению, даже самому себе. Чтобы проверить значение <code>x</code> на <code>NaN</code>, используйте выражение <code>x !== x</code>. Только для <code>NaN</code> такая проверка вернет <code>true</code>).</li>
+<li>Если оба операнда это числа с одним и тем же значением — они идентичны. Если одно число равно <code>0</code>, а другое <code>-0</code>, они также идентичны.</li>
+<li>Если оба значения это строки и содержат одни и те же 16-битные значения в одинаковых позициях — они идентичны. Две строки могут иметь один и тот же смысл и одинаково выглядеть на экране, но содержать отличающиеся последовательности 16-битных значений. Интерпретатор JavaScript не выполняет нормализацию символов юникода, поэтому подобные пары строк не считаются операторами <code>===</code> и <code>==</code> ни равными, ни идентичными.</li>
+<li>Если оба значения ссылаются на один и тот же объект, массив или функцию — они идентичны. Если они ссылаются на различные объекты — они не идентичны, даже при идентичных свойствах.</li>
+</ul>
+
+<p>Оператор равенства <code>==</code> похож на оператор идентичности, но он использует менее строгие правила. Если у значений разные типы — они преобразуются и сравниваются:</p>
+
+<ul>
+<li>Если у значений одинаковый тип, они проверяются на идентичность, как описано выше.</li>
+<li>Если значения не относятся к одному типу, оператор <code>==</code> считает их равными, при следующих правилах:
+
+<ul>
+<li>Если одно значение <code>null</code>, а другое <code>undefined</code> — они равны.</li>
+<li>Если одно значение число, а другое строка, то строка преобразуется в число и выполняется сравнение.</li>
+<li>Если одно значение — <code>true</code>, оно перед сравнением преобразуется в <code>1</code>. Если — <code>false</code>, оно преобразуется в <code>0</code> и сравнение выполняется снова.</li>
+<li>Если одно значение число или строка, а другое — объект, то перед сравнением объект преобразуется в простой тип. Встроенные классы преобразуются методом <code>valueOf()</code>, если не получилось, то <code>toString()</code>. Класс <code>Date</code> всегда выполняет преобразование <code>toString()</code>. Не базовые объекты джаваскрипта сами определяют способ преобразования в простые типы.</li>
+<li>Любые другие комбинации значений не равны.</li>
+</ul></li>
+</ul>
+
+<p>Правила преобразования типов и сравнения значений для оператора равенства <code>==</code> сложные и труднозапоминаемые. Интересные случаи:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="s1">&#39;&#39;</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span>           <span class="c1">// false
+</span><span class="c1"></span><span class="mi">0</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span>             <span class="c1">// true
+</span><span class="c1"></span><span class="mi">0</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span>            <span class="c1">// true
+</span><span class="c1"></span>
+<span class="kc">false</span> <span class="o">==</span> <span class="s1">&#39;false&#39;</span>    <span class="c1">// false
+</span><span class="c1"></span><span class="kc">false</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span>        <span class="c1">// true
+</span><span class="c1"></span>
+<span class="kc">false</span> <span class="o">==</span> <span class="kc">undefined</span>  <span class="c1">// false
+</span><span class="c1"></span><span class="kc">false</span> <span class="o">==</span> <span class="kc">null</span>       <span class="c1">// false
+</span><span class="c1"></span><span class="kc">null</span> <span class="o">==</span> <span class="kc">undefined</span>   <span class="c1">// true
+</span><span class="c1"></span>
+<span class="s1">&#39; \t\r\n &#39;</span> <span class="o">==</span> <span class="mi">0</span>     <span class="c1">// true
+</span><span class="c1"></span></code></pre></div>
+<p>Особый случай — сравнение литерал с объектом:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="s2">&#34;abc&#34;</span> <span class="o">==</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s2">&#34;abc&#34;</span><span class="p">)</span>    <span class="c1">// true
+</span><span class="c1"></span><span class="s2">&#34;abc&#34;</span> <span class="o">===</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s2">&#34;abc&#34;</span><span class="p">)</span>   <span class="c1">// false
+</span><span class="c1"></span></code></pre></div>
+<p>Здесь, оператор <code>==</code> проверяет значение объектов и возвращает <code>true</code>. Оператор <code>===</code> возвращает <code>false</code>, т.к. у объектов различные типы. Какое поведение корректно? Зависит от того, что сравнивать. Но лучше обойти вопрос, и не использовать конструктор для создания строковых объектов.</p>
+
+<p>В заключении — таблицы сравнения значений для операторов равенства и идентичности с сайта <a href="http://dorey.github.io/JavaScript-Equality-Table/">dorey.github.io</a>.</p>
+
+<p>Для оператора <code>==</code> (или <code>!=</code>):</p>
+
+
+
+
+    
+
+
+<figure>
+	<img src="https://agladky.ru/blog/differences-comparison-operators-in-javascript/images/two-equals_hu212cde2255db6676049ff5f07f39e775_88287_1000x0_resize_q100_box_2.png" alt="Таблица сравнения значений для оператора ==">
+	<figcaption style="font-size: 0.8rem"></figcaption>
+</figure>
+
+
+<p>Для оператора <code>===</code> (или <code>!==</code>):</p>
+
+
+
+
+    
+
+
+<figure>
+	<img src="https://agladky.ru/blog/differences-comparison-operators-in-javascript/images/three-equals_hu212cde2255db6676049ff5f07f39e775_85688_1000x0_resize_q100_box_2.png" alt="Таблица сравнения значений для оператора ==">
+	<figcaption style="font-size: 0.8rem"></figcaption>
+</figure>
+
+
+<p>Из таблиц следует вывод, что поведение <code>==</code> не очевидно и может только запутать. Используя <code>===</code> можно быть уверенным в возвращаемом значении.</p>
+
+<p>Интересная статья: <a href="http://www.2ality.com/2011/12/strict-equality-exemptions.html">When is it OK to use == in JavaScript?</a></p>
+
+    </div>
+
+    <footer class="article-footer__wrapper">
+      <div class="likely">
+        <div class="twitter">Твитнуть</div>
+        <div class="facebook">Поделиться</div>
+        <div class="gplus">Плюсануть</div>
+        <div class="vkontakte">Поделиться</div>
+        <div class="telegram">Отправить</div>
+      </div>
+
+      <div class="article-footer__meta">
+  <span title="2 февраля 2016, 13:10 &#43;0300">2016</span>
+    <div class="article-footer__meta-tags">
+        <a class="article-footer__meta-tag" href="tags/javascript">javascript</a>
+      </div>
+  </div>
+
+    </footer>
+  </article>
+
+  <div class="article-navigation">
+    
+      <div class="article-navigation__item article-navigation__item--first">
+        <a href="https://agladky.ru/blog/new-if-null-operator-csharp-6/">← Новый оператор ?. в C# 6</a>
+      </div>
+    
+    
+      <div class="article-navigation__item">
+        <a href="https://agladky.ru/blog/what-is-a-monad-on-csharp-example/">Что такое монады на примере C# →</a>
+      </div>
+    
+  </div>
+
+  <div class="disqus">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "agladky" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+        </div>
+      </main>
+
+      <footer class="footer-layout__container section-skin">
+        <div>
+          <div>
+            <span>© Анатолий Гладкий, 2019</span>
+            <a class="footer__rss" href="https://agladky.ru/index.xml">РСС</a>
+          </div>
+          <span>Эл. почта: <a href="mailto:me@agladky.ru">me@agladky.ru</a></span>
+        </div>
+      </footer>
+    </div>
+    
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-75808442-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  </body>
+</html>
+  
