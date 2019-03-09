@@ -6,16 +6,23 @@ if [ $# -eq 1 ]
   then msg="$1"
 fi
 
-# Calculate css.
+echo -e "\033[0;32mCalculate css...\033[0m"
 cd dev
 make
 cd ..
 
-# Build the project.
+echo -e "\033[0;32mPull sites...\033[0m"
+rm -rf public/
+mkdir public
+cd public
+git clone git@github.com:agladky/agladky.github.io.git
+git clone git@github.com:agladky/agladky.com.git
+
+echo -e "\033[0;32mBuild new version...\033[0m"
 hugo
 
 echo -e "\033[0;32mPush ru version...\033[0m"
-cd public/ru
+cd ru
 git add --all
 git commit --message "$msg"
 git push --force origin master
