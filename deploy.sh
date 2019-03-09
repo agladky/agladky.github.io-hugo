@@ -15,8 +15,8 @@ echo -e "\033[0;32mPull sites...\033[0m"
 rm -rf public/
 mkdir public
 cd public
-git clone git@github.com:agladky/agladky.github.io.git
-git clone git@github.com:agladky/agladky.com.git
+git clone git@github.com:agladky/agladky.github.io.git ru
+git clone git@github.com:agladky/agladky.com.git en
 
 echo -e "\033[0;32mBuild new version...\033[0m"
 hugo
