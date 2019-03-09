@@ -53,7 +53,6 @@ steps:
       from_secret: email
   commands:
   # write the ssh key to disk
-  - echo -n "$SSH_KEY"
   - mkdir /root/.ssh
   - echo -n "$SSH_KEY" > /root/.ssh/id_rsa
   - chmod 600 /root/.ssh/id_rsa
@@ -62,6 +61,8 @@ steps:
   - chmod 600 /root/.ssh/known_hosts
   - ssh-keyscan -H github.com > /etc/ssh/ssh_known_hosts 2> /dev/null
   # fill config
+  - echo "$GIT_EMAIL"
+  - echo "$GIT_NAME"
   - git config --global user.email "$GIT_EMAIL"
   - git config --global user.name "$GIT_NAME"
   # publish ru version
