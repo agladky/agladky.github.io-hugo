@@ -67,12 +67,17 @@ steps:
   - cd public/ru
   - git add --all
   - git commit --message "Update"
+  - git push --force origin master
   # commit en version
   - cd ../en
   - git add --all
   - git commit --message "Update"
-  # publish 
-  - git push --recurse-submodules=only origin master
+  - git push --force origin master
+  # publish
+  - cd ../..
+  - git add --all
+  - git commit --message "Update"
+  - git push --force origin master
   when:
     branch:
     - master
