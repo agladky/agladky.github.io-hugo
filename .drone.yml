@@ -2,23 +2,13 @@ kind: pipeline
 name: default
 
 steps:
-- name: submodules
+- name: pull sites
   image: alpine/git
-  environment:
-    SSH_KEY:
-      from_secret: github_ssh_key
   commands:
-  # write the ssh key to disk
-  - mkdir /root/.ssh
-  - echo -n "$SSH_KEY" > /root/.ssh/id_rsa
-  - chmod 600 /root/.ssh/id_rsa
-  # add github to known hosts
-  - touch /root/.ssh/known_hosts
-  - chmod 600 /root/.ssh/known_hosts
-  - ssh-keyscan -H github.com > /etc/ssh/ssh_known_hosts 2> /dev/null
-  # pull the git submodules
-  - git submodule update --init
-  - git submodule update --init --recursive
+  - mkdir public
+  - cd public
+  - git clone https://github.com/agladky/agladky.github.io.git ru
+  - git clone https://github.com/agladky/agladky.com.git en
 
 - name: build css
   image: node
@@ -54,22 +44,20 @@ steps:
   # fill config
   - git config --global user.email "$GIT_EMAIL"
   - git config --global user.name "$GIT_NAME"
-  - git remote set-url origin git@github.com:agladky/agladky.github.io-hugo.git
   # commit ru version
   - cd public/ru
+  - git remote set-url origin git@github.com:agladky/agladky.github.io.git
   - git add --all
   - git commit --message "Update"
   - git push --force origin master
-  # commit en version
-  - cd ../en
-  - git add --all
-  - git commit --message "Update"
-  - git push --force origin master
-  # publish
   - cd ../..
+  # commit en version
+  - cd public/en
+  - git remote set-url origin git@github.com:agladky/agladky.com.git
   - git add --all
   - git commit --message "Update"
   - git push --force origin master
+  - cd ../..
 
 trigger:
   branch:
