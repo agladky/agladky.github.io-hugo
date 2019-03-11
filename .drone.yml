@@ -17,6 +17,17 @@ steps:
   - cd dev
   - make
 
+- name: load book reviews
+  image: python:3.7-alpine3.9
+  environment:
+    GOODREADS_KEY:
+      from_secret: goodreads_key
+  commands:
+  - cd dev
+  - python --version
+  - python goodreads_reviews.py --key $GOODREADS_KEY
+  - mv book-reviews.json ../data 
+
 - name: build hugo
   image: plugins/hugo
   settings:
