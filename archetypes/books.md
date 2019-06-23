@@ -7,6 +7,8 @@ tags = []
 categories = []
 slug = ""
 
+images = []  # for opengraph.html template, https://bit.ly/2V9KDX9
+
 favorite = false
-images = []
+book_cover = ""
 +++

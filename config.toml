@@ -28,6 +28,11 @@ paginate = 10
       name = "Блог"
       weight = 10
       url = "/blog/"
+    [[languages.ru.menu.main]]
+      identifier = "books"
+      name = "Обзоры книг"
+      weight = 20
+      url = "/books/"
   [languages.en]
     baseurl = "https://agladky.com/"
     title = "Anatoly Gladky"
@@ -37,6 +42,11 @@ paginate = 10
       name = "Anatoly Gladky"
     [languages.en.params]
       description = "Anatoly Gladky Blog"
+    [[languages.en.menu.main]]
+      identifier = "books"
+      name = "Book Reviews"
+      weight = 20
+      url = "/books/"
 
 [taxonomies]
   tag = "tags"
