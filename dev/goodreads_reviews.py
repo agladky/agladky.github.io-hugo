@@ -49,6 +49,7 @@ if __name__ == "__main__":
         image_url = book.find('image_url').text
         if '/nophoto/' in image_url:
             print('INFO: No photo for “{}”, {}'.format(book_title, book.find('link').text))
+            large_image_url = image_url
         else:
             large_image_url = link_pattern.sub(r'\1l/\2', image_url)
 
