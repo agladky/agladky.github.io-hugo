@@ -27,7 +27,6 @@
   sass --watch dev/scss:static/css
   ```
 
-Деплой
-  ```
-  ./deploy.sh
-  ``` 
+Деплой происходит автоматически c помощью drone.io
+
+[![Build Status](https://cloud.drone.io/api/badges/agladky/agladky.github.io-hugo/status.svg)](https://cloud.drone.io/agladky/agladky.github.io-hugo)
