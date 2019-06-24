@@ -14,7 +14,7 @@
 ## Запуск и деплой
 Запуск сервера hugo для разработки
   ```sh
-  hugo server -verbose
+  hugo server --verbose
   ```
 
 Установка необходимых зависимостей
@@ -24,7 +24,7 @@
 
 Команда запуска процесса для преобразования scss в css
   ```sh
-  sass --watch dev/scss:static/css
+  sass --watch dev/scss:statics/base/css
   ```
 
 Деплой происходит автоматически c помощью drone.io

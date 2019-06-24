@@ -175,11 +175,6 @@ a:hover {
 /* 
   Main
 */
-.main-layout__content {
-  width: inherit;
-  color: #000;
-  font-size: 16px;
-}
 .main-layout__container {
   justify-content: flex-start;
   align-items: center;
@@ -511,3 +506,5 @@ a:hover {
 .markdown--blackfriday tbody tr:nth-child(odd) th {
   background-color: #f7f7f7;
 }
+
+/*# sourceMappingURL=main.css.map */

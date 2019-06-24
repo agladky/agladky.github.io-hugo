@@ -130,11 +130,6 @@ a {
 */
 
 .main-layout {
-  &__content {
-    width: inherit;
-    color: $black-content;
-    font-size: $base-font-size;
-  }
   &__container {
     justify-content: flex-start;
     align-items: center;
