@@ -94,7 +94,7 @@
         <div>
           <div>
             <span>© {{ .Site.Author.name }}, {{ now.Year }}</span>
-            <a class="footer__rss" href="{{- .Site.RSSLink -}}">РСС</a>
+            <a class="footer__rss" href="{{- .Site.RSSLink -}}">{{- i18n "rss" . -}}</a>
           </div>
           <span>{{- i18n "mail" . }}: <a href="mailto:me@agladky.ru">me@agladky.ru</a></span>
         </div>
