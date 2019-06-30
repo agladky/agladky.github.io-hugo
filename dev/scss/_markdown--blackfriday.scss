@@ -36,21 +36,17 @@
   code,
   pre {
     font-family: $monospace-font-stack;
-    font-size: 0.93rem;
-    background-color: $background-gray;
+    font-size: 1.08rem;
   }
 
   code {
-    padding: .1em .3em;
-    border-radius: 2px;
     word-wrap: break-word;
   }
 
   pre {
     display: block;
     margin-bottom: 0.7em;
-    padding: .6em 1em;
-    line-height: 1.5em;
+    padding: 0 1em;
     white-space: pre;
     overflow-x: auto;
   }
@@ -86,7 +82,7 @@
 
   ul, ol, dl {
     margin-bottom: 0.7em;
-    padding-left: 2.5rem;
+    padding-left: 2em;
   }
 
   p + ul, p + ol {
@@ -193,5 +189,4 @@
   tbody tr:nth-child(odd) th {
     background-color: $background-gray;
   }
-
 }
