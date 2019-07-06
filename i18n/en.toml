@@ -19,6 +19,8 @@ other = "Send"
 
 [mail]
 other = "Mail me"
+[rss]
+other = "RSS"
 
 [sorry404]
 other = "Sorry, this page does not exist."

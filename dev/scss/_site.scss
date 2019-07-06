@@ -76,7 +76,7 @@ a {
     align-self: center;
   }
   &__name {
-    @include heading(30px);
+    @include heading(1.875rem);
     line-height: normal;
   }
   &__name-link {
@@ -117,10 +117,10 @@ a {
   }
   @media (min-width: $wide-1-breakpoint) {
     &__avatar {
-      max-width: 50px;
+      max-width: 3.125rem;
     }
     &__name {
-      font-size: 40px;
+      font-size: 2.5rem;
     }
   }
 }
@@ -250,7 +250,7 @@ a {
   &__num {
     margin: 30px 0px 30px 0;
     font-weight: 200;
-    font-size: 50px;
+    font-size: 3.125rem;
   }
   &__detail {
     margin-bottom: 2rem;
@@ -258,7 +258,7 @@ a {
   @media (min-width: $wide-1-breakpoint) {
     &__num {
       margin: 0 0 10px 0;
-      font-size: 32px;
+      font-size: 2rem;
     }
     &__detail {
       margin-bottom: 1.6rem;
