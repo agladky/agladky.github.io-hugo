@@ -10,8 +10,6 @@ other = "Later"
 other = "Tweet it"
 [facebookButton]
 other = "Share"
-[gplusButton]
-other = "Plus it"
 [vkontakteButton]
 other = "Share"
 [telegramButton]

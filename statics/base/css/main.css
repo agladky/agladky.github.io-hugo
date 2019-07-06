@@ -204,6 +204,10 @@ a:hover {
   color: rgba(0, 0, 0, 0.75);
 }
 
+.section-items__item {
+  margin-bottom: 1em;
+}
+
 .article-layout {
   margin-bottom: 3.8rem;
 }
@@ -502,5 +506,3 @@ a:hover {
 .markdown--blackfriday tbody tr:nth-child(odd) th {
   background-color: #f7f7f7;
 }
-
-/*# sourceMappingURL=main.css.map */

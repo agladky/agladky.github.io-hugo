@@ -1,5 +1,6 @@
 """Get reviews from https://www.goodreads.com and transform it to Hugo templates"""
 
+import os
 import sys
 import argparse
 import urllib.parse
@@ -11,14 +12,17 @@ import dataclasses
 
 from datetime import datetime
 from typing import List
+from unicodedata import normalize
 
 # https://makina-corpus.com/blog/metier/2016/the-worlds-simplest-python-template-engine
 TEMPLATE = '''
 +++
 title = "{review.book_title}"
-description = "{review.review_text}"
+description = "{review.description}"
 date = "{review.read_date_text}"
 +++
+
+{review.review_text}
 '''
 
 
@@ -27,6 +31,7 @@ class Review:
     book_title: str
     author_names: str
     my_rating: str
+    description: str
     review_text: str
     image_url: str
     read_date_text: str
@@ -39,16 +44,46 @@ class DataclassesJSONEncoder(json.JSONEncoder):
         return super().default(o)
 
 
+def transliterate_english_to_russian(original: str) -> str:
+    symbols = (
+        "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ",
+        "abvgdeejzijklmnoprstufhzcss_y_euaABVGDEEJZIJKLMNOPRSTUFHZCSS_Y_EUA"
+        )
+    tr = {ord(a): ord(b) for a, b in zip(*symbols)}
+    return original.translate(tr)
+
+
+def slug(text: str, encoding=None) -> str:
+    clean_text: str = re.sub(r'[\W_]+', '-', text.strip())
+    while '--' in clean_text:
+        clean_text = clean_text.replace('--', '-')
+    slug: str = (
+        normalize('NFKD', clean_text)
+        .encode('ascii', 'ignore')
+        .lower()
+        .decode()
+        )
+    return slug
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Get reviews from https://www.goodreads.com and transform it to Hugo templates"
         )
     parser.add_argument("-k", "--key", help="Goodreads API key", nargs='?')
+    parser.add_argument("-p", "--path", help="Path to save reviews as hugo pages", nargs='?')
     args = parser.parse_args()
 
     key: str = args.key
     if key is None:
         print("Key is not specified. Unnable to load reviews.")
+        sys.exit(1)
+    path: str = args.path
+    if path is None:
+        print("Path is not specified. Unnable to save reviews.")
+        sys.exit(1)
+    if not os.path.exists(path):
+        print("Path is not exists. Unnable to save reviews.")
         sys.exit(1)
 
     url = 'https://www.goodreads.com/review/list'
@@ -68,35 +103,39 @@ if __name__ == "__main__":
 
     root: ET.Element = ET.fromstring(response_str)
     reviews: List[Review] = []
-    review: ET.Element
-    for review in root.iter('review'):
-        book: ET.Element = review.find('book')
+    review_element: ET.Element
+    for review_element in root.iter('review'):
+        book_element: ET.Element = review_element.find('book')
 
-        book_title: str = book.find('title').text
-        author_names: str = ', '.join([a.find('name').text for a in book.iter('author')])
-        my_rating: str = review.find('rating').text
+        book_title: str = book_element.find('title').text
+        author_names: str = ', '.join([a.find('name').text for a in book_element.iter('author')])
+        my_rating: str = review_element.find('rating').text
         review_text: str = (
-            review.find('body').text
+            review_element.find('body').text
             .replace('<br />', '\n')
             .strip())
-        image_url: str = book.find('image_url').text
+        description: str = review_text.replace('\n', ' ')
+        image_url: str = book_element.find('image_url').text
         if '/nophoto/' in image_url:
-            # print('INFO: No photo for “{}”, {}'.format(book_title, book.find('link').text))
             large_image_url: str = image_url
         else:
             large_image_url: str = link_pattern.sub(r'\1l/\2', image_url)
 
-        read_date_element: ET.Element = review.find('read_at') or review.find('date_added')
+        read_date_element: ET.Element = review_element.find('read_at') or review_element.find('date_added')
         # Example: Wed Dec 12 11:05:48 -0800 2018
         read_date: datetime = datetime.strptime(read_date_element.text, '%a %b %d %H:%M:%S %z %Y')
         # Example: 2015-11-03T13:10:07+0300
         read_date_text = read_date.strftime('%Y-%m-%dT%H:%M:%S%z')
 
-        reviews.append(Review(book_title, author_names, my_rating, review_text, image_url, read_date_text))
+        reviews.append(
+            Review(book_title, author_names, my_rating, description, review_text, large_image_url, read_date_text)
+            )
 
-    with open('book-reviews.json', 'w') as file:
-        json.dump(reviews, file, cls=DataclassesJSONEncoder, ensure_ascii=False, indent=2)
+    review: Review
+    for review in reviews:
+        book_url: str = transliterate_english_to_russian(review.book_title)
+        book_url = slug(book_url)
+        article_path: path = os.path.join(path, book_url + '.md')
 
-    print(
-      TEMPLATE.format(review=reviews[0])
-    )
+        with open(article_path, 'w') as file:
+            file.write(TEMPLATE.format(review=review))

@@ -15,8 +15,6 @@
         <div class="vkontakte">{{ i18n "vkontakteButton" }}</div>
         <div class="telegram">{{ i18n "telegramButton" }}</div>
       </div>
-
-      {{ partial "article-meta.html" . }}
     </footer>
   </article>
 
@@ -31,9 +29,5 @@
         <a href="{{ .PrevPage.Permalink }}">{{ .PrevPage.Title }} →</a>
       </div>
     {{ end }}
-  </div>
-
-  <div class="disqus">
-    {{ template "_internal/disqus.html" . }}
   </div>
 {{ end }}

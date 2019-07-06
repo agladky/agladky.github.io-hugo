@@ -10,8 +10,6 @@ other = "Позднее"
 other = "Твитнуть"
 [facebookButton]
 other = "Поделиться"
-[gplusButton]
-other = "Плюсануть"
 [vkontakteButton]
 other = "Поделиться"
 [telegramButton]

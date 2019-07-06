@@ -151,6 +151,12 @@ a {
   }
 }
 
+.section-items {
+  &__item {
+    margin-bottom: 1em;
+  }
+}
+
 .article-layout {
   margin-bottom: 3.8rem;
 }
