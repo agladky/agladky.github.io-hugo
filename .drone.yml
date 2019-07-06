@@ -24,7 +24,7 @@ steps:
       from_secret: goodreads_key
   commands:
   - python --version
-  - python goodreads_reviews.py --key $GOODREADS_KEY --path content/books
+  - python dev/goodreads_reviews.py --key $GOODREADS_KEY --path content/books
 
 - name: build hugo
   image: plugins/hugo
