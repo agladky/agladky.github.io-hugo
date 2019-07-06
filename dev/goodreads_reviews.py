@@ -7,6 +7,34 @@ import urllib.request
 import xml.etree.ElementTree as ET
 import re
 import json
+import dataclasses
+
+from typing import List
+
+# https://makina-corpus.com/blog/metier/2016/the-worlds-simplest-python-template-engine
+TEMPLATE = '''
++++
+title = "{review.book_title}"
+description = "{review.review_text}"
++++
+'''
+
+
+@dataclasses.dataclass
+class Review:
+    book_title: str
+    author_names: str
+    my_rating: str
+    review_text: str
+    image_url: str
+
+    
+class EnhancedJSONEncoder(json.JSONEncoder):
+    def default(self, o):
+        if dataclasses.is_dataclass(o):
+            return dataclasses.asdict(o)
+        return super().default(o)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Get reviews from https://www.goodreads.com and transform it to Hugo templates")
@@ -34,7 +62,7 @@ if __name__ == "__main__":
     link_pattern = re.compile(r'(\d+)m/(\d+.jpg)')
 
     root = ET.fromstring(response_str)
-    reviews = []
+    reviews: List[Review] = []
     for review in root.iter('review'):
         book = review.find('book')
         book_id = book.find('id').text
@@ -48,18 +76,17 @@ if __name__ == "__main__":
             .strip())
         image_url = book.find('image_url').text
         if '/nophoto/' in image_url:
-            print('INFO: No photo for “{}”, {}'.format(book_title, book.find('link').text))
+            # print('INFO: No photo for “{}”, {}'.format(book_title, book.find('link').text))
             large_image_url = image_url
         else:
             large_image_url = link_pattern.sub(r'\1l/\2', image_url)
 
-        reviews.append({
-            'book_title': book_title,
-            'authors': author_names,
-            'my_rating': my_rating,
-            'review': review_text,
-            'image_url': large_image_url,
-            })
-
+        reviews.append(Review(book_title, author_names, my_rating, review_text, image_url))
+        
+        
     with open('book-reviews.json', 'w') as file:
-        json.dump(reviews, file, ensure_ascii=False, indent=2)
+        json.dump(reviews, file, cls=EnhancedJSONEncoder, ensure_ascii=False, indent=2)
+    
+    print(
+      TEMPLATE.format(review=reviews[0]) 
+    )
