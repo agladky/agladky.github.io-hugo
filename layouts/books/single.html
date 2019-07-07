@@ -10,12 +10,8 @@
         <p>{{ .Param "author_names" }}</p>
       </header>
 
-      <div class="book-review__rating">
-        <span>
-        {{- range $index := (seq 5) }}
-        {{- if ge (int $.Params.rating) $index }}★{{ else }}☆{{ end -}}
-        {{ end -}}
-        </span>
+      <div class="book-review__rating book-review__rating_head">
+        {{- partial "book-rating.html" . -}}
       </div>
 
       {{ .Content }}

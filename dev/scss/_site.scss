@@ -216,11 +216,22 @@ a {
     }
   }
   &__rating {
-    margin-top: -0.3em;
-    margin-bottom: 0.5em;
     color: gold;
     letter-spacing: 0.1em;
-    font-size: 1.3em;
+    &_head {
+      margin-bottom: 0.5em;
+      margin-top: -0.3em;
+      font-size: 1.3em;
+    }
+    &_row {
+      display: block;
+      margin-bottom: -0.3em;
+      @media (min-width: $wide-1-breakpoint) {
+        float: left;
+        margin-bottom: inherit;
+        margin-right: 0.3em;
+      }
+    }
   }
 }
 

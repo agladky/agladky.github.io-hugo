@@ -1,0 +1,6 @@
+<span>
+{{- $rating := .Params.rating -}}
+{{- range $index := (seq 5) }}
+{{- if ge (int $rating) $index }}★{{ else }}☆{{ end -}}
+{{ end -}}
+</span>

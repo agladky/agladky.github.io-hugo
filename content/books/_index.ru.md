@@ -7,6 +7,4 @@ favorite = false
 images = []  # for opengraph.html template, https://bit.ly/2V9KDX9
 +++
 
-*Раздел в разработке.*
-
 Ставлю оценку и пишу [мини-обзор на Goodreads](https://www.goodreads.com/review/list/27388779-anatoly-gladky?shelf=read) для каждой прочитанной книги.

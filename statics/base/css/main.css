@@ -293,11 +293,28 @@ a:hover {
   }
 }
 .book-review__rating {
-  margin-top: -0.3em;
-  margin-bottom: 0.5em;
   color: gold;
   letter-spacing: 0.1em;
+}
+.book-review__rating_head {
+  margin-bottom: 0.5em;
+  margin-top: -0.3em;
   font-size: 1.3em;
+}
+.book-review__rating_row {
+  display: block;
+  margin-bottom: -0.3em;
+}
+@media (min-width: 600px) {
+  .book-review__rating_row {
+    float: left;
+    margin-bottom: inherit;
+    margin-right: 0.3em;
+  }
+}
+.book-review__author {
+  font-size: 0.8em;
+  color: rgba(0, 0, 0, 0.75);
 }
 
 .clearfix:after {
