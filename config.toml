@@ -33,6 +33,11 @@ paginate = 10
       name = "Обзоры книг"
       weight = 20
       url = "/books/"
+    [[languages.ru.menu.main]]
+      identifier = "search"
+      name = "Поиск"
+      weight = 30
+      url = "https://www.google.ru/search?q=site%3Aagladky.ru"
   [languages.en]
     baseurl = "https://agladky.com/"
     title = "Anatoly Gladky"
