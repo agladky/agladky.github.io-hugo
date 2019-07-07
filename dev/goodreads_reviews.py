@@ -53,7 +53,7 @@ def transliterate_english_to_russian(original: str) -> str:
 
 
 def slug(text: str, encoding=None) -> str:
-    clean_text: str = re.sub(r'[\W_]+', '-', text.strip())
+    clean_text: str = re.sub(r'[\W_]+', '-', text.strip()).strip('-')
     while '--' in clean_text:
         clean_text = clean_text.replace('--', '-')
     slug: str = (
@@ -105,7 +105,7 @@ if __name__ == "__main__":
     review_element: ET.Element
     for review_element in root.iter('review'):
         my_rating: str = review_element.find('rating').text
-        if not my_rating:
+        if my_rating == '0':
             continue
 
         book_element: ET.Element = review_element.find('book')
