@@ -20,6 +20,12 @@ TEMPLATE = '''
 title = "{review.book_title}"
 description = "{review.description}"
 date = "{review.read_date_text}"
+
+images = ["{review.image_url}"]  # for opengraph.html template, https://bit.ly/2V9KDX9
+
+rating = {review.my_rating}
+author_names = "{review.author_names}"
+cover_url = "{review.image_url}"
 +++
 
 {review.review_text}
@@ -99,7 +105,7 @@ if __name__ == "__main__":
         response_str: str = response.read().decode('utf-8')
 
     # example: https://images.gr-assets.com/books/1477845757m/27118836.jpg
-    link_pattern = re.compile(r'(\d+)m/(\d+.jpg)')
+    link_pattern = re.compile(r'(\S+)\._.{1,6}_(\.jpg)')
 
     root: ET.Element = ET.fromstring(response_str)
     reviews: List[Review] = []
@@ -114,12 +120,15 @@ if __name__ == "__main__":
             review_element.find('body').text
             .replace('<br />', '\n')
             .strip())
+        multiple_reviews = review_text.split('---')
+        if len(multiple_reviews) > 1:
+            review_text = multiple_reviews[0].strip('\n')
         description: str = review_text.replace('\n', ' ')
         image_url: str = book_element.find('image_url').text
         if '/nophoto/' in image_url:
-            large_image_url: str = image_url
+            image_url = ''
         else:
-            large_image_url: str = link_pattern.sub(r'\1l/\2', image_url)
+            image_url = link_pattern.sub(r'\1\2', image_url)
 
         read_date_element: ET.Element = review_element.find('read_at') or review_element.find('date_added')
         # Example: Wed Dec 12 11:05:48 -0800 2018
@@ -128,7 +137,7 @@ if __name__ == "__main__":
         read_date_text = read_date.strftime('%Y-%m-%dT%H:%M:%S%z')
 
         reviews.append(
-            Review(book_title, author_names, my_rating, description, review_text, large_image_url, read_date_text)
+            Review(book_title, author_names, my_rating, description, review_text, image_url, read_date_text)
             )
 
     review: Review

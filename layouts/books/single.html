@@ -1,10 +1,23 @@
 {{ define "main" }}
   <article class="article-layout">
-    <header class="article-head__wrapper">
-      <span class="article-head">{{ default .Title .Params.heading }}</span>
-    </header>
 
-    <div class="article-content markdown--blackfriday">
+    {{ if ne (.Param "cover_url") "" }}
+    <img src='{{ .Param "cover_url" }}' alt="{{ .Title }}" class="book-review__cover">
+    {{ end }}
+    <div class="article-content clearfix markdown--blackfriday">
+      <header class="article-head__wrapper">
+        <span class="article-head">{{ default .Title .Params.heading }}</span>
+        <p>{{ .Param "author_names" }}</p>
+      </header>
+
+      <div class="book-review__rating">
+        <span>
+        {{- range $index := (seq 5) }}
+        {{- if ge (int $.Params.rating) $index }}★{{ else }}☆{{ end -}}
+        {{ end -}}
+        </span>
+      </div>
+
       {{ .Content }}
     </div>
 
