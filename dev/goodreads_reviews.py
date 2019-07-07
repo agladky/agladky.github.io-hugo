@@ -43,13 +43,6 @@ class Review:
     read_date_text: str
 
 
-class DataclassesJSONEncoder(json.JSONEncoder):
-    def default(self, o):  # pylint: disable=E0202
-        if dataclasses.is_dataclass(o):
-            return dataclasses.asdict(o)
-        return super().default(o)
-
-
 def transliterate_english_to_russian(original: str) -> str:
     symbols = (
         "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ",
@@ -111,11 +104,14 @@ if __name__ == "__main__":
     reviews: List[Review] = []
     review_element: ET.Element
     for review_element in root.iter('review'):
-        book_element: ET.Element = review_element.find('book')
+        my_rating: str = review_element.find('rating').text
+        if not my_rating:
+            continue
 
+        book_element: ET.Element = review_element.find('book')
         book_title: str = book_element.find('title').text
         author_names: str = ', '.join([a.find('name').text for a in book_element.iter('author')])
-        my_rating: str = review_element.find('rating').text
+
         review_text: str = (
             review_element.find('body').text
             .replace('<br />', '\n')
@@ -124,6 +120,7 @@ if __name__ == "__main__":
         if len(multiple_reviews) > 1:
             review_text = multiple_reviews[0].strip('\n')
         description: str = review_text.replace('\n', ' ')
+
         image_url: str = book_element.find('image_url').text
         if '/nophoto/' in image_url:
             image_url = ''
