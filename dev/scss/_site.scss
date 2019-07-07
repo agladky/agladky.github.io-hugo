@@ -169,6 +169,9 @@ a {
   &__link {
     @include set-link-color($black-content, $black-content, $link-hover);
   }
+  &__sub {
+    color: rgba($black-content, 0.75);
+  }
 }
 
 .article-content {
