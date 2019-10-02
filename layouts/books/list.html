@@ -9,9 +9,11 @@
     <nav class="section-items">
       <ul>
       {{- range .ByWeight }}
-      <li class="section-items__item">
-      <div class="book-review__rating book-review__rating_row">{{- partial "book-rating.html" . -}}</div>
-      <a {{ printf "href=%q" .Permalink | safeHTMLAttr }}>{{ default .Title .Params.heading }}</a>
+      <li class="section-items__item book-review__item">
+        <div class="book-review__rating book-review__rating_row">{{- partial "book-rating.html" . -}}</div>
+        <div class="book-review__title_row">
+          <a {{ printf "href=%q" .Permalink | safeHTMLAttr }}>{{ default .Title .Params.heading }}</a>
+        </div>
       </li>
       {{ end -}}
       </ul>

@@ -6,7 +6,7 @@ date = "2018-12-31T04:58:51-0800"
 
 images = [""]  # for opengraph.html template, https://bit.ly/2V9KDX9
 
-rating = 5
+rating = 4
 author_names = "Andrew Stellman"
 cover_url = ""
 +++

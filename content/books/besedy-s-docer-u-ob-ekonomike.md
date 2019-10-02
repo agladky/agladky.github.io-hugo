@@ -4,11 +4,11 @@ title = "Беседы с дочерью об экономике"
 description = "По мнению автора, государство — хорошее, предприниматели — плохие и только думают о своей выгоде. Противоречиво, но позиция автора заставила меня задуматься. Есть много полезных и простых разъяснений процессов экономики. Если подходить критически, то на их основе можно выстроить дальнейшее обучение. 3,5 из 5. ​"
 date = "2018-12-12T02:39:07-0800"
 
-images = ["https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1527978721i/40365369.jpg"]  # for opengraph.html template, https://bit.ly/2V9KDX9
+images = ["https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1527978721l/40365369.jpg"]  # for opengraph.html template, https://bit.ly/2V9KDX9
 
 rating = 3
 author_names = "Yanis Varoufakis"
-cover_url = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1527978721i/40365369.jpg"
+cover_url = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1527978721l/40365369.jpg"
 +++
 
 По мнению автора, государство — хорошее, предприниматели — плохие и только думают о своей выгоде. Противоречиво, но позиция автора заставила меня задуматься. Есть много полезных и простых разъяснений процессов экономики. Если подходить критически, то на их основе можно выстроить дальнейшее обучение. 3,5 из 5. ​

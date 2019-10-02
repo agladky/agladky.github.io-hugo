@@ -218,6 +218,13 @@ a {
       margin-bottom: 0;
     }
   }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    @media (min-width: $wide-1-breakpoint) {
+      flex-direction: inherit;
+    }
+  }
   &__rating {
     color: gold;
     letter-spacing: 0.1em;
@@ -227,13 +234,16 @@ a {
       font-size: 1.3em;
     }
     &_row {
-      display: block;
       margin-bottom: -0.3em;
       @media (min-width: $wide-1-breakpoint) {
-        float: left;
-        margin-bottom: inherit;
         margin-right: 0.3em;
+        margin-bottom: 0;
       }
+    }
+  }
+  &__title {
+    &_row {
+      display: block;
     }
   }
 }

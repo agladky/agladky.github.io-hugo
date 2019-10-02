@@ -4,11 +4,11 @@ title = "Большой провал. Раскрытые секреты брит
 description = "Интересная книга. Рассказ происходит от лица бывшего разведчика из МИ-6, работавшего там в начале 90. Рассказываются подробности о подготовке агентов и методах работы в других странах. После несправедливого увольнения на него начинаются гонения. Подробно описывает как и за что его арестовывают, и как МИ-6 препятствовала его нормальной жизни."
 date = "2018-12-12T11:05:48-0800"
 
-images = ["https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1527255528i/40209483.jpg"]  # for opengraph.html template, https://bit.ly/2V9KDX9
+images = ["https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1527255528l/40209483.jpg"]  # for opengraph.html template, https://bit.ly/2V9KDX9
 
 rating = 4
 author_names = "Richard Tomlinson"
-cover_url = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1527255528i/40209483.jpg"
+cover_url = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1527255528l/40209483.jpg"
 +++
 
 Интересная книга. Рассказ происходит от лица бывшего разведчика из МИ-6, работавшего там в начале 90. Рассказываются подробности о подготовке агентов и методах работы в других странах. После несправедливого увольнения на него начинаются гонения. Подробно описывает как и за что его арестовывают, и как МИ-6 препятствовала его нормальной жизни.

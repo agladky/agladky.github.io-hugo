@@ -4,11 +4,11 @@ title = "Зависимый мозг. От курения до соцсетей:
 description = "Тот приятный момент, когда ожидал от книги одного, а получил другое. Простое обсуждение привычек и триггеров подкреплялось медитативными практиками, о которых я захотел узнать больше."
 date = "2018-12-12T05:28:38-0800"
 
-images = ["https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1515077622i/37822358.jpg"]  # for opengraph.html template, https://bit.ly/2V9KDX9
+images = ["https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1515077622l/37822358.jpg"]  # for opengraph.html template, https://bit.ly/2V9KDX9
 
 rating = 4
 author_names = "Judson Brewer"
-cover_url = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1515077622i/37822358.jpg"
+cover_url = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1515077622l/37822358.jpg"
 +++
 
 Тот приятный момент, когда ожидал от книги одного, а получил другое. Простое обсуждение привычек и триггеров подкреплялось медитативными практиками, о которых я захотел узнать больше.

@@ -4,11 +4,11 @@ title = "Краткая история современной живописи"
 description = "История действительно краткая, сыплется много имен и запомнить и выделить хоть кого-то нереально. Требуется долгое, вдумчивое чтение. Хорошо как стартовая книга, дальше советую погружаться отдельно в эпохе. Иллюстрации классные."
 date = "2018-12-30T10:19:50-0800"
 
-images = ["https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1512243698i/36759446.jpg"]  # for opengraph.html template, https://bit.ly/2V9KDX9
+images = ["https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1512243698l/36759446.jpg"]  # for opengraph.html template, https://bit.ly/2V9KDX9
 
 rating = 4
 author_names = "Герберт Рид"
-cover_url = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1512243698i/36759446.jpg"
+cover_url = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1512243698l/36759446.jpg"
 +++
 
 История действительно краткая, сыплется много имен и запомнить и выделить хоть кого-то нереально. Требуется долгое, вдумчивое чтение. Хорошо как стартовая книга, дальше советую погружаться отдельно в эпохе. Иллюстрации классные.

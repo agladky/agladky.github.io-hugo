@@ -4,11 +4,11 @@ title = "18 Minutes: Find Your Focus, Master Distraction, and Get the Right Thin
 description = "Очередная мотивационная книга. Читается очень легко. Много историй из жизни и работы. Сделан сильный акцент на том, что надо остановится и «сделать глубокий вдох» перед тем как резко ответить или сделать какую-либо глупость. Также делается определенный упор на то, что надо сделать небольшие усилия каждый день (но это окупится сполна в будущем)."
 date = "2018-12-12T11:13:45-0800"
 
-images = ["https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1344266040i/12138871.jpg"]  # for opengraph.html template, https://bit.ly/2V9KDX9
+images = ["https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1344266040l/12138871.jpg"]  # for opengraph.html template, https://bit.ly/2V9KDX9
 
 rating = 3
 author_names = "Peter Bregman"
-cover_url = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1344266040i/12138871.jpg"
+cover_url = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1344266040l/12138871.jpg"
 +++
 
 Очередная мотивационная книга. Читается очень легко. Много историй из жизни и работы. Сделан сильный акцент на том, что надо остановится и «сделать глубокий вдох» перед тем как резко ответить или сделать какую-либо глупость. Также делается определенный упор на то, что надо сделать небольшие усилия каждый день (но это окупится сполна в будущем).

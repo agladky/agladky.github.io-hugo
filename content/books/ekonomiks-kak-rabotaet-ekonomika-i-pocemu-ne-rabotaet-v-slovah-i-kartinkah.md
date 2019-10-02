@@ -4,11 +4,11 @@ title = "Экономикс. Как работает экономика (и по
 description = "Стоит прочитать всем. История экономики за 300 лет простым языком. Позволит понять неэффективность экономической политики США и остальных стран. Объяснит великую депрессию и кредитные пузыри. Прочитаю еще раз через год."
 date = "2018-12-12T05:33:38-0800"
 
-images = ["https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1485739247i/34053129.jpg"]  # for opengraph.html template, https://bit.ly/2V9KDX9
+images = ["https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1485739247l/34053129.jpg"]  # for opengraph.html template, https://bit.ly/2V9KDX9
 
 rating = 5
 author_names = "Michael Goodwin"
-cover_url = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1485739247i/34053129.jpg"
+cover_url = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1485739247l/34053129.jpg"
 +++
 
 Стоит прочитать всем. История экономики за 300 лет простым языком. Позволит понять неэффективность экономической политики США и остальных стран. Объяснит великую депрессию и кредитные пузыри. Прочитаю еще раз через год.

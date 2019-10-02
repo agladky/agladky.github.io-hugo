@@ -4,11 +4,11 @@ title = "Ярмарка Тщеславия"
 description = "Срез эпохи. Интересно про высшее общество и войну с Францией. начало очень бодрое, под конец повествование перестает скакать между героями и идет долгое раскрытие к концу. героиня Бэкки — неоднозначна, мне кажется что она страдает от привлекательности и научившись на этом подниматься — падает. Остальные и добрые и злые и алчные и непростительные. Читать стоит и лучше подростком."
 date = "2018-12-12T02:34:05-0800"
 
-images = ["https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1446591709i/27422748.jpg"]  # for opengraph.html template, https://bit.ly/2V9KDX9
+images = ["https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1446591709l/27422748.jpg"]  # for opengraph.html template, https://bit.ly/2V9KDX9
 
 rating = 4
 author_names = "William Makepeace Thackeray"
-cover_url = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1446591709i/27422748.jpg"
+cover_url = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1446591709l/27422748.jpg"
 +++
 
 Срез эпохи. Интересно про высшее общество и войну с Францией. начало очень бодрое, под конец повествование перестает скакать между героями и идет долгое раскрытие к концу. героиня Бэкки — неоднозначна, мне кажется что она страдает от привлекательности и научившись на этом подниматься — падает. Остальные и добрые и злые и алчные и непростительные. Читать стоит и лучше подростком.

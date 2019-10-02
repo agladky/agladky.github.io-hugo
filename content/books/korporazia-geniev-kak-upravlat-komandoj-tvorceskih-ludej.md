@@ -4,11 +4,11 @@ title = "Корпорация гениев. Как управлять коман
 description = "Книга напоминает поток сознания с рассказом о студии Пиксар. Идеи не связаны и плохо проработаны что бы их было легко переложить на практику. Но, в целом есть идеи которые меня заставили задуматься о развитии agile-методик."
 date = "2018-12-14T01:34:04-0800"
 
-images = ["https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417022282i/23620306.jpg"]  # for opengraph.html template, https://bit.ly/2V9KDX9
+images = ["https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417022282l/23620306.jpg"]  # for opengraph.html template, https://bit.ly/2V9KDX9
 
 rating = 3
 author_names = "Ed Catmull"
-cover_url = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417022282i/23620306.jpg"
+cover_url = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417022282l/23620306.jpg"
 +++
 
 Книга напоминает поток сознания с рассказом о студии Пиксар. Идеи не связаны и плохо проработаны что бы их было легко переложить на практику. Но, в целом есть идеи которые меня заставили задуматься о развитии agile-методик.
