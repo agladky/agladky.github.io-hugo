@@ -6,7 +6,7 @@ date = "2018-12-12T05:21:05-0800"
 
 images = ["https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1385583739l/19007601.jpg"]  # for opengraph.html template, https://bit.ly/2V9KDX9
 
-rating = 4
+rating = 3
 author_names = "Максим Батырев"
 cover_url = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1385583739l/19007601.jpg"
 +++

@@ -6,7 +6,7 @@ date = "2018-12-12T05:20:12-0800"
 
 images = ["https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1382617782l/18714036.jpg"]  # for opengraph.html template, https://bit.ly/2V9KDX9
 
-rating = 3
+rating = 2
 author_names = "Carol S. Dweck"
 cover_url = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1382617782l/18714036.jpg"
 +++
