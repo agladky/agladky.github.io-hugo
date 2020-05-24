@@ -72,7 +72,7 @@ jobs:
 
     - name: Commit updated reviews
       run: |
-        git diff --quiet && git diff --staged --quiet || git add --all && git commit -am 'Commit updated reviews' && git tag latest-reviews
+        git add --all && git commit -m 'Commit updated reviews' && git tag latest-reviews
     - name: Push updated reviews
       uses: ad-m/github-push-action@master
       with:
@@ -82,7 +82,7 @@ jobs:
     - name: Commit ru site
       run: |
         cd public/ru
-        git diff --quiet && git diff --staged --quiet || git add --all && git commit -am 'Update'
+        git add --all && git commit -m 'Update'
     - name: Push ru site
       uses: ad-m/github-push-action@master
       with:
@@ -93,7 +93,7 @@ jobs:
     - name: Commit en site
       run: |
         cd public/en
-        git diff --quiet && git diff --staged --quiet || git add --all && git commit -am 'Update'
+        git add --all && git commit -m 'Update'
     - name: Push en site
       uses: ad-m/github-push-action@master
       with:
