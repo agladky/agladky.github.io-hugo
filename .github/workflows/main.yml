@@ -38,8 +38,8 @@ jobs:
       env:
        GOODREADS_KEY: ${{ secrets.GOODREADS_KEY }}
       run: |
-        python --version
-        python dev/goodreads_reviews.py --key "$GOODREADS_KEY" --path content/books
+        python3 --version
+        python3 dev/goodreads_reviews.py --key "$GOODREADS_KEY" --path content/books
 
     - name: Echo something
       run: |
