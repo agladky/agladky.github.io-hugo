@@ -22,6 +22,6 @@
   npm ci
   ```
 
-Деплой происходит автоматически c помощью drone.io
+Деплой происходит автоматически c помощью GitHub Actions
 
-[![Build Status](https://cloud.drone.io/api/badges/agladky/agladky.github.io-hugo/status.svg)](https://cloud.drone.io/agladky/agladky.github.io-hugo)
+![CD](https://github.com/agladky/agladky.github.io-hugo/workflows/CD/badge.svg)
