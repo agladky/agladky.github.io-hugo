@@ -16,30 +16,32 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - name: Checkout raw sites
       uses: actions/checkout@v2
-
     - name: Checkout ru site
       uses: actions/checkout@v2
       with:
         repository: agladky/agladky.github.io
         path: public/ru
-
     - name: Checkout en site
       uses: actions/checkout@v2
       with:
         repository: agladky/agladky.com
         path: public/en
 
-    - name: Use Node.js
+    - name: Set up Node.js
       uses: actions/setup-node@v1
       with:
         node-version: '14.x'
     
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.7'
     - name: Load book reviews
       env:
        GOODREADS_KEY: ${{ secrets.GOODREADS_KEY }}
       run: |
-        python3 --version
-        python3 dev/goodreads_reviews.py --key "$GOODREADS_KEY" --path content/books
+        python --version
+        python dev/goodreads_reviews.py --key "$GOODREADS_KEY" --path content/books
 
     - name: Echo something
       run: |
