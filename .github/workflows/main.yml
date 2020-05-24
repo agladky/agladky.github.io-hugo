@@ -31,6 +31,16 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '14.x'
+    - name: Cache Node.js modules
+      uses: actions/cache@v1
+      with:
+        path: ~/.npm 
+        key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.OS }}-node-
+          ${{ runner.OS }}-
+    - name: Install Node.js dependencies
+      run: npm ci
     
     - name: Set up Python
       uses: actions/setup-python@v2
@@ -42,6 +52,14 @@ jobs:
       run: |
         python --version
         python dev/goodreads_reviews.py --key "$GOODREADS_KEY" --path content/books
+
+    - name: Set up Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: '0.71.0'
+        extended: true
+    - name: Build Hugo
+      run: hugo
 
     - name: Echo something
       run: |
