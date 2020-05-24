@@ -109,8 +109,12 @@ if __name__ == "__main__":
             continue
 
         book_element: ET.Element = review_element.find('book')
-        book_title: str = book_element.find('title').text
-        author_names: str = ', '.join([a.find('name').text for a in book_element.iter('author')])
+        book_title: str = (
+            book_element.find('title').text
+            .replace('"', '\\"'))
+        author_names: str = (
+            ', '.join([a.find('name').text for a in book_element.iter('author')])
+            .replace('"', '\\"'))
 
         review_text: str = (
             review_element.find('body').text
@@ -119,7 +123,10 @@ if __name__ == "__main__":
         multiple_reviews = review_text.split('---')
         if len(multiple_reviews) > 1:
             review_text = multiple_reviews[0].strip('\n')
-        description: str = review_text.replace('\n', ' ')
+        description: str = (
+            review_text
+            .replace('\n', ' ')
+            .replace('"', '\\"'))
 
         image_url: str = book_element.find('image_url').text
         if '/nophoto/' in image_url:

@@ -4,6 +4,8 @@ on:
   push:
     branches: 
       - master
+    tags-ignore:
+      - latest-reviews
   schedule:
     - cron:  '0 0 */3 * *'
   
@@ -61,6 +63,15 @@ jobs:
     - name: Build Hugo
       run: hugo
 
-    - name: Echo something
+    - name: Commit updated reviews
+      env:
+        GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
+        GIT_NAME: ${{ secrets.GIT_NAME }}
       run: |
-        echo "$(pwd)"
+        git config --local user.email "$GIT_EMAIL"
+        git config --local user.name "$GIT_NAME"
+        git diff --quiet && git diff --staged --quiet || git commit -am 'Commit updated reviews' && git tag latest-reviews
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        tags: true
