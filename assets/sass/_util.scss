@@ -1,0 +1,25 @@
+@mixin heading($font-size: 1.75rem) {
+  font-size: $font-size;
+  font-family: $heading-font-stack;
+  letter-spacing: -0.005rem;
+  font-weight: 700;
+  line-height: normal;
+  color: $black-content;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin set-link-color($link-color, $visited-color, $hover-color) {
+  &:link {
+    color: $link-color;
+    border-bottom-color: rgba($link-color, 0.2);
+  }
+  &:visited {
+    color: $visited-color;
+    border-bottom-color: rgba($visited-color, 0.2);
+  }
+  &:hover {
+    color: $hover-color;
+    border-bottom-color: rgba($hover-color, 0.2);
+  }
+}

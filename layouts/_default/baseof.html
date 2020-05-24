@@ -26,10 +26,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i">
     {{- $t := now.Unix -}}
-    <link rel="stylesheet" href="/css/reset.css?t={{$t}}">
-    <link rel="stylesheet" href="/css/pygments.css?t={{$t}}">
-    <link rel="stylesheet" href="/css/likely.css?t={{$t}}">
-    <link rel="stylesheet" href="/css/main.css?t={{$t}}">
+    <link rel="stylesheet" href="/css/reset.css?t={{ $t }}">
+    <link rel="stylesheet" href="/css/pygments.css?t={{ $t }}">
+    <link rel="stylesheet" href="/css/likely.css?t={{ $t }}">
+
+    {{ $style := resources.Get "sass/main.scss" | toCSS }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}?t={{ $t }}">
     
     <script async src="/js/likely.js"></script>
   </head>

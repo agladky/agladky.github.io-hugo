@@ -29,13 +29,18 @@ jobs:
         repository: agladky/agladky.com
         path: public/en
 
-    - name: build css
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14.x'
+
+    - name: Build css
       run: |
         npm install -g sass postcss-cli autoprefixer
         cd dev
         make
 
-    - name: echo something
+    - name: Echo something
       run: |
         echo "$(pwd)"
 
