@@ -90,10 +90,12 @@ jobs:
         git diff-index --quiet HEAD || git commit -m 'Update'
     - name: Push ru site
       uses: ad-m/github-push-action@master
+      env:
+        TOKEN_SITES: ${{ secrets.TOKEN_SITES }}
       with:
         directory: public/ru
         repository: agladky/agladky.github.io
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.TOKEN_SITES }}
 
     - name: Commit en site
       run: |
@@ -102,7 +104,9 @@ jobs:
         git diff-index --quiet HEAD || git commit -m 'Update'
     - name: Push en site
       uses: ad-m/github-push-action@master
+      env:
+        TOKEN_SITES: ${{ secrets.TOKEN_SITES }}
       with:
         directory: public/en
         repository: agladky/agladky.com
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.TOKEN_SITES }}
