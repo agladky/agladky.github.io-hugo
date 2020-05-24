@@ -75,7 +75,7 @@ jobs:
     - name: Commit updated reviews
       run: |
         git add --all 
-        git diff-index --quiet HEAD || git commit -m 'Commit updated reviews' && git tag latest-reviews
+        git diff-index --quiet HEAD || (git commit -m 'Commit updated reviews' && git tag latest-reviews)
     - name: Push updated reviews
       uses: ad-m/github-push-action@master
       with:
