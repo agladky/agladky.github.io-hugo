@@ -28,6 +28,13 @@ jobs:
       with:
         repository: agladky/agladky.com
         path: public/en
+    - name: Git set up
+      env:
+        GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
+        GIT_NAME: ${{ secrets.GIT_NAME }}
+      run: |
+        git config --local user.email "$GIT_EMAIL"
+        git config --local user.name "$GIT_NAME"
 
     - name: Set up Node.js
       uses: actions/setup-node@v1
@@ -64,15 +71,32 @@ jobs:
       run: hugo
 
     - name: Commit updated reviews
-      env:
-        GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
-        GIT_NAME: ${{ secrets.GIT_NAME }}
       run: |
-        git config --local user.email "$GIT_EMAIL"
-        git config --local user.name "$GIT_NAME"
-        git diff --quiet && git diff --staged --quiet || git commit -am 'Commit updated reviews' && git tag latest-reviews
-    - name: Push changes
+        git diff --quiet && git diff --staged --quiet || git add --all && git commit -am 'Commit updated reviews' && git tag latest-reviews
+    - name: Push updated reviews
       uses: ad-m/github-push-action@master
       with:
         tags: true
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Commit ru site
+      run: |
+        cd public/ru
+        git diff --quiet && git diff --staged --quiet || git add --all && git commit -am 'Update'
+    - name: Push ru site
+      uses: ad-m/github-push-action@master
+      with:
+        directory: public/ru
+        repository: agladky/agladky.github.io
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Commit en site
+      run: |
+        cd public/en
+        git diff --quiet && git diff --staged --quiet || git add --all && git commit -am 'Update'
+    - name: Push en site
+      uses: ad-m/github-push-action@master
+      with:
+        directory: public/en
+        repository: agladky/agladky.com
         github_token: ${{ secrets.GITHUB_TOKEN }}
