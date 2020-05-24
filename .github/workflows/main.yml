@@ -24,11 +24,15 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: agladky/agladky.github.io
+        persist-credentials: false
+        fetch-depth: 0
         path: public/ru
     - name: Checkout en site
       uses: actions/checkout@v2
       with:
         repository: agladky/agladky.com
+        persist-credentials: false
+        fetch-depth: 0
         path: public/en
     - name: Git set up
       env:
@@ -90,8 +94,6 @@ jobs:
         git diff-index --quiet HEAD || git commit -m 'Update'
     - name: Push ru site
       uses: ad-m/github-push-action@master
-      env:
-        TOKEN_SITES: ${{ secrets.TOKEN_SITES }}
       with:
         directory: public/ru
         repository: agladky/agladky.github.io
@@ -104,8 +106,6 @@ jobs:
         git diff-index --quiet HEAD || git commit -m 'Update'
     - name: Push en site
       uses: ad-m/github-push-action@master
-      env:
-        TOKEN_SITES: ${{ secrets.TOKEN_SITES }}
       with:
         directory: public/en
         repository: agladky/agladky.com
