@@ -26,11 +26,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i">
     {{- $t := now.Unix -}}
-    <link rel="stylesheet" href="/css/reset.css?t={{ $t }}">
-    <link rel="stylesheet" href="/css/pygments.css?t={{ $t }}">
-    <link rel="stylesheet" href="/css/likely.css?t={{ $t }}">
-
-    {{ $style := resources.Get "sass/main.scss" | toCSS }}
+    {{ $style := resources.Get "css/reset.css" | postCSS (dict "config" "postcss.config.js") }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}t={{ $t }}">
+    {{ $style := resources.Get "css/pygments.css" | postCSS (dict "config" "postcss.config.js") }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}?t={{ $t }}">
+    {{ $style := resources.Get "css/likely.css" | postCSS (dict "config" "postcss.config.js") }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}?t={{ $t }}">
+    {{ $style := resources.Get "sass/main.scss" | toCSS | postCSS (dict "config" "postcss.config.js") }}
     <link rel="stylesheet" href="{{ $style.Permalink }}?t={{ $t }}">
     
     <script async src="/js/likely.js"></script>

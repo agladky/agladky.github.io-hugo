@@ -17,14 +17,9 @@
   hugo server --verbose
   ```
 
-Установка необходимых зависимостей
+Установка зависимостей
   ```sh
-  npm install -g postcss-cli autoprefixer sass
-  ```
-
-Команда запуска процесса для преобразования scss в css
-  ```sh
-  sass --watch dev/scss:statics/base/css
+  npm ci
   ```
 
 Деплой происходит автоматически c помощью drone.io

@@ -33,21 +33,14 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '14.x'
-
-    - name: Build css
+    
+    - name: Load book reviews
+      env:
+       GOODREADS_KEY: ${{ secrets.GOODREADS_KEY }}
       run: |
-        npm install -g sass postcss-cli autoprefixer
-        cd dev
-        make
+        python --version
+        python dev/goodreads_reviews.py --key "$GOODREADS_KEY" --path content/books
 
     - name: Echo something
       run: |
         echo "$(pwd)"
-
-    # - name: load book reviews
-      # image: python:3.7-alpine3.9
-      # env:
-      #  GOODREADS_KEY: ${{ secrets.GOODREADS_KEY }}
-      # run: |
-      #   python --version
-      #   python dev/goodreads_reviews.py --key "$GOODREADS_KEY" --path content/books
