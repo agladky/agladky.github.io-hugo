@@ -42,7 +42,7 @@ steps:
     GIT_EMAIL:
       from_secret: email
   commands:
-  # write the ssh key to disk
+  # write the ssh key to azure_rm_managed_disk
   - mkdir /root/.ssh
   - echo -n "$SSH_KEY" > /root/.ssh/id_rsa
   - chmod 600 /root/.ssh/id_rsa
