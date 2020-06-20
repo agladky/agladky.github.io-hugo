@@ -5,7 +5,7 @@ on:
     branches: 
       - master
     tags-ignore:
-      - latest-reviews
+      - latest-reviews-*
   schedule:
     - cron:  '0 0 */3 * *'
   
@@ -79,12 +79,11 @@ jobs:
     - name: Commit updated reviews
       run: |
         git add --all 
-        git diff-index --quiet HEAD || (git commit -m 'Commit updated reviews' && git tag latest-reviews)
+        git diff-index --quiet HEAD || (git commit -m 'Commit updated reviews' && git tag latest-reviews-$GITHUB_RUN_NUMBER)
     - name: Push updated reviews
       uses: ad-m/github-push-action@master
       with:
         tags: true
-        force: true
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Commit ru site
