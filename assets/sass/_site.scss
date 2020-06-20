@@ -211,6 +211,7 @@ a {
     margin-bottom: 1em;
     max-width: $wide-1-breakpoint - 300px;
     width: 100%;
+    box-shadow: rgba(84, 70, 35, 0.15) 0px 2px 8px, rgba(84, 70, 35, 0.15) 0px 1px 3px;
     @media (min-width: $wide-1-breakpoint) {
       float: left;
       max-width: 250px;
