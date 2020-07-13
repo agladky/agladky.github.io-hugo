@@ -219,6 +219,9 @@ a {
       margin-bottom: 0;
     }
   }
+  &__all-items {
+    padding-left: 0;
+  }
   &__item {
     display: flex;
     flex-direction: column;

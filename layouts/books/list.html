@@ -7,7 +7,7 @@
 
   {{ with .Data.Pages }}
     <nav class="section-items">
-      <ul>
+      <ul class="book-review__all-items">
       {{- range .ByWeight }}
       <li class="section-items__item book-review__item">
         <div class="book-review__rating book-review__rating_row">{{- partial "book-rating.html" . -}}</div>
