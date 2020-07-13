@@ -55,7 +55,7 @@
 
           <div class="page-header__lang">
               {{ if .IsTranslated }}
-              <ul>
+              <ul class="page-header__lang-list">
                   {{ range .Translations }}
                   <li>
                     <a class="page-header__lang-link" href="{{ .Permalink }}">{{ .Lang }}</a>
