@@ -1,0 +1,56 @@
+name: CD
+
+on:
+  push:
+    branches: 
+      - main
+  
+
+jobs:
+  update-sites:
+    name: Update Personal Sites
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+
+    - name: Checkout Project
+      uses: actions/checkout@v4
+      with:
+        submodules: true
+        fetch-depth: 0
+
+    - name: Set up Hugo
+      uses: peaceiris/actions-hugo@v3
+      with:
+        hugo-version: '0.127.0'
+        extended: true
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: Cache Node.js modules
+      uses: actions/cache@v4
+      with:
+        path: ~/.npm 
+        key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.OS }}-node-
+          ${{ runner.OS }}-
+
+    - name: Install Node.js dependencies
+      run: npm ci
+
+    - name: Run Hugo
+      run: hugo --minify
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        personal_token: ${{ secrets.TOKEN_SITES }}
+        external_repository: agladky/gladkii.com
+        publish_branch: main
+        publish_dir: ./public
+

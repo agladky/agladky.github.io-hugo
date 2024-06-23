@@ -1,0 +1,28 @@
+{{ define "main" }}
+  <article class="article-layout">
+    <header class="article-head__wrapper">
+      <span class="article-head">{{ default .Title .Params.heading }}</span>
+    </header>
+
+    <div class="article-content markdown--blackfriday">
+      {{ .Content }}
+    </div>
+
+    <footer class="article-footer__wrapper">
+      {{ partial "article-meta.html" . }}
+    </footer>
+  </article>
+
+  <div class="article-navigation">
+    {{ if .Page.Next }}
+      <div class="article-navigation__item {{ if .Page.Prev }}article-navigation__item--first{{ end }}">
+        <a href="{{ .Page.Next.Permalink }}">← {{ .Page.Next.Title }}</a>
+      </div>
+    {{ end }}
+    {{ if .Page.Prev }}
+      <div class="article-navigation__item">
+        <a href="{{ .Page.Prev.Permalink }}">{{ .Page.Prev.Title }} →</a>
+      </div>
+    {{ end }}
+  </div>
+{{ end }}

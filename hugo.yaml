@@ -1,0 +1,8 @@
+baseurl: "https://gladkii.com/"
+languageCode: en-us
+title: "Anatolii Gladkii"
+
+params:
+  author:
+    name: "Anatolii Gladkii"
+  description: "Anatolii Gladkii Stuff"

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="{{- .Site.LanguageCode -}}">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="utf-8">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="{{ with .Description }}{{- . -}}{{ else }}{{ if .IsPage }}{{- .Summary -}}{{ else }}{{ with .Site.Params.description }}{{- . -}}{{ end }}{{ end }}{{ end }}">
+    {{ with .Site.Params.Author }}<meta name="author" content="{{- .name -}}">{{ end }}
+    {{ template "_internal/opengraph.html" . }}
+    <base href="{{- .Site.BaseURL -}}">
+    <title>
+      {{- $url := replace .Permalink (printf "%s" .Site.BaseURL) "" }}
+      {{- if eq $url "/" }}
+        {{- .Site.Title -}}
+      {{- else }}
+        {{- if .Params.heading }} {{- .Params.heading -}} {{ else }} {{- .Title -}} {{ end }}
+      {{- end -}}
+    </title>
+    <link rel="canonical" href="{{- .Permalink -}}">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i">
+    {{- $t := now.Unix -}}
+    {{ $style := resources.Get "sass/main.scss" | toCSS | postCSS (dict "config" "postcss.config.js") }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}?t={{ $t }}">
+  </head>
+
+  <body>
+    <div class="page-container">
+      <header class="page-header section-skin">
+
+        <div class="page-header__up">
+          <a class="page-header__avatar-link" {{ printf "href=%q" ("/" | relLangURL) | safeHTMLAttr -}}>
+            {{ $avatar := resources.Get "images/avatar.jpg" }}
+            <img class="page-header__avatar" src="{{ $avatar.Permalink }}">
+          </a>
+          <span class="page-header__name">
+            {{- if not .IsHome -}} <a class="page-header__name-link" href="/"> {{ end }}
+            {{- .Site.Title -}}
+            {{- if not .IsHome -}} </a> {{- end -}}
+          </span>
+        </div>
+
+        {{- if .Site.Menus.main }}        
+          <div class="page-header__bottom">
+            <nav class="page-header__menu">
+              {{- $currentPage := . }}
+              {{- range $index, $menu := .Site.Menus.main }}
+                {{- if or ($currentPage.IsMenuCurrent "main" $menu) ($currentPage.HasMenuCurrent "main" $menu) }}
+                  <span class="page-header__menu-item page-header__menu-item--selected {{ if eq $index 0 }}page-header__menu-item--first{{ end }}">
+                    {{- $menu.Name -}}
+                  </span>
+                {{- else }}
+                  <span class="page-header__menu-item
+                      {{- if eq ($currentPage.Section) ($menu.Identifier) }} page-header__menu-item--selected{{ end }}
+                      {{- if eq $index 0 }} page-header__menu-item--first{{ end }}">
+                    <a href="{{- $menu.URL -}}" class="page-header__menu-link">{{- $menu.Name -}}</a>
+                  </span>
+                {{- end }}
+              {{- end }}
+            </nav>
+          </div>
+        {{- end }}
+      </header>
+
+      <main class="main-layout__container section-skin">
+        <div class="main-layout__content">
+            {{ block "main" . }}
+              {{ .Content }}
+            {{ end }}
+        </div>
+      </main>
+
+      <footer class="footer-layout__container section-skin">
+        <div>
+          <div>
+            <span>© {{ .Site.Params.Author.name }}, {{ now.Year }}</span>
+            {{- with .OutputFormats.Get "RSS" }}
+            <a class="footer__rss" href="{{- .RelPermalink -}}">RSS</a>
+            {{- end }}
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+  

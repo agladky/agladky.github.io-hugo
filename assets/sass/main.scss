@@ -1,0 +1,24 @@
+$base-font-size: 18px;
+$wide-1-breakpoint: 600px;
+
+$monospace-font-stack: 'Ubuntu Mono', 'Menlo', monospace;
+$body-font-stack: 'Helvetica Neue', 'Open Sans', 'Arial', sans-serif;
+$heading-font-stack: 'Helvetica Neue', 'Open Sans', 'Arial', sans-serif;
+
+$black: #333;
+$black-content: #000;
+$gray: #666;
+$background-gray: #f7f7f7;
+$link-color: #0060a0;
+$link-hover: #d04000;
+$link-visited: #7090b0;
+$link-tag: #567;
+$main-bg-color: #fff8dc7d;
+
+$transition-speed-1: .5s;
+$in-sine: cubic-bezier(0,0,0.58,1);
+
+
+@import 'util';
+@import 'site';
+@import 'markdown--blackfriday';

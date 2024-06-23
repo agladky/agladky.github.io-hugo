@@ -1,0 +1,17 @@
+{{ define "main" }}
+  <span class="article-head">{{ default .Title .Params.heading }}</span>
+
+  {{ with .Content}}
+    <div class="article-content markdown--blackfriday">{{- . -}}</div>
+  {{ end }}
+
+  {{ with .Data.Pages }}
+    <nav class="section-items">
+      <ul>
+      {{ range .ByWeight }}
+      <li class="section-items__item"><a {{ printf "href=%q" .Permalink | safeHTMLAttr }}>{{ default .Title .Params.heading }}</a></li>
+      {{ end }}
+      </ul>
+    </nav>
+  {{ end }}
+{{ end }}

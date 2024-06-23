@@ -1,0 +1,28 @@
+{{ range .Paginator.Pages }}
+  <article class="article-layout">
+    <header class="article-head__wrapper">
+      <div class="article-head">
+        <a class="article-head__link" href="{{- .Permalink -}}">{{ default .Title .Params.heading }}</a>
+      </div>
+    </header>
+
+    <div class="article-content markdown--blackfriday">
+      {{ .Content }}
+    </div>
+
+    <footer class="article-footer__wrapper">
+      {{ partial "article-meta.html" . }}
+    </footer>
+  </article>
+{{ end }}
+
+{{ if gt .Paginator.TotalPages 1 }}
+  <nav>
+    {{ if .Paginator.HasPrev }}
+      <a href="{{ .Paginator.Prev.URL }}">← Earlier</a>  
+    {{ end }}
+    {{ if .Paginator.HasNext }}
+      <a href="{{ .Paginator.Next.URL }}">Later →</a>
+    {{ end }}
+  </nav>
+{{ end }}

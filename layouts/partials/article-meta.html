@@ -1,0 +1,17 @@
+<div class="article-footer__meta">
+  <span title="{{ .Date.Day }} {{ .Date.Month }} {{ .Date.Year }}, {{ .Date.Format "15:04 MST" }}">
+    {{- if eq now.Year .Date.Year }}
+      {{- .Date.Day }} {{ index $.Site.Data.ru_months (printf "%d" .Date.Month) -}}
+    {{ else }}
+      {{- .Date.Year -}}
+    {{ end -}}
+  </span>
+
+  {{- if isset .Params "tags" }}
+    <div class="article-footer__meta-tags">
+      {{- range .Params.tags }}
+        <a class="article-footer__meta-tag" href="tags/{{ . | urlize }}">{{- . -}}</a>
+      {{ end -}}
+    </div>
+  {{ end -}}
+</div>
